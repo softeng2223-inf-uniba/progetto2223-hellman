@@ -4,17 +4,17 @@
 
 - Pipeline di progetto
 - Passi preliminari
-- Creazione gruppo e repository su GitHub
+- Creazione gruppo e repository progetto2223-hellman su GitHub
   - Comunicazione del gruppo
-  - Accettazione assignment del primo componente e creazione repository su GitHub
-  - Accettazione assignment degli altri componenti e accesso al repository su GitHub
-- Configurazione del repository su GitHub
+  - Accettazione assignment del primo componente e creazione repository progetto2223-hellman su GitHub
+  - Accettazione assignment degli altri componenti e accesso al repository progetto2223-hellman su GitHub
+- Configurazione del repository progetto2223-hellman su GitHub
   - Creazione di un Personal Access Token e impostazione del Secret
     - Creazione del Personal Access Token
     - Impostazione del GitHub Secret
   - Abilitazione package/immagini Docker
   - Aggiunta del badge di GitHub Actions nel README
-- Clonazione del repository
+- Clonazione del repository progetto2223-hellman
 - Lavoro sul codice dell’applicazione
 - Test automatici e Controlli di Qualità
 - Esecuzione immagine Docker
@@ -40,7 +40,7 @@ In aggiunta, occorre installare i seguenti strumenti:
 
 Si suppone che lo studente abbia già installato sulla sua macchina l’ultima versione disponibile di un IDE, per esempio [**Visual Studio Code (VS Code)**](https://code.visualstudio.com/).
 
-## Creazione gruppo e repository su GitHub
+## Creazione gruppo e repository progetto2223-hellman su GitHub
 
 ### Comunicazione del gruppo
 
@@ -50,7 +50,7 @@ Si suppone che lo studente abbia già installato sulla sua macchina l’ultima v
   - il nome del gruppo deve essere un cognome di un vincitore di [**ACM Turing Award**](https://amturing.acm.org/byyear.cfm), scritto tutto in minuscolo senza spazi e caratteri speciali. </br>
   Il nome del gruppo sarà usato per la creazione del team e la configurazione del repository su GitHub.
 - Una volta completata la formazione del gruppo o raggiunto il numero minimo di componenti, mettersi d'accordo su chi sarà il primo componente del gruppo che accetterà l'*assignment* su GitHub Classroom.
-- Il componente designato dal gruppo dovrà scrivere sul canale `Formazione gruppi` di Teams un messaggio rivolto al docente (usare il *mention* con *@*) dichiarando che "il gruppo *x* è pronto" dove *x* è il nome del gruppo.
+- Il componente designato dal gruppo Eugenio Gaetano Bursomanno dovrà scrivere sul canale `Formazione gruppi` di Teams un messaggio rivolto al docente (usare il *mention* con *@*) dichiarando che "il gruppo *Hellman* è pronto".
 - Il docente risponderà inviando allo studente in chat il link di assegnazione del progetto.
 
 ### Accettazione assignment del primo componente e creazione repository su GitHub
@@ -83,7 +83,7 @@ Si suppone che lo studente abbia già installato sulla sua macchina l’ultima v
 - Se ti sei unito a un team già creato, dovrai prima confermare la scelta e quindi avrai subito la conferma.
    ![promptAcceptAssginment](./img/promptAcceptAssginment.png)
 
-- Questo passo terminerà con successo se tutti i componenti del gruppo potranno accedere al repository.
+- Questo passo terminerà con successo se tutti i componenti del gruppo potranno accedere al repository progetto2223-hellman.
 
 ## Configurazione del repository su GitHub
 
@@ -103,7 +103,7 @@ La seconda pipeline, definita nel file `docker_build&push.yml`, viene innescata 
 
 Entrambe le pipeline delegano le operazioni di testing, quality assurance e build a [Gradle](https://gradle.org/) - sistema di build-automation adottato per questo progetto - attraverso l'invocazione del task `gradle build`; in caso di push o merge sul branch `main`, la seconda pipeline si occupa di costruire e caricare su GitHub Packages un'immagine Docker con l'eseguibile appena assemblato.
 
-Affinché vada a buon fine, quest'ultimo passaggio necessita di un piccolo intervento da parte vostra, da svolgere soltanto una volta, nella fase di impostazione iniziale del progetto. Dal momento che ciascuna nuova esecuzione del workflow avviene in una macchina virtuale Ubuntu costruita ex-novo da GitHub Actions, è necessario che - ad ogni run - il processo preposto al caricamento dell'immagine Docker su Packages si autentichi al servizio (effettuando un login). Al posto della classica coppia di credenziali (username e password) è possibile usare, a questo scopo, un Personal Access Token (PAT) di GitHub, da passare in input al comando che effettua la connessione a Packages. Tuttavia, dal momento che tale comando viene riportato in chiaro nel file di workflow (`docker_build&push.yml`), passare in input il token in modo esplicito significherebbe memorizzarne una copia che resti visibile a chiunque abbia accesso al repository; ciò non è affatto sicuro e andrebbe assolutamente evitato perché un token è strettamente personale. Per questo genere di esigenze, GitHub offre ai suoi utenti un'ulteriore funzionalità, i cosiddetti Secrets, valori crittografati associati ai repository e accessibili come variabili d'ambiente all'interno dei workflow. Una volta generato, il PAT può essere memorizzato in tutta sicurezza in un Secret. Al momento opportuno, il valore ivi contenuto verrà passato al comando di accesso a Packages che ne ha bisogno.
+Affinché vada a buon fine, quest'ultimo passaggio necessita di un piccolo intervento da parte vostra, da svolgere soltanto una volta, nella fase di impostazione iniziale del progetto. Dal momento che ciascuna nuova esecuzione del workflow avviene in una macchina virtuale Ubuntu costruita ex-novo da GitHub Actions, è necessario che - ad ogni run - il processo preposto al caricamento dell'immagine Docker su Packages si autentichi al servizio (effettuando un login). Al posto della classica coppia di credenziali (username e password) è possibile usare, a questo scopo, un Personal Access Token (PAT) di GitHub, da passare in input al comando che effettua la connessione a Packages. Tuttavia, dal momento che tale comando viene riportato in chiaro nel file di workflow (`docker_build&push.yml`), passare in input il token in modo esplicito significherebbe memorizzarne una copia che resti visibile a chiunque abbia accesso al repository progetto2223-hellman; ciò non è affatto sicuro e andrebbe assolutamente evitato perché un token è strettamente personale. Per questo genere di esigenze, GitHub offre ai suoi utenti un'ulteriore funzionalità, i cosiddetti Secrets, valori crittografati associati ai repository e accessibili come variabili d'ambiente all'interno dei workflow. Una volta generato, il PAT può essere memorizzato in tutta sicurezza in un Secret. Al momento opportuno, il valore ivi contenuto verrà passato al comando di accesso a Packages che ne ha bisogno.
 
 L'intervento iniziale a voi richiesto deve essere svolto da *un solo membro del team* che dovrà:
 
@@ -112,7 +112,7 @@ L'intervento iniziale a voi richiesto deve essere svolto da *un solo membro del 
 
 #### Creazione del Personal Access Token
 
-Il membro del team, avendo i diritti di amministratore sul repository, deve:
+Il membro del team, avendo i diritti di amministratore sul repository progetto2223-hellman, deve:
 
 - entrare nella pagina delle impostazioni del proprio profilo GitHub (click sull'immagine di profilo in alto a destra, poi click sulla voce *"Settings"* nel menù a tendina che compare);
   ![SaveTokenInSecret_1](./img/SaveTokenInSecret_1.png)
@@ -141,8 +141,8 @@ Il membro del team, avendo i diritti di amministratore sul repository, deve:
 
 A questo punto, il membro del team che ha generato il token dovrà:
 
-- recarsi sulla pagina principale del repository e fare click sull'icona *"Settings"* (ultima tab in alto a destra);
-  **N.B.**: solo l'amministratore visualizza questa tab!
+- recarsi sulla pagina principale del repository progetto2223-hellman e fare click sull'icona *"Settings"* (ultima tab in alto a destra);
+  **N.B.**: solo l'amministratore visualizza questa tab! 
   ![SaveTokenInSecret_5](./img/SaveTokenInSecret_5.png)
 - selezionare la voce *"Secrets"* e la sottovoce *"Actions"* dalla barra laterale;
   ![SaveTokenInSecret_6](./img/SaveTokenInSecret_6.png)
@@ -173,13 +173,13 @@ N.B.: il package sarà visibile solo dopo che GitHub Actions avrà completato co
 
 Per aggiungere il badge che riporta l'ultimo esito dell'esecuzione del workflow `docker_build&push.yml` (stato del workflow) all'interno del file README del vostro repository, seguire le seguenti istruzioni:
 
-- entrare nella pagina principale del repository e cliccare su `Actions` (subito sotto il titolo, in alto al centro);
+- entrare nella pagina principale del repository progetto2223-hellman e cliccare su `Actions` (subito sotto il titolo, in alto al centro);
 ![Update_GitHub_badge_1](./img/Update_GitHub_badge_1.png)
-- la pagina *"All workflows"* sotto la tab *"Actions"*, riporta l'elenco delle esecuzioni (*run*) di tutti i workflow di GitHub Actions attivabili nel repository; per filtrarne il contenuto e visualizzare soltanto le esecuzioni relative al workflow `docker_build&push.yml`, fare click sulla voce corrispondente nel pannello laterale a sinistra. (**N.B.**: all'inizio del progetto, è del tutto normale che queste liste siano vuote. I workflow si attiveranno per la prima volta quando modificherete il codice nella cartella `src/` ed effettuerete Pull Request o operazioni di push/merge sul branch `main`);
+- la pagina *"All workflows"* sotto la tab *"Actions"*, riporta l'elenco delle esecuzioni (*run*) di tutti i workflow di GitHub Actions attivabili nel repository progetto2223-hellman; per filtrarne il contenuto e visualizzare soltanto le esecuzioni relative al workflow `docker_build&push.yml`, fare click sulla voce corrispondente nel pannello laterale a sinistra. (**N.B.**: all'inizio del progetto, è del tutto normale che queste liste siano vuote. I workflow si attiveranno per la prima volta quando modificherete il codice nella cartella `src/` ed effettuerete Pull Request o operazioni di push/merge sul branch `main`);
 - Una volta selezionato il workflow `docker_build&push.yml` dal pannello laterale, in alto a destra nella pagina – di fianco alla text box con la scritta "Filter workflow runs" – comparirà un nuovo bottone con tre puntini `•••`. Fare click su tale bottone e poi selezionare la voce "Create status badge" nel menù a tendina.
 - Lasciando invariate le impostazioni di default (`branch` e `event`) nella finestra a comparsa, fare click su `Copy status badge Markdown`;
   ![Update_GitHub_badge_3](./img/Update_GitHub_badge_3.png)
-- La modifica del file Markdown `README.md` sarà fatta come parte dei task dello *Sprint 0* incollando il codice markdown per la costruzione del badge in cima al `README.md`, accanto al titolo del repository.
+- La modifica del file Markdown `README.md` sarà fatta come parte dei task dello *Sprint 0* incollando il codice markdown per la costruzione del badge in cima al `README.md`, accanto al titolo della repository progetto2223-hellman.
 
 Il titolo del README.md dovrà apparire come nella seguente figura, con *Battleship* al posto di *scacchi*:
 
@@ -190,7 +190,7 @@ Il colore e lo stato del badge potranno cambiare dopo ogni build, riflettendo lo
 
 ## Clonazione del repository
 
-Come prima attività, è necessario clonare il repository remoto sulla propria macchina. Procedere come segue:
+Come prima attività, è necessario clonare il repository progetto2223-hellman remoto sulla propria macchina. Procedere come segue:
 
 - Individuare la posizione nel proprio file system dove clonare la cartella di progetto.
 <!--*Per evitare successivi problemi con l'importazione di Eclipse, evitare di salvare la cartella di progetto nella root del workspace di Eclipse*;
@@ -237,7 +237,7 @@ Il workflow da utilizzare è il [GitHub Flow](https://guides.github.com/introduc
 
 - Subito prima di lavorare sul codice, è opportuno eseguire una `git fetch` e, se `git status` informa che ci sono modifiche, eseguire quindi una `git pull` per poi lavorare sul codice più aggiornato
 - Per ogni nuova *feature*, *user story* o *bug fix* occorre creare o scegliere l’issue su cui lavorare su GitHub e segnarsi come **assigned**
-- Creare un nuovo **branch** sul repository locale con il numero dell'issue o il titolo come nome del branch (*issue#n* oppure *titoloissue*) attraverso il comando `git branch <nome branch>`
+- Creare un nuovo **branch** sul repository progetto2223-hellman con il numero dell'issue o il titolo come nome del branch (*issue#n* oppure *titoloissue*) attraverso il comando `git branch <nome branch>`
 - Spostarsi sul nuovo branch appena creato con il comando `git checkout <nome branch>`
 - Lavorare al codice dell’applicazione. È consigliabile fare piccole **commit** autoconsistenti di volta in volta, con uno scopo ben preciso e una descrizione dettagliata. *Evitare di fare un’unica grande commit alla fine del lavoro, a meno che la feature o il bug fix non sia davvero di poco conto.*
 - Aggiorna con regolarità il branch sul server origin in GitHub con il comando `git push origin <nome branch>`
@@ -248,7 +248,7 @@ Il workflow da utilizzare è il [GitHub Flow](https://guides.github.com/introduc
 - Una volta lanciata la pull request, nel caso si attivi la costruzione automatica della build ci sarà da attendere qualche minuto. In caso di conflitti, bisogna risolverli. Può essere utile consultare la documentazione di GitHub (<https://help.github.com/articles/about-merge-conflicts/>) e comunicare con chi ha effettuato le modifiche in conflitto.
 - Discutere eventuali commenti dei reviewer e apportare le modifiche se necessarie come commit sul branch di lavoro. Ricordare che i commit aggiuntivi vanno comunque propagati sul repository remoto in GitHub mediante comando `git push origin <nome branch>`.
 - Ricevuta l'approvazione esplicita di almeno un componente del team, si può procedere da GitHub al merge del nuovo *branch* con il *master branch* sul repository remoto.
-- Se la build GitHub Actions e il merge su GitHub sono entrambi andati a buon fine, per completare il lavoro, cancellare il branch sul repository remoto (mediante interfaccia web di GitHub) e sul repository locale con la sequenza di comandi: `git checkout master`, `git pull` e `git branch -d <nome branch>`.
+- Se la build GitHub Actions e il merge su GitHub sono entrambi andati a buon fine, per completare il lavoro, cancellare il branch sul repository remoto (mediante interfaccia web di GitHub) e sul repository progetto2223-hellman con la sequenza di comandi: `git checkout master`, `git pull` e `git branch -d <nome branch>`.
 
 ## Test automatici e Controlli di Qualità
 
@@ -268,7 +268,7 @@ Il workflow da utilizzare è il [GitHub Flow](https://guides.github.com/introduc
 
 ## Esecuzione immagine Docker
 
-Dopo ogni operazione di push o pull request sul repository, GitHub Actions tenta di compilare l’applicazione e, in caso di successo, esegue test e controlli di quality assurance. Nel caso in cui la compilazione e i test siano andati a buon fine, GitHub Actions  ha il compito di caricare l’immagine del container su GitHub Packages. Per essere certi che il codice non presenti problemi, occorre scaricare l’immagine da GitHub Packages ed eseguire il container mediante l’installazione locale di Docker.
+Dopo ogni operazione di push o pull request sul repository progetto2223-hellman, GitHub Actions tenta di compilare l’applicazione e, in caso di successo, esegue test e controlli di quality assurance. Nel caso in cui la compilazione e i test siano andati a buon fine, GitHub Actions  ha il compito di caricare l’immagine del container su GitHub Packages. Per essere certi che il codice non presenti problemi, occorre scaricare l’immagine da GitHub Packages ed eseguire il container mediante l’installazione locale di Docker.
 
 Svolgere le seguenti operazioni:
 
@@ -290,7 +290,7 @@ Svolgere le seguenti operazioni:
 <!--- se si utilizza Windows selezionare `Switch to Linux containers` nel menu di Docker;
 -->
 
-- recarsi alla pagina principale dedicata al repository su GitHub e fare click sul link del package sotto il titolo *"Packages"*, come evidenziato in figura;
+- recarsi alla pagina principale dedicata al repository progetto2223-hellman su GitHub e fare click sul link del package sotto il titolo *"Packages"*, come evidenziato in figura;
    **N.B.**: se i Secret menzionati in questa guida sono stati impostati correttamente e se almeno un'esecuzione del workflow di GitHub Actions è andata a buon fine, la vostra immagine Docker (nella sua ultima versione) dovrebbe essere disponibile.
    ![ExecuteDockerImage_1](./img/ExecuteDockerImage_1.png)
 
