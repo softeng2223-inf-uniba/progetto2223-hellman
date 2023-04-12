@@ -4,17 +4,17 @@
 
 - Pipeline di progetto
 - Passi preliminari
-- Creazione gruppo e repository su GitHub
+- Creazione gruppo e repository progetto2223-hellman su GitHub
   - Comunicazione del gruppo
-  - Accettazione assignment del primo componente e creazione repository su GitHub
-  - Accettazione assignment degli altri componenti e accesso al repository su GitHub
-- Configurazione del repository su GitHub
+  - Accettazione assignment del primo componente e creazione repository progetto2223-hellman su GitHub
+  - Accettazione assignment degli altri componenti e accesso al repository progetto2223-hellman su GitHub
+- Configurazione del repository progetto2223-hellman su GitHub
   - Creazione di un Personal Access Token e impostazione del Secret
     - Creazione del Personal Access Token
     - Impostazione del GitHub Secret
   - Abilitazione package/immagini Docker
   - Aggiunta del badge di GitHub Actions nel README
-- Clonazione del repository
+- Clonazione del repository progetto2223-hellman
 - Lavoro sul codice dell’applicazione
 - Test automatici e Controlli di Qualità
 - Esecuzione immagine Docker
@@ -40,7 +40,7 @@ In aggiunta, occorre installare i seguenti strumenti:
 
 Si suppone che lo studente abbia già installato sulla sua macchina l’ultima versione disponibile di un IDE, per esempio [**Visual Studio Code (VS Code)**](https://code.visualstudio.com/).
 
-## Creazione gruppo e repository su GitHub
+## Creazione gruppo e repository progetto2223-hellman su GitHub
 
 ### Comunicazione del gruppo
 
@@ -50,7 +50,7 @@ Si suppone che lo studente abbia già installato sulla sua macchina l’ultima v
   - il nome del gruppo deve essere un cognome di un vincitore di [**ACM Turing Award**](https://amturing.acm.org/byyear.cfm), scritto tutto in minuscolo senza spazi e caratteri speciali. </br>
   Il nome del gruppo sarà usato per la creazione del team e la configurazione del repository su GitHub.
 - Una volta completata la formazione del gruppo o raggiunto il numero minimo di componenti, mettersi d'accordo su chi sarà il primo componente del gruppo che accetterà l'*assignment* su GitHub Classroom.
-- Il componente designato dal gruppo dovrà scrivere sul canale `Formazione gruppi` di Teams un messaggio rivolto al docente (usare il *mention* con *@*) dichiarando che "il gruppo *x* è pronto" dove *x* è il nome del gruppo.
+- Il componente designato dal gruppo Eugenio Gaetano Bursomanno dovrà scrivere sul canale `Formazione gruppi` di Teams un messaggio rivolto al docente (usare il *mention* con *@*) dichiarando che "il gruppo *Hellman* è pronto".
 - Il docente risponderà inviando allo studente in chat il link di assegnazione del progetto.
 
 ### Accettazione assignment del primo componente e creazione repository su GitHub
