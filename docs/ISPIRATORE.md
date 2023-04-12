@@ -1,0 +1,11 @@
+Martin Hellman è un rinomato matematico, crittografo e informatico americano, nato il 2 ottobre 1945 a New York City. È noto soprattutto per il suo lavoro pionieristico nella crittografia a chiave pubblica, in particolare per l'invenzione dell'algoritmo Diffie-Hellman con Whitfield Diffie nel 1976.
+
+Hellman ha conseguito il suo B.E. in Ingegneria Elettrica al Politecnico di Brooklyn nel 1966, seguito da un M.S. e un Ph.D. in Ingegneria Elettrica alla Stanford University nel 1967 e 1969, rispettivamente. Dopo aver completato il suo dottorato, Hellman è diventato professore di Ingegneria Elettrica presso il Massachusetts Institute of Technology (MIT). Nel 1971, si è trasferito alla Stanford University, dove ha lavorato fino al suo ritiro nel 1996.
+
+Durante la sua carriera accademica, Hellman ha collaborato con Whitfield Diffie e Ralph Merkle per sviluppare un nuovo sistema di crittografia, noto come crittografia a chiave pubblica. La loro invenzione, l'algoritmo Diffie-Hellman, è stata la prima soluzione pratica al problema dello scambio di chiavi, permettendo alle parti di comunicare in modo sicuro attraverso un canale insicuro senza dover condividere una chiave segreta in anticipo.
+
+Oltre alla crittografia a chiave pubblica, Hellman ha contribuito a una serie di altri importanti sviluppi nel campo della sicurezza informatica. Ad esempio, ha introdotto il concetto di crittanalisi a forza bruta e ha lavorato su metodi per migliorare la sicurezza delle reti informatiche.
+
+Nel corso della sua carriera, Hellman ha ricevuto numerosi premi e riconoscimenti per il suo lavoro. Nel 1981, è stato nominato Fellow dell'Institute of Electrical and Electronics Engineers (IEEE). Nel 2015, Hellman e Diffie hanno ricevuto il prestigioso Turing Award, spesso definito il "Premio Nobel dell'informatica", per il loro lavoro nella crittografia a chiave pubblica.
+
+Oggi, Martin Hellman è un attivista per la pace e la riduzione del rischio nucleare. Ha fondato insieme a sua moglie Dorothie Hellman il progetto "Beyond War" (Oltre la guerra), che si concentra sulla prevenzione dei conflitti armati e sulla promozione di soluzioni pacifiche ai problemi globali.
