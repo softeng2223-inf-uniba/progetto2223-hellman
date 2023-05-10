@@ -8,7 +8,8 @@ La struttura della repository si presenta nel seguente modo:
 ```plaintext
 |-- .github
 |    |-- workflows
-|    |      |-- ingsw2122.yml
+|    |      |-- docker_build&push.yml
+|    |      |-- gradle_build.yml
 |-- build
 |    |-- reports
 |    |      |-- checkstyle
@@ -16,9 +17,11 @@ La struttura della repository si presenta nel seguente modo:
 |    |      |-- tests/test
 |–– config
 |    |–– checkstyle
+|    |–– pmd
 |–– docs
 |    |–– Assegnazione progetto.md
 |    |–– Guida per lo studente.md
+|    |–– ISPIRATORE.md
 |    |–– img
 |    |–– Report.md
 |–– drawings
@@ -30,15 +33,17 @@ La struttura della repository si presenta nel seguente modo:
 |    |–– test
 |–– .gitignore
 |–– build.gradle
+|–– Dockerfile
 |–– README.md
 |–– gradlew
-|–– gradle.bat
+|–– gradlew.bat
 |–– settings.gradle
 ```
 
 Nel seguito si dettagliano i ruoli dei diversi componenti:
 
-- `.github/workflows/ingsw2122.yml`: dettaglia le direttive per assicurare la *continuous integration* attraverso l’uso di GitHub Actions;
+- `.github/workflows/docker_build&push.yml`: dettaglia le direttive per assicurare la *continuous integration* attraverso l’uso di GitHub Actions. In particolare, questo workflow si occupa di eseguire la build del progetto, creare un immagine Docker e pusharla su GitHub Packages;
+- `.github/workflows/gradle_build.yml`: dettaglia le direttive per assicurare la *continuous integration* attraverso l’uso di GitHub Actions. In particolare, questo workflow si occupa di eseguire la build del progetto e di eseguire i test di unità;
 - `build/`: ospita la sottocartella `reports/`, contenente gli output dei tool automatici di test e controllo di qualità;
 - `config/`: ospita i file di configurazione. L’unica configurazione di base richiesta è quella per il tool checkstyle;
 - `docs/`: ospita la documentazione di progetto, incluse le figure (nella sottocartella `img/`).
@@ -46,6 +51,7 @@ Nel seguito si dettagliano i ruoli dei diversi componenti:
   La cartella raccoglie inoltre:
   - `Assegnazione progetto.md`: contenente la descrizione dettagliata del progetto assegnato;
   - `Guida per lo studente.md`: contenente la descrizione di tutti i passi di configurazione necessari per l'attivazione del flusso di lavoro a supporto dello sviluppo del progetto;
+  - `ISPIRATORE.md`: contenente una breve biografia e descrizione del personaggio che ha ispirato il progetto, in questo caso Martin Hellman;
 - `gradle/`: ospita il `.jar` relativo al sistema di gestione delle dipendenze *Gradle*.
 - `lib`: include eventuali librerie esterne utilizzate dal progetto.
 - `res`: contiene risorse varie utilizzate dal sistema
