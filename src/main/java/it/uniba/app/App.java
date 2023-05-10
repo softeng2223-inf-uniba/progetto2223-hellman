@@ -6,9 +6,13 @@ import java.util.Scanner;
  * Main class of the application.
  */
 public final class App {
+    private App() {
+
+    }
 
     /**
      * Classe main del programma.
+     *
      * @param args argomenti passati da linea di comando
      */
     public static void main(final String[] args) {
