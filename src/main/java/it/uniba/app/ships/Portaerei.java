@@ -1,7 +1,9 @@
 package it.uniba.app.ships;
 
-public class Portaerei extends Ship{
-    public Portaerei(Orientation orientation) {
-        super(5, orientation);
+import it.uniba.app.util.Pair;
+
+public class Portaerei extends Ship {
+    public Portaerei(Orientation orientation, Pair startingPosition) {
+        super(5, orientation, startingPosition);
     }
 }
