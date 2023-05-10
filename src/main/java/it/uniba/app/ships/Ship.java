@@ -1,4 +1,4 @@
-package it.uniba.app;
+package it.uniba.app.ships;
 
 public abstract class Ship {
     private final int length;

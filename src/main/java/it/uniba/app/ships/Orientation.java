@@ -1,4 +1,4 @@
-package it.uniba.app;
+package it.uniba.app.ships;
 
 public enum Orientation {
     HORIZONTAL,
