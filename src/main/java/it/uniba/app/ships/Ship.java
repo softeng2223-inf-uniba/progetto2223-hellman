@@ -2,6 +2,10 @@ package it.uniba.app.ships;
 
 import it.uniba.app.util.Pair;
 
+/**
+ * Classe astratta che rappresenta una nave.
+ */
+
 public abstract class Ship {
     private final int length;
     private int hits;
@@ -9,37 +13,76 @@ public abstract class Ship {
     private final Orientation orientation;
     private final Pair startingPosition;
 
-    public Ship(int length, Orientation orientation, Pair startingPosition) {
-        this.length = length;
+    /**
+     * Costruttore della classe Ship.
+     *
+     * @param shipLength           lunghezza della nave
+     *                             (numero di caselle occupate sulla griglia)
+     * @param shipOrientation      orientamento della nave
+     * @param shipStartingPosition cella di partenza della nave
+     */
+    public Ship(final int shipLength, final Orientation shipOrientation, final Pair shipStartingPosition) {
+        this.length = shipLength;
         this.hits = 0;
         this.sunk = false;
-        this.orientation = orientation;
-        this.startingPosition = startingPosition;
+        this.orientation = shipOrientation;
+        this.startingPosition = shipStartingPosition;
 
-        //TODO: controllare che la nave non intersechi altre navi nella griglia
+        //controllare che la nave non intersechi altre navi nella griglia.
     }
 
-    public int getLength() {
+    /**
+     * Restituisce la lunghezza dela nave.
+     *
+     * @return lunghezza della nave
+     */
+    public final int getLength() {
         return length;
     }
 
-    public int getHits() {
+
+    /**
+     * Restituisce il numero di colpi ricevuti dalla nave.
+     *
+     * @return numero di colpi ricevuti dalla nave
+     */
+    public final int getHits() {
         return hits;
     }
 
-    public boolean isSunk() {
+    /**
+     * Restituisce se la nave è affondata.
+     *
+     * @return true se la nave è affondata, false altrimenti
+     */
+    public final boolean isSunk() {
         return sunk;
     }
 
-    public Orientation getOrientation() {
+    /**
+     * Restituisce l'orientamento della nave.
+     *
+     * @return orientamento della nave
+     */
+    public final Orientation getOrientation() {
         return orientation;
     }
 
-    public Pair getStartingPosition() {
+    /**
+     * Restituisce la cella di partenza della nave.
+     *
+     * @return cella di partenza della nave
+     */
+    public final Pair getStartingPosition() {
         return startingPosition;
     }
 
-    public void hit() {
+    /**
+     * Incrementa il numero di colpi ricevuti dalla nave.
+     * Se il numero di colpi ricevuti è uguale alla lunghezza della nave,
+     * la nave viene affondata.
+     */
+    public final void hit() {
         hits++;
         if (hits == length) {
             sunk = true;
