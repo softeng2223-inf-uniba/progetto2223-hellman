@@ -96,3 +96,5 @@ project.tasks.getByName('build').dependsOn fatJar
 ************************/
 
 mainClassName = 'it.uniba.app/App'
+sourceCompatibility = JavaVersion.VERSION_16
+targetCompatibility = JavaVersion.VERSION_16

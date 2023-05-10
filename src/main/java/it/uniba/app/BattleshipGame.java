@@ -1,5 +1,30 @@
 package it.uniba.app;
 
-public class BattleshipGame {
+/**
+ * Classe che rappresenta il gioco.
+ */
+public final class BattleshipGame {
+    BattleshipGame() {
 
+    }
+
+    void setDifficulty() {
+
+    }
+
+    void showDifficulty() {
+
+    }
+
+    void showShips() {
+
+    }
+
+    void revealGrid() {
+
+    }
+
+    void newGame() {
+
+    }
 }
