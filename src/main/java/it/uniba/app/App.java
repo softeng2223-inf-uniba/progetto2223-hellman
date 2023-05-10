@@ -7,7 +7,11 @@ import java.util.Scanner;
  */
 public final class App {
 
-    public static void main(String[] args) {
+    /**
+     * Classe main del programma.
+     * @param args argomenti passati da linea di comando
+     */
+    public static void main(final String[] args) {
         if (args.length == 1 && (args[0].equalsIgnoreCase("-h") || args[0].equalsIgnoreCase("--help"))) {
             showHelp();
         }
@@ -19,17 +23,17 @@ public final class App {
             exit = false;
             System.out.print("Inserisci un comando: ");
             String command = s.nextLine();
-            switch (command.toLowerCase()){
+            switch (command.toLowerCase()) {
                 case "/help":
                     break;
                 case "/esci":
-                        break;
+                    break;
                 case "/facile":
                     break;
                 case "/medio":
                     break;
-                    case "/difficile":
-                        break;
+                case "/difficile":
+                    break;
                 case "/mostralivello":
                     break;
                 case "/mostranavi":
