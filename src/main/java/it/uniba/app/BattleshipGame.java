@@ -1,6 +1,7 @@
 package it.uniba.app;
 
 import it.uniba.app.exceptions.GameAlreadyRunningException;
+import it.uniba.app.exceptions.IllegalPositionException;
 import it.uniba.app.exceptions.UnsetDifficultyException;
 import it.uniba.app.ships.Cacciatorpediniere;
 import it.uniba.app.ships.Corazzata;
@@ -113,7 +114,7 @@ public final class BattleshipGame {
                 orientation = new Random().nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
                 Ship cacciatorpediniere4 = new Cacciatorpediniere(orientation, position, grid);
                 updateGrid(tempGrid, position, orientation, cacciatorpediniere4);
-            } catch (Exception e) {
+            } catch (IllegalPositionException e) {
                 err = true;
             }
         } while (err);
