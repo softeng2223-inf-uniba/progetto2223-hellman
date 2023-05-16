@@ -47,6 +47,14 @@ public final class BattleshipGame {
 
     }
 
+    /**
+     * Inizializza la griglia assegnando alle navi posizione ed orientamento casuale.
+     * Questo viene fatto attraverso "brute force", ovvero generando casualmente
+     * posizione ed orientamento e verificando che non ci siano sovrapposizioni.
+     *
+     * @throws UnsetDifficultyException    se non è stata impostata la difficoltà
+     * @throws GameAlreadyRunningException se c'è già una partita in corso
+     */
     void newGame() throws UnsetDifficultyException, GameAlreadyRunningException {
         if (currentDifficulty == Difficulty.UNSET) {
             throw new UnsetDifficultyException("Devi impostare la difficoltà prima di iniziare una nuova partita.");
