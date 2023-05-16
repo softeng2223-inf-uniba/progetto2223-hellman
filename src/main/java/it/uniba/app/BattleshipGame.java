@@ -27,7 +27,7 @@ public final class BattleshipGame {
     /**
      * Lista delle navi.
      */
-    private List<Ship> ships;
+    private List<Ship> ships = null;
     /**
      * Numero di tentativi errati massimi.
      */
