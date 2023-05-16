@@ -1,5 +1,6 @@
 package it.uniba.app.ships;
 
+import it.uniba.app.exceptions.IllegalPositionException;
 import it.uniba.app.util.Pair;
 
 /**
@@ -20,15 +21,27 @@ public abstract class Ship {
      *                             (numero di caselle occupate sulla griglia)
      * @param shipOrientation      orientamento della nave
      * @param shipStartingPosition cella di partenza della nave
+     * @param grid                 griglia di gioco
+     * @throws IllegalPositionException se la nave esce dalla griglia
      */
-    public Ship(final int shipLength, final Orientation shipOrientation, final Pair shipStartingPosition) {
+    public Ship(final int shipLength, final Orientation shipOrientation, final Pair shipStartingPosition,
+                final boolean[][] grid) throws IllegalPositionException {
         this.length = shipLength;
         this.hits = 0;
         this.sunk = false;
         this.orientation = shipOrientation;
         this.startingPosition = shipStartingPosition;
 
-        //controllare che la nave non intersechi altre navi nella griglia.
+        int[] coordinates = startingPosition.toArray();
+        if (orientation == Orientation.HORIZONTAL) {
+            if (coordinates[1] + length >= grid.length) {
+                throw new IllegalPositionException("La nave esce dalla griglia.");
+            }
+        } else {
+            if (coordinates[0] + length >= grid.length) {
+                throw new IllegalPositionException("La nave esce dalla griglia.");
+            }
+        }
     }
 
     /**
