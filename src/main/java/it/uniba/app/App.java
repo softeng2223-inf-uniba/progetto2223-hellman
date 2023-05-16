@@ -52,6 +52,7 @@ public final class App {
                     } catch (UnsetDifficultyException | GameAlreadyRunningException e) {
                         System.err.println(e.getMessage());
                     }
+                    System.out.println("Navi posizionate e partita iniziata.");
                     break;
                 case "/svelagriglia":
                     break;

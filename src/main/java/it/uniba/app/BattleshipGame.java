@@ -27,7 +27,7 @@ public final class BattleshipGame {
     /**
      * Lista delle navi.
      */
-    private List<Ship> ships;
+    private List<Ship> ships = null;
     /**
      * Numero di tentativi errati massimi.
      */
@@ -159,11 +159,12 @@ public final class BattleshipGame {
     private Pair getRandomPosition(final boolean[][] checkGrid) {
         Pair p = null;
         boolean err;
+        Random r = new Random();
         do {
             err = false;
             String alphabet = "ABCDEFGHIJ";
-            int x = new Random().nextInt(GRID_SIZE);
-            int y = new Random().nextInt(GRID_SIZE);
+            int x = r.nextInt(GRID_SIZE);
+            int y = r.nextInt(GRID_SIZE);
             p = new Pair(alphabet.charAt(x), y + 1);
             int[] coordinates = p.toArray();
             if (checkGrid[coordinates[0]][coordinates[1]]) {
