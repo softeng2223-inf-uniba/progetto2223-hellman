@@ -72,46 +72,47 @@ public final class BattleshipGame {
                 tempGrid = new boolean[GRID_SIZE][GRID_SIZE];
                 ships = new ArrayList<>();
                 Pair position = getRandomPosition(tempGrid);
-                Orientation orientation = new Random().nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
+                Random r = new Random();
+                Orientation orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
                 Ship portaerei = new Portaerei(orientation, position, grid);
                 updateGrid(tempGrid, position, orientation, portaerei);
                 //corazzate
                 position = getRandomPosition(tempGrid);
-                orientation = new Random().nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
+                orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
                 Ship corazzata1 = new Corazzata(orientation, position, grid);
                 updateGrid(tempGrid, position, orientation, corazzata1);
                 position = getRandomPosition(tempGrid);
-                orientation = new Random().nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
+                orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
                 Ship corazzata2 = new Corazzata(orientation, position, grid);
                 updateGrid(tempGrid, position, orientation, corazzata2);
                 //incrociatori
                 position = getRandomPosition(tempGrid);
-                orientation = new Random().nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
+                orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
                 Ship incrociatore1 = new Incrociatore(orientation, position, grid);
                 updateGrid(tempGrid, position, orientation, incrociatore1);
                 position = getRandomPosition(tempGrid);
-                orientation = new Random().nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
+                orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
                 Ship incrociatore2 = new Incrociatore(orientation, position, grid);
                 updateGrid(tempGrid, position, orientation, incrociatore2);
                 position = getRandomPosition(tempGrid);
-                orientation = new Random().nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
+                orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
                 Ship incrociatore3 = new Incrociatore(orientation, position, grid);
                 updateGrid(tempGrid, position, orientation, incrociatore3);
                 //cacciatorpediniere
                 position = getRandomPosition(tempGrid);
-                orientation = new Random().nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
+                orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
                 Ship cacciatorpediniere1 = new Cacciatorpediniere(orientation, position, grid);
                 updateGrid(tempGrid, position, orientation, cacciatorpediniere1);
                 position = getRandomPosition(tempGrid);
-                orientation = new Random().nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
+                orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
                 Ship cacciatorpediniere2 = new Cacciatorpediniere(orientation, position, grid);
                 updateGrid(tempGrid, position, orientation, cacciatorpediniere2);
                 position = getRandomPosition(tempGrid);
-                orientation = new Random().nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
+                orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
                 Ship cacciatorpediniere3 = new Cacciatorpediniere(orientation, position, grid);
                 updateGrid(tempGrid, position, orientation, cacciatorpediniere3);
                 position = getRandomPosition(tempGrid);
-                orientation = new Random().nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
+                orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
                 Ship cacciatorpediniere4 = new Cacciatorpediniere(orientation, position, grid);
                 updateGrid(tempGrid, position, orientation, cacciatorpediniere4);
             } catch (IllegalPositionException e) {
@@ -140,8 +141,8 @@ public final class BattleshipGame {
         do {
             err = false;
             String alphabet = "ABCDEFGHIJ";
-            int x = (int) (Math.random() * GRID_SIZE);
-            int y = (int) (Math.random() * GRID_SIZE);
+            int x = new Random().nextInt(GRID_SIZE);
+            int y = new Random().nextInt(GRID_SIZE);
             p = new Pair(alphabet.charAt(x), y + 1);
             int[] coordinates = p.toArray();
             if (checkGrid[coordinates[0]][coordinates[1]]) {
