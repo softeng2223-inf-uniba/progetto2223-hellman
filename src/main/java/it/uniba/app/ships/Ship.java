@@ -42,6 +42,18 @@ public abstract class Ship {
                 throw new IllegalPositionException("La nave esce dalla griglia.");
             }
         }
+
+        for (int i = 0; i < length; i++) {
+            if (orientation == Orientation.HORIZONTAL) {
+                if (grid[coordinates[0]][coordinates[1] + i]) {
+                    throw new IllegalPositionException("La nave è sovrapposta ad altre navi.");
+                }
+            } else {
+                if (grid[coordinates[0] + i][coordinates[1]]) {
+                    throw new IllegalPositionException("La nave è sovrapposta ad altre navi.");
+                }
+            }
+        }
     }
 
     /**
