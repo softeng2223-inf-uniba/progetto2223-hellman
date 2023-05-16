@@ -18,7 +18,7 @@ All'inizio del gioco, avrai la possibilità di posizionare le tue navi sulla tua
 Dovrai scegliere attentamente le posizioni delle tue navi per nasconderle al meglio e rendere difficile individuarle. 
 Assicurati di utilizzare strategie di posizionamento tattiche per mettere in difficoltà il tuo avversario.
 Una volta che le navi sono posizionate, inizia la fase di attacco. 
-A turno, tu e la CPU sparate missili sulla griglia per cercare di colpire le navi nemiche. 
+La CPU dispone le navi che tu giocatore dovrai affondargli, sparando missili sulla griglia. 
 La CPU utilizzerà un algoritmo avanzato per determinare le coordinate in cui sparare, cercando di individuare e distruggere le tue navi nel minor tempo possibile. 
 Toccherà a te fare lo stesso, utilizzando le tue abilità strategiche per cercare di individuare e distruggere le navi nemiche dell'avversario virtuale.
 	
