@@ -20,12 +20,33 @@ import java.util.Random;
  */
 public final class BattleshipGame {
     private static final int GRID_SIZE = 10;
-    private Difficulty currentDifficulty;
+    /**
+     * La difficoltà del gioco.
+     */
+    private Difficulty currentDifficulty = Difficulty.UNSET;
+    /**
+     * Lista delle navi.
+     */
     private List<Ship> ships;
+    /**
+     * Numero di tentativi errati massimi.
+     */
     private int maxFaliedAttempts;
+    /**
+     * Numero di tentativi errati effettuati.
+     */
     private int failedAttempts;
+    /**
+     * Numero di colpi andati a segno.
+     */
     private int hits;
+    /**
+     * La griglia delle navi. Contiene true nelle caselle occupate dalle navi.
+     */
     private boolean[][] grid = new boolean[GRID_SIZE][GRID_SIZE];
+    /**
+     * La griglia dei colpi. Contiene 0 nelle caselle non colpite, 1 nelle caselle colpite e 2 nelle caselle mancate.
+     */
     private int[][] hitsGrid = new int[GRID_SIZE][GRID_SIZE];
 
     BattleshipGame() {
