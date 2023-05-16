@@ -1,5 +1,9 @@
 package it.uniba.app;
 
+import it.uniba.app.exceptions.GameAlreadyRunningException;
+import it.uniba.app.exceptions.UnsetDifficultyException;
+
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 /**
@@ -20,7 +24,7 @@ public final class App {
             showHelp();
         }
         BattleshipGame bg = new BattleshipGame();
-        Scanner s = new Scanner(System.in);
+        Scanner s = new Scanner(System.in, StandardCharsets.UTF_8);
         System.out.println("==== Battleship Game ====");
         boolean exit = false;
         do {
@@ -43,6 +47,11 @@ public final class App {
                 case "/mostranavi":
                     break;
                 case "/gioca":
+                    try {
+                        bg.newGame();
+                    } catch (UnsetDifficultyException | GameAlreadyRunningException e) {
+                        System.err.println(e.getMessage());
+                    }
                     break;
                 case "/svelagriglia":
                     break;
