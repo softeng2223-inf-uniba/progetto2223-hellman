@@ -1,4 +1,4 @@
-package it.uniba.app;
+package it.uniba.app.exceptions;
 
 /**
  * Eccezione che viene lanciata quando si tenta di iniziare una nuova partita senza aver impostato la difficoltà.
