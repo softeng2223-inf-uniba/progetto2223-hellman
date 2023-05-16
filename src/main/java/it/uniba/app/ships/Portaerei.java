@@ -1,5 +1,6 @@
 package it.uniba.app.ships;
 
+import it.uniba.app.exceptions.IllegalPositionException;
 import it.uniba.app.util.Pair;
 
 /**
@@ -10,13 +11,17 @@ import it.uniba.app.util.Pair;
  */
 public class Portaerei extends Ship {
     private static final int LENGTH = 5;
+
     /**
      * Costruttore della classe Portaerei.
      *
      * @param orientation      orientamento della nave
      * @param startingPosition cella di partenza della nave
+     * @param grid             griglia di gioco
+     * @throws IllegalPositionException se la nave esce dalla griglia
      */
-    public Portaerei(final Orientation orientation, final Pair startingPosition) {
-        super(LENGTH, orientation, startingPosition);
+    public Portaerei(final Orientation orientation, final Pair startingPosition,
+                     final boolean[][] grid) throws IllegalPositionException {
+        super(LENGTH, orientation, startingPosition, grid);
     }
 }
