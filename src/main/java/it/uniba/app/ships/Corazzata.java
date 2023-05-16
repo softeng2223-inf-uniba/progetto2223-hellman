@@ -1,5 +1,6 @@
 package it.uniba.app.ships;
 
+import it.uniba.app.exceptions.IllegalPositionException;
 import it.uniba.app.util.Pair;
 
 /**
@@ -16,8 +17,11 @@ public final class Corazzata extends Ship {
      *
      * @param orientation      orientamento della nave
      * @param startingPosition cella di partenza della nave
+     * @param grid             griglia di gioco
+     * @throws IllegalPositionException se la nave esce dalla griglia
      */
-    public Corazzata(final Orientation orientation, final Pair startingPosition) {
-        super(LENGTH, orientation, startingPosition);
+    public Corazzata(final Orientation orientation, final Pair startingPosition,
+                     final boolean[][] grid) throws IllegalPositionException {
+        super(LENGTH, orientation, startingPosition, grid);
     }
 }
