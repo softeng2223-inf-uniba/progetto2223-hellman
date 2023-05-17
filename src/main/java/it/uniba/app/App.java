@@ -56,6 +56,8 @@ public final class App {
                     System.out.println("Navi posizionate e partita iniziata.");
                     break;
                 case "/svelagriglia":
+                    System.out.println("Griglia delle navi:");
+                    bg.revealShipGrid();
                     break;
                 default:
                     System.out.println("Comando non riconosciuto.");
