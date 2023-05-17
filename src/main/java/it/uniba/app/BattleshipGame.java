@@ -53,8 +53,26 @@ public final class BattleshipGame {
         currentDifficulty = Difficulty.UNSET;
     }
 
-    void setDifficulty() {
-
+    void setDifficulty(final String command) {
+        final int easyAttempts = 50;
+        final int mediumAttempts = 30;
+        final int hardAttempts = 10;
+        switch (command.toLowerCase()) {
+            case "/facile":
+                currentDifficulty = Difficulty.EASY;
+                maxFaliedAttempts = easyAttempts;
+                break;
+            case "/medio":
+                currentDifficulty = Difficulty.MEDIUM;
+                maxFaliedAttempts = mediumAttempts;
+                break;
+            case "/difficile":
+                currentDifficulty = Difficulty.HARD;
+                maxFaliedAttempts = hardAttempts;
+                break;
+            default:
+                break;
+        }
     }
 
     void showDifficulty() {
