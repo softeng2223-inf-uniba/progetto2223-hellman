@@ -76,7 +76,7 @@ public final class BattleshipGame {
     }
 
     void showDifficulty() {
-
+        System.out.println("Difficoltà attuale: " + currentDifficulty.toString());
     }
 
     void showShips() {
