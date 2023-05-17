@@ -33,7 +33,6 @@ public final class App {
             String command = s.nextLine();
             switch (command.toLowerCase()) {
                 case "/help":
-                    showHelp();
                     break;
                 case "/esci":
                     break;
