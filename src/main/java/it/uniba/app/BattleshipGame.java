@@ -19,14 +19,6 @@ import java.util.Random;
  * Classe che rappresenta il gioco.
  */
 public final class BattleshipGame {
-    /**
-     * Difficoltà del gioco.
-     */
-    private Difficulty difficulty;
-    /**
-     * Numero di tentativi falliti.
-     */
-    private final int tentativiFalliti;
     private static final int GRID_SIZE = 10;
     /**
      * La difficoltà del gioco.
@@ -59,8 +51,6 @@ public final class BattleshipGame {
 
     BattleshipGame() {
         currentDifficulty = Difficulty.UNSET;
-        difficulty = Difficulty.UNSET;
-        tentativiFalliti = 0;
     }
 
     void setDifficulty() {
@@ -68,12 +58,6 @@ public final class BattleshipGame {
     }
 
     void showDifficulty() {
-        if (difficulty == Difficulty.UNSET) {
-            System.out.println("Non è stato impostato nessun livello di difficoltà");
-        } else {
-            System.out.println("Il livello di difficoltà impostato è : " + difficulty);
-            System.out.println("Il numero di tentativi falliti corrispondente è : " + tentativiFalliti);
-        }
 
     }
 
