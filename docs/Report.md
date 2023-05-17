@@ -27,7 +27,7 @@ La CPU dispone le navi che tu giocatore dovrai affondare, sparando missili sulla
 
 ## 3.1 Requisiti funzionali
 
-### Iniziare una nuova partita
+### RF1:Iniziare una nuova partita
 
 #### Criteri di accettazione:
 
@@ -36,7 +36,7 @@ Al comando **/gioca**
 se nessuna partita è in corso l'applicazione imposta causalmente le navi, in orizzontale o in verticale, mostra la griglia vuota e si predispone a ricevere il primo tentativo o altri comandi.
 
 
-### Chiudere il gioco
+### RF2:Chiudere il gioco
 
 #### Criteri di accettazione:
 
@@ -49,7 +49,7 @@ l'applicazione chiede conferma
 - se la conferma è negativa, l'applicazione si predispone a ricevere nuovi tentativi o comandi
 
 
-### Help e elenco comandi
+### RF3:Help e elenco comandi
 
 #### Criteri di accettazione
 
@@ -64,7 +64,7 @@ il risultato è una descrizione concisa, che normalmente appare all'avvio del pr
 - ...
 
 
-### Impostare il livello di gioco per variare il numero massimo di tentativi sbagliati
+### RF4:Impostare il livello di gioco per variare il numero massimo di tentativi sbagliati
 
 #### Criteri di accettazione
 
@@ -84,7 +84,7 @@ l’applicazione risponde con OK e imposta a 30 il numero massimo di tentativi f
 
 l’applicazione risponde con OK e imposta a 10 il numero massimo di tentativi falliti
 
-### Mostrare il livello di gioco e il numero di massimo di tentativi falliti
+### RF5:Mostrare il livello di gioco e il numero di massimo di tentativi falliti
 
 #### Criteri di accettazione
 
@@ -92,7 +92,7 @@ Al comando **/mostralivello**
 
 l’applicazione risponde visualizzando il livello di gioco e il numero di massimo di tentativi falliti
 
-### Mostrare i tipi di nave e il numero
+### RF6:Mostrare i tipi di nave e il numero
 
 #### Criteri di accettazione
 
@@ -108,7 +108,7 @@ l’applicazione risponde visualizzando, per ogni tipo di nave, la dimensione in
 
 - Portaerei  		⊠⊠⊠⊠⊠ 	esemplari: 1
 
-### Svelare la griglia con le navi posizionate
+### RF7:Svelare la griglia con le navi posizionate
 
 Al comando **/svelagriglia**
 
