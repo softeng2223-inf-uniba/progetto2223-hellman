@@ -35,8 +35,7 @@ Se si desidera visualizzare le navi (pedine di gioco) a disposizione, digitare n
 
 Per avviare una partita, una volta impostato il livello di difficoltà, digitare '/gioca' e attendere.
 Verranno generate casualmente la posizione e l'orientamento delle navi e verrà  verificato che non ci siano sovrapposizioni.
-Se non vengono rilevati errori, verrà visualizzato il messaggio 'Navi posizionate e partita iniziata.', in caso contrario 
-sarà necessario riavviare l'esecuzione del gioco.
+Se non vengono rilevati errori, verrà visualizzato il messaggio 'Navi posizionate e partita iniziata.', in caso contrario sarà necessario riavviare l'esecuzione del gioco.
 Adesso sarà possibile visualizzare la griglia di gioco con la disposizione delle navi.
 
 # 9. Analisi retrospettiva
