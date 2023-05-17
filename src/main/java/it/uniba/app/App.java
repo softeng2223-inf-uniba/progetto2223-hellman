@@ -43,6 +43,7 @@ public final class App {
                 case "/difficile":
                     break;
                 case "/mostralivello":
+                    bg.showDifficulty();
                     break;
                 case "/mostranavi":
                     break;
