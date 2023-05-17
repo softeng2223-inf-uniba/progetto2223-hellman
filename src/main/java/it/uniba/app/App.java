@@ -45,6 +45,36 @@ public final class App {
                 case "/gioca":
                     break;
                 case "/svelagriglia":
+                    public class GrigliaNavi {
+                        public static void main(String[] args) {
+                            char[][] griglia = new char[10][10];
+
+                            // Inizializza la griglia con spazi vuoti
+                            for (int i = 0; i < 10; i++) {
+                                for (int j = 0; j < 10; j++) {
+                                    griglia[i][j] = ' ';
+                                }
+                            }
+                            // Posiziona alcune navi nella griglia
+                            griglia[0][0] = 'X'; // Esempio di nave posizionata nella riga 1, colonna A
+                            griglia[5][7] = 'X'; // Esempio di nave posizionata nella riga 6, colonna H
+
+                            // Stampa la griglia con le righe e colonne numerate
+                            System.out.print("  ");
+                            for (char c = 'A'; c <= 'J'; c++) {
+                                System.out.print(c + " ");
+                            }
+                            System.out.println();
+
+                            for (int i = 0; i < 10; i++) {
+                                System.out.print((i + 1) + " ");
+                                for (int j = 0; j < 10; j++) {
+                                    System.out.print(griglia[i][j] + " ");
+                                }
+                                System.out.println();
+                            }
+                        }
+                    }
                     break;
                 default:
                     System.out.println("Comando non riconosciuto.");
