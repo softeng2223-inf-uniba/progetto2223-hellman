@@ -19,6 +19,8 @@
 
 ### Iniziare una nuova partita
 
+#### Criteri di accettazione:
+
 Al comando **/gioca**
 
 se nessuna partita è in corso l'applicazione imposta causalmente le navi, in orizzontale o in verticale, mostra la griglia vuota e si predispone a ricevere il primo tentativo o altri comandi.
@@ -104,6 +106,18 @@ l’applicazione risponde visualizzando, una griglia 10x10, con le righe numerat
 
 
 ## 3.2 Requisiti non funzionali
+
+RNF1: il container docker dell’app deve essere eseguito da terminali che supportano Unicode con encoding UTF-8 o UTF-16.
+Elenco di terminali supportati
+
+**Linux**:
+
+- terminal
+
+**Windows**:
+
+- Powershell
+- Git Bash (in questo caso il comando Docker ha come prefisso winpty; es: winpty docker -it ....)
 
 
 # 7. Manuale utente
