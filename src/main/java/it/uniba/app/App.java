@@ -68,7 +68,7 @@ public final class App {
         System.out.println("Benvenuti in 'Battaglia Navale'");
         System.out.print("Il gioco consiste nel eliminare tutte le navi nemiche, che all'avvio della partita vengono ");
         System.out.print("disposte in modo casuale all'interno di una griglia 10x10, indicando la posizione nella ");
-        System.out.print("quale si vuole 'lanciare' il missile per colpirle.");
+        System.out.print("quale si vuole 'lanciare' il missile per colpirle. ");
         System.out.println("Lista comandi: \n ");
         System.out.println("/help : viene visualizzata la lista dei comandi e la sua descrizione ");
         System.out.print("/gioca : se nessuna partita e' in corso, vengono impostate casulamente le navi, in orizzont");
