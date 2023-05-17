@@ -65,7 +65,14 @@ public final class BattleshipGame {
 
     }
 
-    void revealGrid() {
+    void revealHitsGrid() {
+
+    }
+
+    /**
+     * Mostra la griglia dei colpi.
+     */
+    void revealShipGrid() {
         String gridOutput = "   1  2  3  4  5  6  7  8  9  10\n";
         gridOutput += " |------------------------------\n";
         for (int i = 0; i < GRID_SIZE; i++) {

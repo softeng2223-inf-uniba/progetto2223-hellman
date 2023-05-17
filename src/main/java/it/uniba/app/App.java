@@ -56,7 +56,7 @@ public final class App {
                     break;
                 case "/svelagriglia":
                     System.out.println("Griglia delle navi:");
-                    bg.revealGrid();
+                    bg.revealHitsGrid();
                     break;
                 default:
                     System.out.println("Comando non riconosciuto.");
