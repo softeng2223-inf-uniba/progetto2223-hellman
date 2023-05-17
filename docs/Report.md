@@ -10,7 +10,17 @@
 	 + [Sprint 0](#91-sprint-0)
 
 # 1. Introduzione
-
+Benvenuti a "Battaglia Navale", classico gioco da tavolo in cui sfiderai un avversario virtuale controllato dal computer. 
+Preparati a mettere alla prova le tue abilità strategiche in un emozionante scontro navale.
+"Battaglia Navale" offre un'esperienza coinvolgente e realistica, consentendoti di giocare contro un avversario che userà strategie avanzate per cercare di distruggere le tue navi. 
+Potrai scegliere diversi livelli di difficoltà, da facile a difficile, per adattare la sfida alle tue capacità.
+All'inizio del gioco, avrai la possibilità di posizionare le tue navi sulla tua griglia. 
+Dovrai scegliere attentamente le posizioni delle tue navi per nasconderle al meglio e rendere difficile individuarle. 
+Assicurati di utilizzare strategie di posizionamento tattiche per mettere in difficoltà il tuo avversario.
+Una volta che le navi sono posizionate, inizia la fase di attacco. 
+La CPU dispone le navi che tu giocatore dovrai affondare, sparando missili sulla griglia. 
+	
+	
 # 2. Modello di dominio
 
 # 3. Requisiti specifici
