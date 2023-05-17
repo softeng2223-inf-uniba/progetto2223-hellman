@@ -45,6 +45,9 @@ public final class App {
                     System.out.println("Difficoltà impostata a medio.");
                     break;
                 case "/difficile":
+                    bg.setDifficulty(command);
+                    System.out.println("Difficoltà impostata a difficile.");
+                    break;
                 case "/mostralivello":
                     break;
                 case "/mostranavi":
