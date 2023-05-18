@@ -219,7 +219,7 @@ public final class BattleshipGame {
             String alphabet = "ABCDEFGHIJ";
             int x = r.nextInt(GRID_SIZE);
             int y = r.nextInt(GRID_SIZE);
-            p = new Pair(alphabet.charAt(x), y + 1);
+            p = new Pair(alphabet.charAt(x), y);
             int[] coordinates = p.toArray();
             if (checkGrid[coordinates[0]][coordinates[1]]) {
                 err = true;
