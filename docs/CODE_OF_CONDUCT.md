@@ -16,5 +16,5 @@
 4. Il nome delle Pull Request deve rispettare questo format: "Aggiunto/Creato/Modificato + [ciò su cui si è operato]".
 5. La revisione delle pull request deve essere effettuata molto attentamente cercando di identificare eventuali problemi e quindi suggerire modifiche.
 6. Testing: assicurarsi che il codice che si vuole aggiungere sia testato, privo di bug e che non vi siano errori segnalati da Checkstyle. È importante testare il codice scritto prima di ogni pull request.
-7. Manuetenzione: se necessario, il codice scritto, deve essere aggiornato in base alle nuove esigenze del progetto.
+7. Manutenzione: se necessario, il codice scritto, deve essere aggiornato in base alle nuove esigenze del progetto.
 8. Collaborare con gli altri membri del team durante la stesura di nuovo codice.
