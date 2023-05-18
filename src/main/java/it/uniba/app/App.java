@@ -37,6 +37,16 @@ public final class App {
                     showHelp();
                     break;
                 case "/esci":
+                    System.out.print("Sei sicuro di voler chiudere il gioco? S/N: ");
+                    String conferma = s.nextLine();
+
+                    if (conferma.equalsIgnoreCase("S")) {
+                        System.out.println("Chiusura del gioco in corso...");
+                        exit = true;
+                    } else {
+                        System.out.println("Puoi continuare a giocare.");
+                    }
+
                     break;
                 case "/facile":
                     bg.setDifficulty(command);
