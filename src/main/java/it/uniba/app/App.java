@@ -52,6 +52,7 @@ public final class App {
                 case "/mostralivello":
                     break;
                 case "/mostranavi":
+                    bg.showShips();
                     break;
                 case "/gioca":
                     try {
