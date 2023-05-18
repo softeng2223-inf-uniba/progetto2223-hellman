@@ -93,7 +93,7 @@ public final class BattleshipGame {
             int shipLength = shipsLength.get(shipName);
             StringBuilder shipString = new StringBuilder(shipName + "");
             for(int i = 0; i < shipLength; i++){
-                shipString.append("⊠");
+                shipString.append(" ⊠");
             }
             shipString.append(" esemplari: " + remainingCount);
             System.out.println(shipString);
