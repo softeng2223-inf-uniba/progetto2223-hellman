@@ -154,3 +154,4 @@ Adesso sarà possibile visualizzare la griglia di gioco con la disposizione dell
 ## 9.1 Sprint 0
 
 In seguito viene riportata la board retrospettiva di modello Mad, Sad, Glad relativa allo sprint 0. Questa serve a raccogliere le opinioni dei membri del team in modo anonimo ed evidenziare criticità e punti di forza, in modo tale da poter lavorare per migliorare i punti deboli ed essere a conoscenza e utilizzare al meglio i punti di forza del team.
+![Mad, Sad, Glad Sprint 0](./img/MadSadGladSprint0.png)
