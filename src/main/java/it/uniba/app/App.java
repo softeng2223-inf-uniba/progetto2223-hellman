@@ -1,6 +1,7 @@
 package it.uniba.app;
 
 import it.uniba.app.exceptions.GameAlreadyRunningException;
+import it.uniba.app.exceptions.GameNotReadyException;
 import it.uniba.app.exceptions.UnsetDifficultyException;
 
 import java.nio.charset.StandardCharsets;
@@ -52,6 +53,11 @@ public final class App {
                 case "/mostralivello":
                     break;
                 case "/mostranavi":
+                    try {
+                        bg.showShips();
+                    } catch (GameNotReadyException e) {
+                        System.err.println(e.getMessage());
+                    }
                     break;
                 case "/gioca":
                     try {
