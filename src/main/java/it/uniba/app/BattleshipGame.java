@@ -1,6 +1,7 @@
 package it.uniba.app;
 
 import it.uniba.app.exceptions.GameAlreadyRunningException;
+import it.uniba.app.exceptions.GameNotReadyException;
 import it.uniba.app.exceptions.IllegalPositionException;
 import it.uniba.app.exceptions.UnsetDifficultyException;
 import it.uniba.app.ships.Cacciatorpediniere;
@@ -14,6 +15,8 @@ import it.uniba.app.util.Pair;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Map;
+import java.util.HashMap;
 
 /**
  * Classe che rappresenta il gioco.
@@ -53,7 +56,27 @@ public final class BattleshipGame {
         currentDifficulty = Difficulty.UNSET;
     }
 
-    void setDifficulty() {
+
+    void setDifficulty(final String command) {
+        final int easyAttempts = 50;
+        final int mediumAttempts = 30;
+        final int hardAttempts = 10;
+        switch (command.toLowerCase()) {
+            case "/facile":
+                currentDifficulty = Difficulty.EASY;
+                maxFaliedAttempts = easyAttempts;
+                break;
+            case "/medio":
+                currentDifficulty = Difficulty.MEDIUM;
+                maxFaliedAttempts = mediumAttempts;
+                break;
+            case "/difficile":
+                currentDifficulty = Difficulty.HARD;
+                maxFaliedAttempts = hardAttempts;
+                break;
+            default:
+                break;
+        }
     }
 
     void showDifficulty() {
@@ -62,11 +85,32 @@ public final class BattleshipGame {
         } else {
             System.out.println("Il livello di difficoltà impostato è : " + currentDifficulty);
             System.out.println("Il numero massimo di tentativi falliti corrispondente è : " + maxFaliedAttempts);
-        }
     }
 
-    void showShips() {
-
+    void showShips() throws GameNotReadyException {
+        if (ships == null) {
+            throw new GameNotReadyException("La partita non è ancora iniziata.");
+        }
+        System.out.println("Navi da affondare:");
+        Map<String, Integer> shipsToSink = new HashMap<>();
+        Map<String, Integer> shipsLength = new HashMap<>();
+        for (Ship ship : ships) {
+            String shipName = ship.getClass().getSimpleName();
+            int remainingCount = ship.isSunk() ? 0 : 1;
+            shipsToSink.put(shipName, shipsToSink.getOrDefault(shipName, 0) + remainingCount);
+            shipsLength.put(shipName, ship.getLength());
+        }
+        for (Map.Entry<String, Integer> entry : shipsToSink.entrySet()) {
+            String shipName = entry.getKey();
+            int remainingCount = entry.getValue();
+            int shipLength = shipsLength.get(shipName);
+            StringBuilder shipString = new StringBuilder(shipName + " ");
+            for (int i = 0; i < shipLength; i++) {
+                shipString.append("⊠");
+            }
+            shipString.append(" esemplari: " + remainingCount);
+            System.out.println(shipString);
+        }
     }
 
     void revealHitsGrid() {
@@ -205,7 +249,7 @@ public final class BattleshipGame {
             String alphabet = "ABCDEFGHIJ";
             int x = r.nextInt(GRID_SIZE);
             int y = r.nextInt(GRID_SIZE);
-            p = new Pair(alphabet.charAt(x), y + 1);
+            p = new Pair(alphabet.charAt(x), y);
             int[] coordinates = p.toArray();
             if (checkGrid[coordinates[0]][coordinates[1]]) {
                 err = true;
