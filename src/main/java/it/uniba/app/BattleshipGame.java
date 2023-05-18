@@ -1,6 +1,7 @@
 package it.uniba.app;
 
 import it.uniba.app.exceptions.GameAlreadyRunningException;
+import it.uniba.app.exceptions.GameNotReadyException;
 import it.uniba.app.exceptions.IllegalPositionException;
 import it.uniba.app.exceptions.UnsetDifficultyException;
 import it.uniba.app.ships.Cacciatorpediniere;
@@ -77,7 +78,10 @@ public final class BattleshipGame {
         System.out.println("Difficoltà attuale: " + currentDifficulty.toString());
     }
 
-    void showShips() {
+    void showShips() throws GameNotReadyException {
+        if (ships == null) {
+            throw new GameNotReadyException("La partita non è ancora iniziata.");
+        }
         System.out.println("Navi da affondare:");
         Map<String, Integer> shipsToSink = new HashMap<>();
         Map<String, Integer> shipsLength = new HashMap<>();
