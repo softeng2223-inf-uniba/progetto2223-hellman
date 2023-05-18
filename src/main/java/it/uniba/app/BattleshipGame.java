@@ -51,9 +51,6 @@ public final class BattleshipGame {
 
     BattleshipGame() {
         currentDifficulty = Difficulty.UNSET;
-        difficulty = Difficulty.UNSET;
-        tentativiFalliti = 0;
-
     }
 
     void setDifficulty() {
