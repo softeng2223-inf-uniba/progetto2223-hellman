@@ -56,10 +56,10 @@ public final class App {
                 case "/gioca":
                     try {
                         bg.newGame();
+                        System.out.println("Navi posizionate e partita iniziata.");
                     } catch (UnsetDifficultyException | GameAlreadyRunningException e) {
                         System.err.println(e.getMessage());
                     }
-                    System.out.println("Navi posizionate e partita iniziata.");
                     break;
                 case "/svelagriglia":
                     System.out.println("Griglia delle navi:");
