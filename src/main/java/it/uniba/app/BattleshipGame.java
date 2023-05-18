@@ -11,9 +11,7 @@ import it.uniba.app.ships.Portaerei;
 import it.uniba.app.ships.Ship;
 import it.uniba.app.util.Pair;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Classe che rappresenta il gioco.
@@ -80,7 +78,26 @@ public final class BattleshipGame {
     }
 
     void showShips() {
-
+        System.out.println("Navi da affondare:");
+        Map<String, Integer> shipsToSink = new HashMap<>();
+        Map<String, Integer> shipsLength = new HashMap<>();
+        for(Ship ship : ships){
+            String shipName = ship.getClass().getSimpleName();
+            int remainingCount = ship.isSunk() ? 0 : 1;
+            shipsToSink.put(shipName, shipsToSink.getOrDefault(shipName, 0) + remainingCount);
+            shipsLength.put(shipName, ship.getLength());
+        }
+        for(Map.Entry<String,Integer> entry : shipsToSink.entrySet()){
+            String shipName = entry.getKey();
+            int remainingCount = entry.getValue();
+            int shipLength = shipsLength.get(shipName);
+            StringBuilder shipString = new StringBuilder(shipName + "");
+            for(int i = 0; i < shipLength; i++){
+                shipString.append("⊠");
+            }
+            shipString.append(" esemplari: " + remainingCount);
+            System.out.println(shipString);
+        }
     }
 
     void revealHitsGrid() {
