@@ -85,6 +85,7 @@ public final class BattleshipGame {
         } else {
             System.out.println("Il livello di difficoltà impostato è : " + currentDifficulty);
             System.out.println("Il numero massimo di tentativi falliti corrispondente è : " + maxFaliedAttempts);
+        }
     }
 
     void showShips() throws GameNotReadyException {
