@@ -51,6 +51,7 @@ public final class App {
                     System.out.println("Difficoltà impostata a difficile.");
                     break;
                 case "/mostralivello":
+                    bg.showDifficulty();
                     break;
                 case "/mostranavi":
                     try {
