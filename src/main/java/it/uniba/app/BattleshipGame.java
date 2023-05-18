@@ -54,11 +54,11 @@ public final class BattleshipGame {
     }
 
     void setDifficulty() {
-        if (difficulty == Difficulty.UNSET) {
+        if (currentDifficulty == Difficulty.UNSET) {
             System.out.println("Non è stato impostato nessun livello di difficoltà");
         } else {
-            System.out.println("Il livello di difficoltà impostato è : " + difficulty);
-            System.out.println("Il numero massimo di tentativi falliti corrispondente è : " + tentativiFalliti);
+            System.out.println("Il livello di difficoltà impostato è : " + currentDifficulty);
+            System.out.println("Il numero massimo di tentativi falliti corrispondente è : " + maxFaliedAttempts);
         }
 
     }
