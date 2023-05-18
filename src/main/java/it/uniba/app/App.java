@@ -106,10 +106,10 @@ public final class App {
         System.out.println("/medio : imposta il gioco a livello medio, si hanno 30 tentativi massimi falliti ");
         System.out.println("/difficile : imposta il gioco a livello difficile, si hanno 10 tentativi massimi falliti ");
         System.out.print("/mostranavi : permette di visualizzare la sua dimensione in quadrati e il numero di navi ");
-        System.out.print("da affondare.\n -Cacciatorpediniere    [][]        esemplari: 4\n");
-        System.out.println(" -Incrociatore          [][][]      esemplari: 3");
-        System.out.println(" -Corazzata             [][][][]    esemplari: 2");
-        System.out.println(" -Portaerei             [][][][][]  esemplari: 1");
+        System.out.print("da affondare.\n -Cacciatorpediniere    ⊠⊠        esemplari: 4\n");
+        System.out.println(" -Incrociatore          ⊠⊠⊠      esemplari: 3");
+        System.out.println(" -Corazzata             ⊠⊠⊠⊠    esemplari: 2");
+        System.out.println(" -Portaerei             ⊠⊠⊠⊠⊠  esemplari: 1");
         System.out.print("/svelagriglia : permette di visualizzare la griglia 10x10, con le righe numerate ");
         System.out.print("da 1 a 10 e le colonne numerate da A a J, e tutte le navi posizionate al suo interno\n");
     }
