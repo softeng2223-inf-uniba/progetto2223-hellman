@@ -24,7 +24,7 @@ La CPU dispone le navi che tu giocatore dovrai affondare, sparando missili sulla
 # 2. Modello di dominio
 Rappresentazione del modello di dominio del progetto:
 
-![img_3.png](img_3.png)
+![Modello di dominio](.drawings/modello_di_dominio.jpg)
 # 3. Requisiti specifici
 
 ## 3.1 Requisiti funzionali
