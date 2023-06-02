@@ -92,9 +92,13 @@ public final class App {
                             System.out.println("Comando non riconosciuto.");
                         }
                     } else if (command.startsWith("/medio ")) {
-                        final int medioLength = 7;
-                        int customAttempts = Integer.parseInt(command.substring(medioLength));
-                        bg.setCustomDifficulty("/medio", customAttempts);
+                        try {
+                            final int medioLength = 7;
+                            int customAttempts = Integer.parseInt(command.substring(medioLength));
+                            bg.setCustomDifficulty("/medio", customAttempts);
+                        } catch (NumberFormatException e) {
+                            System.out.println("Comando non riconosciuto.");
+                        }
                     } else if (command.startsWith("/difficile ")) {
                         final int difficileLength = 11;
                         int customAttempts = Integer.parseInt(command.substring(difficileLength));
