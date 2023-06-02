@@ -80,7 +80,7 @@ public final class BattleshipGame {
     }
 
     void setCustomDifficulty(final String command, final int customAttempts) {
-        switch(command.toLowerCase()){
+        switch (command.toLowerCase()) {
             case "/facile":
                 System.out.println("OK");
                 currentDifficulty = Difficulty.EASY;
