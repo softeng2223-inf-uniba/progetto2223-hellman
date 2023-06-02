@@ -34,7 +34,7 @@ public final class BattleshipGame {
     /**
      * Numero di tentativi errati massimi.
      */
-    private int maxFaliedAttempts;
+    private int maxFailedAttempts;
     /**
      * Numero di tentativi errati effettuati.
      */
@@ -64,15 +64,15 @@ public final class BattleshipGame {
         switch (command.toLowerCase()) {
             case "/facile":
                 currentDifficulty = Difficulty.EASY;
-                maxFaliedAttempts = easyAttempts;
+                maxFailedAttempts = easyAttempts;
                 break;
             case "/medio":
                 currentDifficulty = Difficulty.MEDIUM;
-                maxFaliedAttempts = mediumAttempts;
+                maxFailedAttempts = mediumAttempts;
                 break;
             case "/difficile":
                 currentDifficulty = Difficulty.HARD;
-                maxFaliedAttempts = hardAttempts;
+                maxFailedAttempts = hardAttempts;
                 break;
             default:
                 break;
@@ -84,17 +84,17 @@ public final class BattleshipGame {
             case "/facile":
                 System.out.println("OK");
                 currentDifficulty = Difficulty.EASY;
-                maxFaliedAttempts = customAttempts;
+                maxFailedAttempts = customAttempts;
                 break;
             case "/medio":
                 System.out.println("OK");
                 currentDifficulty = Difficulty.MEDIUM;
-                maxFaliedAttempts = customAttempts;
+                maxFailedAttempts = customAttempts;
                 break;
             case "/difficile":
                 System.out.println("OK");
                 currentDifficulty = Difficulty.HARD;
-                maxFaliedAttempts = customAttempts;
+                maxFailedAttempts = customAttempts;
                 break;
             default:
                 System.out.println("Comando non valido");
@@ -107,7 +107,7 @@ public final class BattleshipGame {
             System.out.println("Non è stato impostato nessun livello di difficoltà");
         } else {
             System.out.println("Il livello di difficoltà impostato è : " + currentDifficulty);
-            System.out.println("Il numero massimo di tentativi falliti corrispondente è : " + maxFaliedAttempts);
+            System.out.println("Il numero massimo di tentativi falliti corrispondente è : " + maxFailedAttempts);
         }
     }
 
