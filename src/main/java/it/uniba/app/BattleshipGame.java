@@ -79,6 +79,10 @@ public final class BattleshipGame {
         }
     }
 
+    void setCustomDifficulty() {
+
+    }
+
     void showDifficulty() {
         if (currentDifficulty == Difficulty.UNSET) {
             System.out.println("Non è stato impostato nessun livello di difficoltà");
