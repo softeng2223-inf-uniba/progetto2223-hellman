@@ -83,15 +83,15 @@ public final class App {
                     bg.revealShipGrid();
                     break;
                 default:
-                    if(command.startsWith("/facile")){
+                    if (command.startsWith("/facile")) {
                         final int facileLength = 8;
                         int customAttempts = Integer.parseInt(command.substring(facileLength));
                         bg.setCustomDifficulty("/facile", customAttempts);
-                    } else if (command.startsWith("/medio")){
+                    } else if (command.startsWith("/medio")) {
                         final int medioLength = 7;
                         int customAttempts = Integer.parseInt(command.substring(medioLength));
                         bg.setCustomDifficulty("/medio", customAttempts);
-                    } else if (command.startsWith("/difficile")){
+                    } else if (command.startsWith("/difficile")) {
                         final int difficileLength = 11;
                         int customAttempts = Integer.parseInt(command.substring(difficileLength));
                         bg.setCustomDifficulty("/difficile", customAttempts);
