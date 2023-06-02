@@ -100,9 +100,13 @@ public final class App {
                             System.out.println("Comando non riconosciuto.");
                         }
                     } else if (command.startsWith("/difficile ")) {
-                        final int difficileLength = 11;
-                        int customAttempts = Integer.parseInt(command.substring(difficileLength));
-                        bg.setCustomDifficulty("/difficile", customAttempts);
+                        try {
+                            final int difficileLength = 11;
+                            int customAttempts = Integer.parseInt(command.substring(difficileLength));
+                            bg.setCustomDifficulty("/difficile", customAttempts);
+                        } catch (NumberFormatException e) {
+                            System.out.println("Comando non riconosciuto.");
+                        }
                     } else {
                         System.out.println("Comando non riconosciuto.");
                         break;
