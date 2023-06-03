@@ -79,29 +79,6 @@ public final class BattleshipGame {
         }
     }
 
-    void setCustomDifficulty(final String command, final int customAttempts) {
-        switch (command.toLowerCase()) {
-            case "/facile":
-                System.out.println("OK");
-                currentDifficulty = Difficulty.EASY;
-                maxFailedAttempts = customAttempts;
-                break;
-            case "/medio":
-                System.out.println("OK");
-                currentDifficulty = Difficulty.MEDIUM;
-                maxFailedAttempts = customAttempts;
-                break;
-            case "/difficile":
-                System.out.println("OK");
-                currentDifficulty = Difficulty.HARD;
-                maxFailedAttempts = customAttempts;
-                break;
-            default:
-                System.out.println("Comando non valido");
-                break;
-        }
-    }
-
     void showDifficulty() {
         if (currentDifficulty == Difficulty.UNSET) {
             System.out.println("Non è stato impostato nessun livello di difficoltà");
