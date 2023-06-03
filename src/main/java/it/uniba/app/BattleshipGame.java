@@ -64,7 +64,7 @@ public final class BattleshipGame {
         switch (command.toLowerCase()) {
             case "/facile":
                 currentDifficulty = Difficulty.EASY;
-                maxFailedAttempts = easyAttempts;
+                maxFailedAttempts = (customAttempts != null) ? customAttempts : easyAttempts;
                 break;
             case "/medio":
                 currentDifficulty = Difficulty.MEDIUM;
