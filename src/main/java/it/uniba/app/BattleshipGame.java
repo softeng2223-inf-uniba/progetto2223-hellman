@@ -48,14 +48,19 @@ public final class BattleshipGame {
      */
     private boolean[][] grid = new boolean[GRID_SIZE][GRID_SIZE];
     /**
-     * La griglia dei colpi. Contiene 0 nelle caselle non colpite, 1 nelle caselle colpite e 2 nelle caselle mancate.
+     * La griglia dei colpi. Contiene 0 nelle caselle non colpite, 1 nelle caselle
+     * colpite e 2 nelle caselle mancate.
      */
     private int[][] hitsGrid = new int[GRID_SIZE][GRID_SIZE];
 
     BattleshipGame() {
+        for (int i = 0; i < GRID_SIZE; i++) {
+            for (int j = 0; j < GRID_SIZE; j++) {
+                hitsGrid[i][j] = 0;
+            }
+        }
         currentDifficulty = Difficulty.UNSET;
     }
-
 
     void setDifficulty(final String command) {
         final int easyAttempts = 50;
@@ -134,7 +139,7 @@ public final class BattleshipGame {
      * H | 0  0  0  0  0  0  0  0  0  0 |
      * I | 0  0  0  0  0  0  0  0  0  0 |
      * J | 0  0  0  0  0  0  0  0  0  0 |
-     *   </pre>
+     * </pre>
      */
     void revealShipGrid() {
         String gridOutput = "   1  2  3  4  5  6  7  8  9  10\n";
@@ -155,7 +160,8 @@ public final class BattleshipGame {
     }
 
     /**
-     * Inizializza la griglia assegnando alle navi posizione ed orientamento casuale.
+     * Inizializza la griglia assegnando alle navi posizione ed orientamento
+     * casuale.
      * Questo viene fatto attraverso "brute force", ovvero generando casualmente
      * posizione ed orientamento e verificando che non ci siano sovrapposizioni.
      *
@@ -182,7 +188,7 @@ public final class BattleshipGame {
                 Orientation orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
                 Ship portaerei = new Portaerei(orientation, position, grid);
                 updateGrid(tempGrid, position, orientation, portaerei);
-                //corazzate
+                // corazzate
                 position = getRandomPosition(tempGrid);
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
                 Ship corazzata1 = new Corazzata(orientation, position, grid);
@@ -191,7 +197,7 @@ public final class BattleshipGame {
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
                 Ship corazzata2 = new Corazzata(orientation, position, grid);
                 updateGrid(tempGrid, position, orientation, corazzata2);
-                //incrociatori
+                // incrociatori
                 position = getRandomPosition(tempGrid);
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
                 Ship incrociatore1 = new Incrociatore(orientation, position, grid);
@@ -204,7 +210,7 @@ public final class BattleshipGame {
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
                 Ship incrociatore3 = new Incrociatore(orientation, position, grid);
                 updateGrid(tempGrid, position, orientation, incrociatore3);
-                //cacciatorpediniere
+                // cacciatorpediniere
                 position = getRandomPosition(tempGrid);
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
                 Ship cacciatorpediniere1 = new Cacciatorpediniere(orientation, position, grid);
@@ -229,7 +235,7 @@ public final class BattleshipGame {
     }
 
     private void updateGrid(final boolean[][] tempGrid, final Pair position,
-                            final Orientation orientation, final Ship ship) {
+            final Orientation orientation, final Ship ship) {
         ships.add(ship);
         for (int i = 0; i < ship.getLength(); i++) {
             int[] coordinates = position.toArray();
