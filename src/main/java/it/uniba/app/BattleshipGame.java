@@ -62,20 +62,20 @@ public final class BattleshipGame {
         final int mediumAttempts = 30;
         final int hardAttempts = 10;
         switch (command.toLowerCase()) {
-            case "facile":
+            case "facile" -> {
                 currentDifficulty = Difficulty.EASY;
                 maxFailedAttempts = (customAttempts != null) ? customAttempts : easyAttempts;
-                break;
-            case "medio":
+            }
+            case "medio" -> {
                 currentDifficulty = Difficulty.MEDIUM;
                 maxFailedAttempts = (customAttempts != null) ? customAttempts : mediumAttempts;
-                break;
-            case "difficile":
+            }
+            case "difficile" -> {
                 currentDifficulty = Difficulty.HARD;
                 maxFailedAttempts = (customAttempts != null) ? customAttempts : hardAttempts;
-                break;
-            default:
-                break;
+            }
+            default -> {
+            }
         }
     }
 
