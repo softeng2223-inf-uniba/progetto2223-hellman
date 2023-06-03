@@ -119,7 +119,7 @@ public final class BattleshipGame {
     }
 
     /**
-     * Mostra la griglia dei colpi.
+     * Mostra la griglia delle navi.
      * La griglia sarà di questo tipo:
      * <pre>
      *     1  2  3  4  5  6  7  8  9  10
