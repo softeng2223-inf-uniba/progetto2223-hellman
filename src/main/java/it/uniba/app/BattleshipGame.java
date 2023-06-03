@@ -57,7 +57,7 @@ public final class BattleshipGame {
     }
 
 
-    void setDifficulty(final String command) {
+    void setDifficulty(final String command, final Integer customAttempts) {
         final int easyAttempts = 50;
         final int mediumAttempts = 30;
         final int hardAttempts = 10;
