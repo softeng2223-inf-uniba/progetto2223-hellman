@@ -33,7 +33,7 @@ public final class App {
             exit = false;
             System.out.print("Inserisci un comando: ");
             String input = s.nextLine();
-            if(input.startsWith("/")) {
+            if (input.startsWith("/")) {
                 String[] arguments = null;
                 boolean hasArgs = false;
                 StringTokenizer st = new StringTokenizer(input.substring(1), "");
