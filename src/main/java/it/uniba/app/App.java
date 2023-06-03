@@ -87,6 +87,14 @@ public final class App {
                         }
                         break;
                     case "difficile":
+                        if (!hasArgs) {
+                            bg.setDifficulty(command, null);
+                            System.out.println("Difficoltà impostata a difficile.");
+                        } else {
+                            int valore = Integer.parseInt(arguments[0]);
+                            bg.setDifficulty(command, valore);
+                            System.out.println("OK");
+                        }
                         break;
                     case "mostralivello":
                         bg.showDifficulty();
