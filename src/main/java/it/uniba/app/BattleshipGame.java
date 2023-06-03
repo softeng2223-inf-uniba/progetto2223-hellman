@@ -125,7 +125,7 @@ public final class BattleshipGame {
         for (int i = 0; i < GRID_SIZE; i++) {
             gridOutput += (char) ('A' + i) + "|";
             for (int j = 0; j < GRID_SIZE; j++) {
-                if (hitsGrid[i][j] != 0) {
+                if (hitsGrid[i][j] == 0) {
                     gridOutput += "   ";
                 } else {
                     if (hitsGrid[i][j] == 1) {
