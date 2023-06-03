@@ -67,12 +67,12 @@ public final class BattleshipGame {
                 maxFailedAttempts = (customAttempts != null) ? customAttempts : easyAttempts;
                 System.out.println("OK");
                 break;
-            case "/medio":
+            case "medio":
                 currentDifficulty = Difficulty.MEDIUM;
                 maxFailedAttempts = (customAttempts != null) ? customAttempts : mediumAttempts;
                 System.out.println("OK");
                 break;
-            case "/difficile":
+            case "difficile":
                 currentDifficulty = Difficulty.HARD;
                 maxFailedAttempts = (customAttempts != null) ? customAttempts : hardAttempts;
                 System.out.println("OK");
