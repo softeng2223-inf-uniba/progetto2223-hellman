@@ -144,9 +144,12 @@ public final class App {
         System.out.print("premendo 'N' l'applicazione si predispone a ricevere nuovi tentativi o comandi\n");
         System.out.print("/mostralivello : permette di visualizzare il livello di gioco e il numero massimo di ");
         System.out.print("tentativi falliti\n");
-        System.out.println("/facile : imposta il gioco a livello facile, si hanno 50 tentativi massimi falliti");
+        System.out.println("/facile : imposta il gioco a livello facile, si hanno 50 tentativi massimi falliti. ");
+        System.out.println("Può essere specificato un numero di tentativi massimi falliti, esempio: /facile 30. ");
         System.out.println("/medio : imposta il gioco a livello medio, si hanno 30 tentativi massimi falliti ");
+        System.out.println("Può essere specificato un numero di tentativi massimi falliti, esempio: /medio 20. ");
         System.out.println("/difficile : imposta il gioco a livello difficile, si hanno 10 tentativi massimi falliti ");
+        System.out.println("Può essere specificato un numero di tentativi massimi falliti, esempio: /difficile 5. ");
         System.out.print("/mostranavi : permette di visualizzare la sua dimensione in quadrati e il numero di navi ");
         System.out.print("da affondare.\n -Cacciatorpediniere    ⊠⊠        esemplari: 4\n");
         System.out.println(" -Incrociatore          ⊠⊠⊠      esemplari: 3");
