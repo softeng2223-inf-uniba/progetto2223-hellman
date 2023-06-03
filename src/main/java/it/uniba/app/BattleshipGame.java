@@ -26,7 +26,7 @@ public final class BattleshipGame {
     /**
      * La difficoltà del gioco.
      */
-    private Difficulty currentDifficulty = Difficulty.UNSET;
+    private Difficulty currentDifficulty;
     /**
      * Lista delle navi.
      */
