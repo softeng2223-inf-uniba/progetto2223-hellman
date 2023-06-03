@@ -51,15 +51,24 @@ public final class BattleshipGame {
      * colpite e 2 nelle caselle mancate.
      */
     private int[][] hitsGrid = new int[GRID_SIZE][GRID_SIZE];
+    /**
+     * Il numero di tentativi per la difficoltà EASY
+     */
+    private final int easyAttempts = 50;
+    /**
+     * Il numero di tentativi per la difficoltà MEDIUM
+     */
+    private final int mediumAttempts = 30;
+    /**
+     * Il numero di tentativi per la difficoltà HARD
+     */
+    private final int hardAttempts = 10;
 
     BattleshipGame() {
         currentDifficulty = Difficulty.EASY;
     }
 
     void setDifficulty(final String command) {
-        final int easyAttempts = 50;
-        final int mediumAttempts = 30;
-        final int hardAttempts = 10;
         switch (command.toLowerCase()) {
             case "/facile":
                 currentDifficulty = Difficulty.EASY;
