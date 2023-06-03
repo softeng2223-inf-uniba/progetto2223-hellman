@@ -83,34 +83,8 @@ public final class App {
                     bg.revealShipGrid();
                     break;
                 default:
-                    if (command.startsWith("/facile ")) {
-                        try {
-                            final int facileLength = 8;
-                            int customAttempts = Integer.parseInt(command.substring(facileLength));
-                            bg.setCustomDifficulty("/facile", customAttempts);
-                        } catch (NumberFormatException e) {
-                            System.out.println("Comando non riconosciuto.");
-                        }
-                    } else if (command.startsWith("/medio ")) {
-                        try {
-                            final int medioLength = 7;
-                            int customAttempts = Integer.parseInt(command.substring(medioLength));
-                            bg.setCustomDifficulty("/medio", customAttempts);
-                        } catch (NumberFormatException e) {
-                            System.out.println("Comando non riconosciuto.");
-                        }
-                    } else if (command.startsWith("/difficile ")) {
-                        try {
-                            final int difficileLength = 11;
-                            int customAttempts = Integer.parseInt(command.substring(difficileLength));
-                            bg.setCustomDifficulty("/difficile", customAttempts);
-                        } catch (NumberFormatException e) {
-                            System.out.println("Comando non riconosciuto.");
-                        }
-                    } else {
-                        System.out.println("Comando non riconosciuto.");
-                        break;
-                    }
+                    System.out.println("Comando non riconosciuto.");
+                    break;
             }
         } while (!exit);
     }
