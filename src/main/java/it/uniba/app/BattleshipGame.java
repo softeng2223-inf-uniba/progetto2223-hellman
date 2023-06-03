@@ -72,7 +72,7 @@ public final class BattleshipGame {
                 break;
             case "/difficile":
                 currentDifficulty = Difficulty.HARD;
-                maxFailedAttempts = hardAttempts;
+                maxFailedAttempts = (customAttempts != null) ? customAttempts : hardAttempts;
                 break;
             default:
                 break;
