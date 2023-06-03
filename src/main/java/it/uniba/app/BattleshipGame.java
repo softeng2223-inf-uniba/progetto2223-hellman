@@ -52,15 +52,15 @@ public final class BattleshipGame {
      */
     private int[][] hitsGrid = new int[GRID_SIZE][GRID_SIZE];
     /**
-     * Il numero di tentativi per la difficoltà EASY
+     * Il numero di tentativi per la difficoltà EASY.
      */
     private final int easyAttempts = 50;
     /**
-     * Il numero di tentativi per la difficoltà MEDIUM
+     * Il numero di tentativi per la difficoltà MEDIUM.
      */
     private final int mediumAttempts = 30;
     /**
-     * Il numero di tentativi per la difficoltà HARD
+     * Il numero di tentativi per la difficoltà HARD.
      */
     private final int hardAttempts = 10;
 
@@ -126,7 +126,6 @@ public final class BattleshipGame {
     /**
      * Mostra la griglia dei colpi.
      * La griglia sarà di questo tipo:
-     * 
      * <pre>
      *     1  2  3  4  5  6  7  8  9  10
      *   |------------------------------|
