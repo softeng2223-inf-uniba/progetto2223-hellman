@@ -30,7 +30,6 @@ public final class App {
         System.out.println("==== Battleship Game ====");
         boolean exit = false;
         do {
-            exit = false;
             System.out.print("Inserisci un comando: ");
             String input = s.nextLine();
             if (input.startsWith("/")) {
