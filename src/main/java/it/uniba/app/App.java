@@ -50,23 +50,19 @@ public final class App {
                         arguments[i] = st.nextToken();
                     }
                 }
-                switch (command) {
-                    case "help":
-                        showHelp();
-                        break;
-                    case "esci":
+                switch (command.toLowerCase()) {
+                    case "help" -> showHelp();
+                    case "esci" -> {
                         System.out.print("Sei sicuro di voler chiudere il gioco? S/N: ");
                         String conferma = s.nextLine();
-
                         if (conferma.equalsIgnoreCase("S")) {
                             System.out.println("Chiusura del gioco in corso...");
                             exit = true;
                         } else {
                             System.out.println("Puoi continuare a giocare.");
                         }
-
-                        break;
-                    case "facile":
+                    }
+                    case "facile" -> {
                         if (!hasArgs) {
                             bg.setDifficulty(command, null);
                             System.out.println("Difficoltà impostata a facile.");
@@ -79,8 +75,8 @@ public final class App {
                                 System.err.println("Comando non valido: utilizza /facile <numero>.");
                             }
                         }
-                        break;
-                    case "medio":
+                    }
+                    case "medio" -> {
                         if (!hasArgs) {
                             bg.setDifficulty(command, null);
                             System.out.println("Difficoltà impostata a medio.");
@@ -93,8 +89,8 @@ public final class App {
                                 System.err.println("Comando non valido: utilizza /medio <numero>.");
                             }
                         }
-                        break;
-                    case "difficile":
+                    }
+                    case "difficile" -> {
                         if (!hasArgs) {
                             bg.setDifficulty(command, null);
                             System.out.println("Difficoltà impostata a difficile.");
@@ -107,32 +103,28 @@ public final class App {
                                 System.err.println("Comando non valido: utilizza /difficile <numero>.");
                             }
                         }
-                        break;
-                    case "mostralivello":
-                        bg.showDifficulty();
-                        break;
-                    case "mostranavi":
+                    }
+                    case "mostralivello" -> bg.showDifficulty();
+                    case "mostranavi" -> {
                         try {
                             bg.showShips();
                         } catch (GameNotReadyException e) {
                             System.err.println(e.getMessage());
                         }
-                        break;
-                    case "gioca":
+                    }
+                    case "gioca" -> {
                         try {
                             bg.newGame();
                             System.out.println("Navi posizionate e partita iniziata.");
                         } catch (UnsetDifficultyException | GameAlreadyRunningException e) {
                             System.err.println(e.getMessage());
                         }
-                        break;
-                    case "svelagriglia":
+                    }
+                    case "svelagriglia" -> {
                         System.out.println("Griglia delle navi:");
                         bg.revealShipGrid();
-                        break;
-                    default:
-                        System.out.println("Comando non riconosciuto.");
-                        break;
+                    }
+                    default -> System.out.println("Comando non riconosciuto.");
                 }
             } else {
                 System.out.println("Comando non riconosciuto.");
