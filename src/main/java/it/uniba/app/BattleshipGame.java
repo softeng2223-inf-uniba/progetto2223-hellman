@@ -54,15 +54,15 @@ public final class BattleshipGame {
     /**
      * Il numero di tentativi per la difficoltà EASY.
      */
-    private final int easyAttempts = 50;
+    private static final int easyAttempts = 50;
     /**
      * Il numero di tentativi per la difficoltà MEDIUM.
      */
-    private final int mediumAttempts = 30;
+    private static final int mediumAttempts = 30;
     /**
      * Il numero di tentativi per la difficoltà HARD.
      */
-    private final int hardAttempts = 10;
+    private static final int hardAttempts = 10;
 
     BattleshipGame() {
         currentDifficulty = Difficulty.EASY;
