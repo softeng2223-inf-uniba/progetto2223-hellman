@@ -68,7 +68,7 @@ public final class BattleshipGame {
                 break;
             case "/medio":
                 currentDifficulty = Difficulty.MEDIUM;
-                maxFailedAttempts = mediumAttempts;
+                maxFailedAttempts = (customAttempts != null) ? customAttempts : mediumAttempts;
                 break;
             case "/difficile":
                 currentDifficulty = Difficulty.HARD;
