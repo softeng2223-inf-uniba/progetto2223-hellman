@@ -32,6 +32,24 @@ public final class App {
             exit = false;
             System.out.print("Inserisci un comando: ");
             String command = s.nextLine();
+            if(input.startWith("/")){
+                String[] arguments = null;
+                boolean hasArgs = false;
+                StringTokenizer st = new StringTokenizer(input.substring(1), "");
+
+                if(st.countTokens()>1){
+                    hasArgs = true;
+                    arguments = new String[st.countToken()];
+                }
+
+                String command = st.nextToken();
+                if (hasArgs){
+                    int numTokens = st.countTokens();
+                    for(int i = 0; i < numTokens; i++) {
+                        arguments[i] = st.nextToken();
+                    }
+                }
+            }
             switch (command.toLowerCase()) {
                 case "/help":
                     showHelp();
