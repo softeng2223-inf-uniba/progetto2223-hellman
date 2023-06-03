@@ -71,9 +71,13 @@ public final class App {
                             bg.setDifficulty(command, null);
                             System.out.println("Difficoltà impostata a facile.");
                         } else {
-                            int valore = Integer.parseInt(arguments[0]);
-                            bg.setDifficulty(command, valore);
-                            System.out.println("OK");
+                            try {
+                                int valore = Integer.parseInt(arguments[0]);
+                                bg.setDifficulty(command, valore);
+                                System.out.println("OK");
+                            } catch (NumberFormatException e) {
+                                System.err.println("Comando non valido: utilizza /facile <numero>.");
+                            }
                         }
                         break;
                     case "medio":
