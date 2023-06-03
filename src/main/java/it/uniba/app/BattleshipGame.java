@@ -66,6 +66,7 @@ public final class BattleshipGame {
 
     BattleshipGame() {
         currentDifficulty = Difficulty.EASY;
+        maxFaliedAttempts = easyAttempts;
     }
 
     void setDifficulty(final String command) {
