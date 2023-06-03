@@ -54,7 +54,7 @@ public final class BattleshipGame {
     private int[][] hitsGrid = new int[GRID_SIZE][GRID_SIZE];
 
     BattleshipGame() {
-        currentDifficulty = Difficulty.UNSET;
+        currentDifficulty = Difficulty.EASY;
     }
 
     void setDifficulty(final String command) {
