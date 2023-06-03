@@ -3,7 +3,6 @@ package it.uniba.app;
 import it.uniba.app.exceptions.GameAlreadyRunningException;
 import it.uniba.app.exceptions.GameNotReadyException;
 import it.uniba.app.exceptions.IllegalPositionException;
-import it.uniba.app.exceptions.UnsetDifficultyException;
 import it.uniba.app.ships.Cacciatorpediniere;
 import it.uniba.app.ships.Corazzata;
 import it.uniba.app.ships.Incrociatore;
