@@ -9,10 +9,10 @@ package it.uniba.app.util;
 public final class Pair {
     private final Character first;
     private final Integer second;
-    private static final int MIN_INT = 1;
-    private static final int MAX_INT = 10;
+    private static final int MIN_INT = 0;
+    private static final int MAX_INT = 9;
     private static final String ERR_MSG =
-            "Il secondo valore deve essere compreso tra 1 e 10";
+            "Il secondo valore deve essere compreso tra 0 e 9";
 
     /**
      * Costruttore della coppia.
@@ -21,7 +21,7 @@ public final class Pair {
      * @param secondItem l'intero
      * @throws IllegalArgumentException se il carattere
      *                                  non è compreso tra A e J,
-     *                                  o se l'intero non è compreso tra 1 e 10
+     *                                  o se l'intero non è compreso tra 0 e 9
      */
     public Pair(final Character firstItem, final Integer secondItem) throws IllegalArgumentException {
         if (firstItem == 'A' || firstItem == 'B' || firstItem == 'C'

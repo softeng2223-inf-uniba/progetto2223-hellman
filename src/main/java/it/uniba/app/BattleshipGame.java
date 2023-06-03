@@ -1,6 +1,7 @@
 package it.uniba.app;
 
 import it.uniba.app.exceptions.GameAlreadyRunningException;
+import it.uniba.app.exceptions.GameNotReadyException;
 import it.uniba.app.exceptions.IllegalPositionException;
 import it.uniba.app.exceptions.UnsetDifficultyException;
 import it.uniba.app.ships.Cacciatorpediniere;
@@ -14,6 +15,8 @@ import it.uniba.app.util.Pair;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Map;
+import java.util.HashMap;
 
 /**
  * Classe che rappresenta il gioco.
@@ -53,20 +56,102 @@ public final class BattleshipGame {
         currentDifficulty = Difficulty.UNSET;
     }
 
-    void setDifficulty() {
 
+    void setDifficulty(final String command) {
+        final int easyAttempts = 50;
+        final int mediumAttempts = 30;
+        final int hardAttempts = 10;
+        switch (command.toLowerCase()) {
+            case "/facile":
+                currentDifficulty = Difficulty.EASY;
+                maxFaliedAttempts = easyAttempts;
+                break;
+            case "/medio":
+                currentDifficulty = Difficulty.MEDIUM;
+                maxFaliedAttempts = mediumAttempts;
+                break;
+            case "/difficile":
+                currentDifficulty = Difficulty.HARD;
+                maxFaliedAttempts = hardAttempts;
+                break;
+            default:
+                break;
+        }
     }
 
     void showDifficulty() {
+        if (currentDifficulty == Difficulty.UNSET) {
+            System.out.println("Non è stato impostato nessun livello di difficoltà");
+        } else {
+            System.out.println("Il livello di difficoltà impostato è : " + currentDifficulty);
+            System.out.println("Il numero massimo di tentativi falliti corrispondente è : " + maxFaliedAttempts);
+        }
+    }
+
+    void showShips() throws GameNotReadyException {
+        if (ships == null) {
+            throw new GameNotReadyException("La partita non è ancora iniziata.");
+        }
+        System.out.println("Navi da affondare:");
+        Map<String, Integer> shipsToSink = new HashMap<>();
+        Map<String, Integer> shipsLength = new HashMap<>();
+        for (Ship ship : ships) {
+            String shipName = ship.getClass().getSimpleName();
+            int remainingCount = ship.isSunk() ? 0 : 1;
+            shipsToSink.put(shipName, shipsToSink.getOrDefault(shipName, 0) + remainingCount);
+            shipsLength.put(shipName, ship.getLength());
+        }
+        for (Map.Entry<String, Integer> entry : shipsToSink.entrySet()) {
+            String shipName = entry.getKey();
+            int remainingCount = entry.getValue();
+            int shipLength = shipsLength.get(shipName);
+            StringBuilder shipString = new StringBuilder(shipName + " ");
+            for (int i = 0; i < shipLength; i++) {
+                shipString.append("⊠");
+            }
+            shipString.append(" esemplari: " + remainingCount);
+            System.out.println(shipString);
+        }
+    }
+
+    void revealHitsGrid() {
 
     }
 
-    void showShips() {
+    /**
+     * Mostra la griglia dei colpi.
+     * La griglia sarà di questo tipo:
+     * <pre>
+     *     1  2  3  4  5  6  7  8  9  10
+     *   |------------------------------|
+     * A | 0  0  0  0  0  0  0  0  0  0 |
+     * B | 0  0  0  0  0  0  0  0  0  0 |
+     * C | 0  0  0  0  0  0  0  0  0  0 |
+     * D | 0  0  0  0  0  0  0  0  0  0 |
+     * E | 0  0  0  0  0  0  0  0  0  0 |
+     * F | 0  0  0  0  0  0  0  0  0  0 |
+     * G | 0  0  0  0  0  0  0  0  0  0 |
+     * H | 0  0  0  0  0  0  0  0  0  0 |
+     * I | 0  0  0  0  0  0  0  0  0  0 |
+     * J | 0  0  0  0  0  0  0  0  0  0 |
+     *   </pre>
+     */
+    void revealShipGrid() {
+        String gridOutput = "   1  2  3  4  5  6  7  8  9  10\n";
+        gridOutput += " |------------------------------\n";
+        for (int i = 0; i < GRID_SIZE; i++) {
+            gridOutput += (char) ('A' + i) + "|";
+            for (int j = 0; j < GRID_SIZE; j++) {
+                if (grid[i][j]) {
+                    gridOutput += " X ";
+                } else {
+                    gridOutput += "   ";
+                }
+            }
+            gridOutput += "\n";
+        }
 
-    }
-
-    void revealGrid() {
-
+        System.out.println(gridOutput);
     }
 
     /**
@@ -165,7 +250,7 @@ public final class BattleshipGame {
             String alphabet = "ABCDEFGHIJ";
             int x = r.nextInt(GRID_SIZE);
             int y = r.nextInt(GRID_SIZE);
-            p = new Pair(alphabet.charAt(x), y + 1);
+            p = new Pair(alphabet.charAt(x), y);
             int[] coordinates = p.toArray();
             if (checkGrid[coordinates[0]][coordinates[1]]) {
                 err = true;
