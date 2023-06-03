@@ -134,6 +134,8 @@ public final class App {
                         System.out.println("Comando non riconosciuto.");
                         break;
                 }
+            } else {
+                System.out.println("Comando non riconosciuto.");
             }
         } while (!exit);
     }
