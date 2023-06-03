@@ -74,7 +74,7 @@ public final class App {
                     try {
                         bg.newGame();
                         System.out.println("Navi posizionate e partita iniziata.");
-                    } catch (UnsetDifficultyException | GameAlreadyRunningException e) {
+                    } catch (GameAlreadyRunningException e) {
                         System.err.println(e.getMessage());
                     }
                     break;
