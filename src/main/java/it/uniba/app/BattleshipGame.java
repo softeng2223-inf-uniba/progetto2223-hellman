@@ -160,10 +160,7 @@ public final class BattleshipGame {
      * @throws UnsetDifficultyException    se non è stata impostata la difficoltà
      * @throws GameAlreadyRunningException se c'è già una partita in corso
      */
-    void newGame() throws UnsetDifficultyException, GameAlreadyRunningException {
-        if (currentDifficulty == Difficulty.UNSET) {
-            throw new UnsetDifficultyException("Devi impostare la difficoltà prima di iniziare una nuova partita.");
-        }
+    void newGame() throws GameAlreadyRunningException {
         if (ships != null) {
             throw new GameAlreadyRunningException("C'è già una partita in corso.");
         }
