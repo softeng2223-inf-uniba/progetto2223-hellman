@@ -6,6 +6,7 @@ import it.uniba.app.exceptions.UnsetDifficultyException;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 /**
  * Main class of the application.
@@ -31,78 +32,78 @@ public final class App {
         do {
             exit = false;
             System.out.print("Inserisci un comando: ");
-            String command = s.nextLine();
-            if(input.startWith("/")){
+            String input = s.nextLine();
+            if(input.startsWith("/")) {
                 String[] arguments = null;
                 boolean hasArgs = false;
                 StringTokenizer st = new StringTokenizer(input.substring(1), "");
 
-                if(st.countTokens()>1){
+                if (st.countTokens() > 1) {
                     hasArgs = true;
-                    arguments = new String[st.countToken()];
+                    arguments = new String[st.countTokens()];
                 }
 
                 String command = st.nextToken();
-                if (hasArgs){
+                if (hasArgs) {
                     int numTokens = st.countTokens();
-                    for(int i = 0; i < numTokens; i++) {
+                    for (int i = 0; i < numTokens; i++) {
                         arguments[i] = st.nextToken();
                     }
                 }
-            }
-            switch (command.toLowerCase()) {
-                case "/help":
-                    showHelp();
-                    break;
-                case "/esci":
-                    System.out.print("Sei sicuro di voler chiudere il gioco? S/N: ");
-                    String conferma = s.nextLine();
+                switch (command.toLowerCase()) {
+                    case "/help":
+                        showHelp();
+                        break;
+                    case "/esci":
+                        System.out.print("Sei sicuro di voler chiudere il gioco? S/N: ");
+                        String conferma = s.nextLine();
 
-                    if (conferma.equalsIgnoreCase("S")) {
-                        System.out.println("Chiusura del gioco in corso...");
-                        exit = true;
-                    } else {
-                        System.out.println("Puoi continuare a giocare.");
-                    }
+                        if (conferma.equalsIgnoreCase("S")) {
+                            System.out.println("Chiusura del gioco in corso...");
+                            exit = true;
+                        } else {
+                            System.out.println("Puoi continuare a giocare.");
+                        }
 
-                    break;
-                case "/facile":
-                    bg.setDifficulty(command);
-                    System.out.println("Difficoltà impostata a facile.");
-                    break;
-                case "/medio":
-                    bg.setDifficulty(command);
-                    System.out.println("Difficoltà impostata a medio.");
-                    break;
-                case "/difficile":
-                    bg.setDifficulty(command);
-                    System.out.println("Difficoltà impostata a difficile.");
-                    break;
-                case "/mostralivello":
-                    bg.showDifficulty();
-                    break;
-                case "/mostranavi":
-                    try {
-                        bg.showShips();
-                    } catch (GameNotReadyException e) {
-                        System.err.println(e.getMessage());
-                    }
-                    break;
-                case "/gioca":
-                    try {
-                        bg.newGame();
-                        System.out.println("Navi posizionate e partita iniziata.");
-                    } catch (UnsetDifficultyException | GameAlreadyRunningException e) {
-                        System.err.println(e.getMessage());
-                    }
-                    break;
-                case "/svelagriglia":
-                    System.out.println("Griglia delle navi:");
-                    bg.revealShipGrid();
-                    break;
-                default:
-                    System.out.println("Comando non riconosciuto.");
-                    break;
+                        break;
+                    case "/facile":
+                        bg.setDifficulty(command);
+                        System.out.println("Difficoltà impostata a facile.");
+                        break;
+                    case "/medio":
+                        bg.setDifficulty(command);
+                        System.out.println("Difficoltà impostata a medio.");
+                        break;
+                    case "/difficile":
+                        bg.setDifficulty(command);
+                        System.out.println("Difficoltà impostata a difficile.");
+                        break;
+                    case "/mostralivello":
+                        bg.showDifficulty();
+                        break;
+                    case "/mostranavi":
+                        try {
+                            bg.showShips();
+                        } catch (GameNotReadyException e) {
+                            System.err.println(e.getMessage());
+                        }
+                        break;
+                    case "/gioca":
+                        try {
+                            bg.newGame();
+                            System.out.println("Navi posizionate e partita iniziata.");
+                        } catch (UnsetDifficultyException | GameAlreadyRunningException e) {
+                            System.err.println(e.getMessage());
+                        }
+                        break;
+                    case "/svelagriglia":
+                        System.out.println("Griglia delle navi:");
+                        bg.revealShipGrid();
+                        break;
+                    default:
+                        System.out.println("Comando non riconosciuto.");
+                        break;
+                }
             }
         } while (!exit);
     }
