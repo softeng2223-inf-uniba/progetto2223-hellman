@@ -36,7 +36,7 @@ public final class App {
             if (input.startsWith("/")) {
                 String[] arguments = null;
                 boolean hasArgs = false;
-                StringTokenizer st = new StringTokenizer(input.substring(1), "");
+                StringTokenizer st = new StringTokenizer(input.substring(1), " ");
 
                 if (st.countTokens() > 1) {
                     hasArgs = true;
@@ -50,11 +50,11 @@ public final class App {
                         arguments[i] = st.nextToken();
                     }
                 }
-                switch (command.toLowerCase()) {
-                    case "/help":
+                switch (command) {
+                    case "help":
                         showHelp();
                         break;
-                    case "/esci":
+                    case "esci":
                         System.out.print("Sei sicuro di voler chiudere il gioco? S/N: ");
                         String conferma = s.nextLine();
 
@@ -66,29 +66,31 @@ public final class App {
                         }
 
                         break;
-                    case "/facile":
-                        bg.setDifficulty(command);
-                        System.out.println("Difficoltà impostata a facile.");
+                    case "facile":
+                        if (!hasArgs) {
+                            bg.setDifficulty(command, null);
+                            System.out.println("Difficoltà impostata a facile.");
+                        } else {
+                            int valore = Integer.parseInt(arguments[0]);
+                            bg.setDifficulty(command, valore);
+                            System.out.println("OK");
+                        }
                         break;
-                    case "/medio":
-                        bg.setDifficulty(command);
-                        System.out.println("Difficoltà impostata a medio.");
+                    case "medio":
                         break;
-                    case "/difficile":
-                        bg.setDifficulty(command);
-                        System.out.println("Difficoltà impostata a difficile.");
+                    case "difficile":
                         break;
-                    case "/mostralivello":
+                    case "mostralivello":
                         bg.showDifficulty();
                         break;
-                    case "/mostranavi":
+                    case "mostranavi":
                         try {
                             bg.showShips();
                         } catch (GameNotReadyException e) {
                             System.err.println(e.getMessage());
                         }
                         break;
-                    case "/gioca":
+                    case "gioca":
                         try {
                             bg.newGame();
                             System.out.println("Navi posizionate e partita iniziata.");
@@ -96,7 +98,7 @@ public final class App {
                             System.err.println(e.getMessage());
                         }
                         break;
-                    case "/svelagriglia":
+                    case "svelagriglia":
                         System.out.println("Griglia delle navi:");
                         bg.revealShipGrid();
                         break;
