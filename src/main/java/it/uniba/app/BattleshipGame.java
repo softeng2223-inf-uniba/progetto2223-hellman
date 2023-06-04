@@ -98,30 +98,12 @@ public final class BattleshipGame {
         System.out.println("Il numero massimo di tentativi falliti corrispondente è : " + maxFailedAttempts);
     }
 
-    void showShips() throws GameNotReadyException {
-        if (ships == null) {
-            throw new GameNotReadyException("La partita non è ancora iniziata.");
-        }
+    void showShips() {
         System.out.println("Navi da affondare:");
-        Map<String, Integer> shipsToSink = new HashMap<>();
-        Map<String, Integer> shipsLength = new HashMap<>();
-        for (Ship ship : ships) {
-            String shipName = ship.getClass().getSimpleName();
-            int remainingCount = ship.isSunk() ? 0 : 1;
-            shipsToSink.put(shipName, shipsToSink.getOrDefault(shipName, 0) + remainingCount);
-            shipsLength.put(shipName, ship.getLength());
-        }
-        for (Map.Entry<String, Integer> entry : shipsToSink.entrySet()) {
-            String shipName = entry.getKey();
-            int remainingCount = entry.getValue();
-            int shipLength = shipsLength.get(shipName);
-            StringBuilder shipString = new StringBuilder(shipName + " ");
-            for (int i = 0; i < shipLength; i++) {
-                shipString.append("⊠");
-            }
-            shipString.append(" esemplari: " + remainingCount);
-            System.out.println(shipString);
-        }
+        System.out.println("- Cacciatorpediniere ⊠⊠           esemplari: 4");
+        System.out.println("- Incrociatore       ⊠⊠⊠          esemplari: 3");
+        System.out.println("- Corazzata          ⊠⊠⊠⊠         esemplari: 2");
+        System.out.println("- Portaerei          ⊠⊠⊠⊠⊠        esemplari: 1");
     }
 
     void revealHitsGrid() {
