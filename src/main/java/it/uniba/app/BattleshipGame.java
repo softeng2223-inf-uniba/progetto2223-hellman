@@ -167,7 +167,6 @@ public final class BattleshipGame {
      * Questo viene fatto attraverso "brute force", ovvero generando casualmente
      * posizione ed orientamento e verificando che non ci siano sovrapposizioni.
      *
-     * @throws UnsetDifficultyException    se non è stata impostata la difficoltà
      * @throws GameAlreadyRunningException se c'è già una partita in corso
      */
     void newGame() throws GameAlreadyRunningException {
