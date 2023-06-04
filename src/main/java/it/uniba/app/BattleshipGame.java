@@ -148,7 +148,7 @@ public final class BattleshipGame {
             gridOutput += (char) ('A' + i) + "|";
             for (int j = 0; j < GRID_SIZE; j++) {
                 if (grid[i][j]) {
-                    gridOutput += " X ";
+                    gridOutput += " ⊠ ";
                 } else {
                     gridOutput += "   ";
                 }
