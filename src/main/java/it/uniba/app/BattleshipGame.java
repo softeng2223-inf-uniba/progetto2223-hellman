@@ -1,7 +1,6 @@
 package it.uniba.app;
 
 import it.uniba.app.exceptions.GameAlreadyRunningException;
-import it.uniba.app.exceptions.GameNotReadyException;
 import it.uniba.app.exceptions.IllegalPositionException;
 import it.uniba.app.ships.Cacciatorpediniere;
 import it.uniba.app.ships.Corazzata;
@@ -14,8 +13,6 @@ import it.uniba.app.util.Pair;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Map;
-import java.util.HashMap;
 
 /**
  * Classe che rappresenta il gioco.

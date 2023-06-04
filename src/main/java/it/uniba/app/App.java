@@ -1,7 +1,6 @@
 package it.uniba.app;
 
 import it.uniba.app.exceptions.GameAlreadyRunningException;
-import it.uniba.app.exceptions.GameNotReadyException;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
