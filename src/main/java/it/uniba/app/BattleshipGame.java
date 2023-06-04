@@ -66,7 +66,7 @@ public final class BattleshipGame {
 
     BattleshipGame() {
         currentDifficulty = Difficulty.EASY;
-        maxFaliedAttempts = easyAttempts;
+        maxFailedAttempts = easyAttempts;
     }
 
     void setDifficulty(final String command, final Integer customAttempts) {
@@ -90,7 +90,7 @@ public final class BattleshipGame {
 
     void showDifficulty() {
         System.out.println("Il livello di difficoltà impostato è : " + currentDifficulty);
-        System.out.println("Il numero massimo di tentativi falliti corrispondente è : " + maxFaliedAttempts);
+        System.out.println("Il numero massimo di tentativi falliti corrispondente è : " + maxFailedAttempts);
     }
 
     void showShips() throws GameNotReadyException {
