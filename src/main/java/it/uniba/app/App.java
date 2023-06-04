@@ -104,11 +104,7 @@ public final class App {
                     }
                     case "mostralivello" -> bg.showDifficulty();
                     case "mostranavi" -> {
-                        try {
                             bg.showShips();
-                        } catch (GameNotReadyException e) {
-                            System.err.println(e.getMessage());
-                        }
                     }
                     case "gioca" -> {
                         try {
