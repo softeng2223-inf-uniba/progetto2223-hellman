@@ -33,7 +33,7 @@ public final class BattleshipGame {
     /**
      * Numero di tentativi errati massimi.
      */
-    private int maxFaliedAttempts;
+    private int maxFailedAttempts;
     /**
      * Numero di tentativi errati effettuati.
      */
@@ -69,22 +69,22 @@ public final class BattleshipGame {
         maxFaliedAttempts = easyAttempts;
     }
 
-    void setDifficulty(final String command) {
+    void setDifficulty(final String command, final Integer customAttempts) {
         switch (command.toLowerCase()) {
-            case "/facile":
+            case "facile" -> {
                 currentDifficulty = Difficulty.EASY;
-                maxFaliedAttempts = easyAttempts;
-                break;
-            case "/medio":
+                maxFailedAttempts = (customAttempts != null) ? customAttempts : easyAttempts;
+            }
+            case "medio" -> {
                 currentDifficulty = Difficulty.MEDIUM;
-                maxFaliedAttempts = mediumAttempts;
-                break;
-            case "/difficile":
+                maxFailedAttempts = (customAttempts != null) ? customAttempts : mediumAttempts;
+            }
+            case "difficile" -> {
                 currentDifficulty = Difficulty.HARD;
-                maxFaliedAttempts = hardAttempts;
-                break;
-            default:
-                break;
+                maxFailedAttempts = (customAttempts != null) ? customAttempts : hardAttempts;
+            }
+            default -> {
+            }
         }
     }
 
