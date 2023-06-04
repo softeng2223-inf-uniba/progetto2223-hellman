@@ -115,6 +115,7 @@ public final class App {
                         try {
                             bg.newGame();
                             System.out.println("Navi posizionate e partita iniziata.");
+                            bg.revealHitsGrid();
                         } catch (UnsetDifficultyException | GameAlreadyRunningException e) {
                             System.err.println(e.getMessage());
                         }
