@@ -6,6 +6,7 @@ import it.uniba.app.exceptions.UnsetDifficultyException;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 /**
  * Main class of the application.
@@ -29,63 +30,104 @@ public final class App {
         System.out.println("==== Battleship Game ====");
         boolean exit = false;
         do {
-            exit = false;
             System.out.print("Inserisci un comando: ");
-            String command = s.nextLine();
-            switch (command.toLowerCase()) {
-                case "/help":
-                    showHelp();
-                    break;
-                case "/esci":
-                    System.out.print("Sei sicuro di voler chiudere il gioco? S/N: ");
-                    String conferma = s.nextLine();
+            String input = s.nextLine();
+            if (input.startsWith("/")) {
+                String[] arguments = null;
+                boolean hasArgs = false;
+                StringTokenizer st = new StringTokenizer(input.substring(1), " ");
 
-                    if (conferma.equalsIgnoreCase("S")) {
-                        System.out.println("Chiusura del gioco in corso...");
-                        exit = true;
-                    } else {
-                        System.out.println("Puoi continuare a giocare.");
-                    }
+                if (st.countTokens() > 1) {
+                    hasArgs = true;
+                    arguments = new String[st.countTokens()];
+                }
 
-                    break;
-                case "/facile":
-                    bg.setDifficulty(command);
-                    System.out.println("Difficoltà impostata a facile.");
-                    break;
-                case "/medio":
-                    bg.setDifficulty(command);
-                    System.out.println("Difficoltà impostata a medio.");
-                    break;
-                case "/difficile":
-                    bg.setDifficulty(command);
-                    System.out.println("Difficoltà impostata a difficile.");
-                    break;
-                case "/mostralivello":
-                    bg.showDifficulty();
-                    break;
-                case "/mostranavi":
-                    try {
-                        bg.showShips();
-                    } catch (GameNotReadyException e) {
-                        System.err.println(e.getMessage());
+                String command = st.nextToken();
+                if (hasArgs) {
+                    int numTokens = st.countTokens();
+                    for (int i = 0; i < numTokens; i++) {
+                        arguments[i] = st.nextToken();
                     }
-                    break;
-                case "/gioca":
-                    try {
-                        bg.newGame();
-                        System.out.println("Navi posizionate e partita iniziata.");
-                        bg.revealHitsGrid();
-                    } catch (UnsetDifficultyException | GameAlreadyRunningException e) {
-                        System.err.println(e.getMessage());
+                }
+                switch (command.toLowerCase()) {
+                    case "help" -> showHelp();
+                    case "esci" -> {
+                        System.out.print("Sei sicuro di voler chiudere il gioco? S/N: ");
+                        String conferma = s.nextLine();
+                        if (conferma.equalsIgnoreCase("S")) {
+                            System.out.println("Chiusura del gioco in corso...");
+                            exit = true;
+                        } else {
+                            System.out.println("Puoi continuare a giocare.");
+                        }
                     }
-                    break;
-                case "/svelagriglia":
-                    System.out.println("Griglia delle navi:");
-                    bg.revealShipGrid();
-                    break;
-                default:
-                    System.out.println("Comando non riconosciuto.");
-                    break;
+                    case "facile" -> {
+                        if (!hasArgs) {
+                            bg.setDifficulty(command, null);
+                            System.out.println("Difficoltà impostata a facile.");
+                        } else {
+                            try {
+                                int valore = Integer.parseInt(arguments[0]);
+                                bg.setDifficulty(command, valore);
+                                System.out.println("OK");
+                            } catch (NumberFormatException e) {
+                                System.err.println("Comando non valido: utilizza /facile <numero>.");
+                            }
+                        }
+                    }
+                    case "medio" -> {
+                        if (!hasArgs) {
+                            bg.setDifficulty(command, null);
+                            System.out.println("Difficoltà impostata a medio.");
+                        } else {
+                            try {
+                                int valore = Integer.parseInt(arguments[0]);
+                                bg.setDifficulty(command, valore);
+                                System.out.println("OK");
+                            } catch (NumberFormatException e) {
+                                System.err.println("Comando non valido: utilizza /medio <numero>.");
+                            }
+                        }
+                    }
+                    case "difficile" -> {
+                        if (!hasArgs) {
+                            bg.setDifficulty(command, null);
+                            System.out.println("Difficoltà impostata a difficile.");
+                        } else {
+                            try {
+                                int valore = Integer.parseInt(arguments[0]);
+                                bg.setDifficulty(command, valore);
+                                System.out.println("OK");
+                            } catch (NumberFormatException e) {
+                                System.err.println("Comando non valido: utilizza /difficile <numero>.");
+                            }
+                        }
+                    }
+                    case "mostralivello" -> bg.showDifficulty();
+                    case "mostranavi" -> {
+                        try {
+                            bg.showShips();
+                        } catch (GameNotReadyException e) {
+                            System.err.println(e.getMessage());
+                        }
+                    }
+                    case "gioca" -> {
+                        try {
+                            bg.newGame();
+                            System.out.println("Navi posizionate e partita iniziata.");
+                            bg.revealHitsGrid();
+                        } catch (UnsetDifficultyException | GameAlreadyRunningException e) {
+                            System.err.println(e.getMessage());
+                        }
+                    }
+                    case "svelagriglia" -> {
+                        System.out.println("Griglia delle navi:");
+                        bg.revealShipGrid();
+                    }
+                    default -> System.out.println("Comando non riconosciuto.");
+                }
+            } else {
+                System.out.println("Comando non riconosciuto.");
             }
         } while (!exit);
     }
@@ -103,14 +145,17 @@ public final class App {
         System.out.print("premendo 'N' l'applicazione si predispone a ricevere nuovi tentativi o comandi\n");
         System.out.print("/mostralivello : permette di visualizzare il livello di gioco e il numero massimo di ");
         System.out.print("tentativi falliti\n");
-        System.out.println("/facile : imposta il gioco a livello facile, si hanno 50 tentativi massimi falliti");
+        System.out.println("/facile : imposta il gioco a livello facile, si hanno 50 tentativi massimi falliti. ");
+        System.out.println("Può essere specificato un numero di tentativi massimi falliti, esempio: /facile 30. ");
         System.out.println("/medio : imposta il gioco a livello medio, si hanno 30 tentativi massimi falliti ");
+        System.out.println("Può essere specificato un numero di tentativi massimi falliti, esempio: /medio 20. ");
         System.out.println("/difficile : imposta il gioco a livello difficile, si hanno 10 tentativi massimi falliti ");
+        System.out.println("Può essere specificato un numero di tentativi massimi falliti, esempio: /difficile 5. ");
         System.out.print("/mostranavi : permette di visualizzare la sua dimensione in quadrati e il numero di navi ");
         System.out.print("da affondare.\n -Cacciatorpediniere    ⊠⊠        esemplari: 4\n");
         System.out.println(" -Incrociatore          ⊠⊠⊠      esemplari: 3");
-        System.out.println(" -Corazzata             ⊠⊠⊠⊠    esemplari: 2");
-        System.out.println(" -Portaerei             ⊠⊠⊠⊠⊠  esemplari: 1");
+        System.out.println(" -Corazzata             ⊠⊠⊠⊠     esemplari: 2");
+        System.out.println(" -Portaerei             ⊠⊠⊠⊠⊠    esemplari: 1");
         System.out.print("/svelagriglia : permette di visualizzare la griglia 10x10, con le righe numerate ");
         System.out.print("da 1 a 10 e le colonne numerate da A a J, e tutte le navi posizionate al suo interno\n");
     }
