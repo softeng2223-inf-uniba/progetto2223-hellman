@@ -1,8 +1,6 @@
 package it.uniba.app;
 
 import it.uniba.app.exceptions.GameAlreadyRunningException;
-import it.uniba.app.exceptions.GameNotReadyException;
-import it.uniba.app.exceptions.UnsetDifficultyException;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
@@ -104,19 +102,13 @@ public final class App {
                         }
                     }
                     case "mostralivello" -> bg.showDifficulty();
-                    case "mostranavi" -> {
-                        try {
-                            bg.showShips();
-                        } catch (GameNotReadyException e) {
-                            System.err.println(e.getMessage());
-                        }
-                    }
+                    case "mostranavi" -> bg.showShips();
                     case "gioca" -> {
                         try {
                             bg.newGame();
                             System.out.println("Navi posizionate e partita iniziata.");
                             bg.revealHitsGrid();
-                        } catch (UnsetDifficultyException | GameAlreadyRunningException e) {
+                        } catch (GameAlreadyRunningException e) {
                             System.err.println(e.getMessage());
                         }
                     }

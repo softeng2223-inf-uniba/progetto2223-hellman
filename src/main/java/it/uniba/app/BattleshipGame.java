@@ -1,9 +1,7 @@
 package it.uniba.app;
 
 import it.uniba.app.exceptions.GameAlreadyRunningException;
-import it.uniba.app.exceptions.GameNotReadyException;
 import it.uniba.app.exceptions.IllegalPositionException;
-import it.uniba.app.exceptions.UnsetDifficultyException;
 import it.uniba.app.ships.Cacciatorpediniere;
 import it.uniba.app.ships.Corazzata;
 import it.uniba.app.ships.Incrociatore;
@@ -15,8 +13,6 @@ import it.uniba.app.util.Pair;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Map;
-import java.util.HashMap;
 
 /**
  * Classe che rappresenta il gioco.
@@ -26,7 +22,7 @@ public final class BattleshipGame {
     /**
      * La difficoltà del gioco.
      */
-    private Difficulty currentDifficulty = Difficulty.UNSET;
+    private Difficulty currentDifficulty;
     /**
      * Lista delle navi.
      */
@@ -52,34 +48,42 @@ public final class BattleshipGame {
      * colpite e 2 nelle caselle mancate.
      */
     private int[][] hitsGrid = new int[GRID_SIZE][GRID_SIZE];
+    /**
+     * Il numero di tentativi per la difficoltà EASY.
+     */
+    private static final int EASY_ATTEMPTS = 50;
+    /**
+     * Il numero di tentativi per la difficoltà MEDIUM.
+     */
+    private static final int MEDIUM_ATTEMPTS = 30;
+    /**
+     * Il numero di tentativi per la difficoltà HARD.
+     */
+    private static final int HARD_ATTEMPTS = 10;
 
     BattleshipGame() {
+        currentDifficulty = Difficulty.EASY;
+        maxFailedAttempts = EASY_ATTEMPTS;
         for (int i = 0; i < GRID_SIZE; i++) {
             for (int j = 0; j < GRID_SIZE; j++) {
                 hitsGrid[i][j] = 0;
             }
         }
-        currentDifficulty = Difficulty.UNSET;
     }
 
-
-
     void setDifficulty(final String command, final Integer customAttempts) {
-        final int easyAttempts = 50;
-        final int mediumAttempts = 30;
-        final int hardAttempts = 10;
         switch (command.toLowerCase()) {
             case "facile" -> {
                 currentDifficulty = Difficulty.EASY;
-                maxFailedAttempts = (customAttempts != null) ? customAttempts : easyAttempts;
+                maxFailedAttempts = (customAttempts != null) ? customAttempts : EASY_ATTEMPTS;
             }
             case "medio" -> {
                 currentDifficulty = Difficulty.MEDIUM;
-                maxFailedAttempts = (customAttempts != null) ? customAttempts : mediumAttempts;
+                maxFailedAttempts = (customAttempts != null) ? customAttempts : MEDIUM_ATTEMPTS;
             }
             case "difficile" -> {
                 currentDifficulty = Difficulty.HARD;
-                maxFailedAttempts = (customAttempts != null) ? customAttempts : hardAttempts;
+                maxFailedAttempts = (customAttempts != null) ? customAttempts : HARD_ATTEMPTS;
             }
             default -> {
             }
@@ -87,38 +91,16 @@ public final class BattleshipGame {
     }
 
     void showDifficulty() {
-        if (currentDifficulty == Difficulty.UNSET) {
-            System.out.println("Non è stato impostato nessun livello di difficoltà");
-        } else {
-            System.out.println("Il livello di difficoltà impostato è : " + currentDifficulty);
-            System.out.println("Il numero massimo di tentativi falliti corrispondente è : " + maxFailedAttempts);
-        }
+        System.out.println("Il livello di difficoltà impostato è : " + currentDifficulty);
+        System.out.println("Il numero massimo di tentativi falliti corrispondente è : " + maxFailedAttempts);
     }
 
-    void showShips() throws GameNotReadyException {
-        if (ships == null) {
-            throw new GameNotReadyException("La partita non è ancora iniziata.");
-        }
+    void showShips() {
         System.out.println("Navi da affondare:");
-        Map<String, Integer> shipsToSink = new HashMap<>();
-        Map<String, Integer> shipsLength = new HashMap<>();
-        for (Ship ship : ships) {
-            String shipName = ship.getClass().getSimpleName();
-            int remainingCount = ship.isSunk() ? 0 : 1;
-            shipsToSink.put(shipName, shipsToSink.getOrDefault(shipName, 0) + remainingCount);
-            shipsLength.put(shipName, ship.getLength());
-        }
-        for (Map.Entry<String, Integer> entry : shipsToSink.entrySet()) {
-            String shipName = entry.getKey();
-            int remainingCount = entry.getValue();
-            int shipLength = shipsLength.get(shipName);
-            StringBuilder shipString = new StringBuilder(shipName + " ");
-            for (int i = 0; i < shipLength; i++) {
-                shipString.append("⊠");
-            }
-            shipString.append(" esemplari: " + remainingCount);
-            System.out.println(shipString);
-        }
+        System.out.println("- Cacciatorpediniere ⊠⊠           esemplari: 4");
+        System.out.println("- Incrociatore       ⊠⊠⊠          esemplari: 3");
+        System.out.println("- Corazzata          ⊠⊠⊠⊠         esemplari: 2");
+        System.out.println("- Portaerei          ⊠⊠⊠⊠⊠        esemplari: 1");
     }
 
     void revealHitsGrid() {
@@ -168,7 +150,7 @@ public final class BattleshipGame {
             gridOutput += (char) ('A' + i) + "|";
             for (int j = 0; j < GRID_SIZE; j++) {
                 if (grid[i][j]) {
-                    gridOutput += " X ";
+                    gridOutput += " ⊠ ";
                 } else {
                     gridOutput += "   ";
                 }
@@ -185,13 +167,9 @@ public final class BattleshipGame {
      * Questo viene fatto attraverso "brute force", ovvero generando casualmente
      * posizione ed orientamento e verificando che non ci siano sovrapposizioni.
      *
-     * @throws UnsetDifficultyException    se non è stata impostata la difficoltà
      * @throws GameAlreadyRunningException se c'è già una partita in corso
      */
-    void newGame() throws UnsetDifficultyException, GameAlreadyRunningException {
-        if (currentDifficulty == Difficulty.UNSET) {
-            throw new UnsetDifficultyException("Devi impostare la difficoltà prima di iniziare una nuova partita.");
-        }
+    void newGame() throws GameAlreadyRunningException {
         if (ships != null) {
             throw new GameAlreadyRunningException("C'è già una partita in corso.");
         }
