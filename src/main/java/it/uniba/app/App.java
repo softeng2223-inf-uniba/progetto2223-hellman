@@ -102,9 +102,7 @@ public final class App {
                         }
                     }
                     case "mostralivello" -> bg.showDifficulty();
-                    case "mostranavi" -> {
-                            bg.showShips();
-                    }
+                    case "mostranavi" -> bg.showShips();
                     case "gioca" -> {
                         try {
                             bg.newGame();
