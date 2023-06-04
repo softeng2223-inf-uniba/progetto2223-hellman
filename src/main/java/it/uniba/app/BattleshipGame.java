@@ -54,34 +54,34 @@ public final class BattleshipGame {
     /**
      * Il numero di tentativi per la difficoltà EASY.
      */
-    private static final int easyAttempts = 50;
+    private static final int EASY_ATTEMPTS = 50;
     /**
      * Il numero di tentativi per la difficoltà MEDIUM.
      */
-    private static final int mediumAttempts = 30;
+    private static final int MEDIUM_ATTEMPTS = 30;
     /**
      * Il numero di tentativi per la difficoltà HARD.
      */
-    private static final int hardAttempts = 10;
+    private static final int HARD_ATTEMPTS = 10;
 
     BattleshipGame() {
         currentDifficulty = Difficulty.EASY;
-        maxFailedAttempts = easyAttempts;
+        maxFailedAttempts = EASY_ATTEMPTS;
     }
 
     void setDifficulty(final String command, final Integer customAttempts) {
         switch (command.toLowerCase()) {
             case "facile" -> {
                 currentDifficulty = Difficulty.EASY;
-                maxFailedAttempts = (customAttempts != null) ? customAttempts : easyAttempts;
+                maxFailedAttempts = (customAttempts != null) ? customAttempts : EASY_ATTEMPTS;
             }
             case "medio" -> {
                 currentDifficulty = Difficulty.MEDIUM;
-                maxFailedAttempts = (customAttempts != null) ? customAttempts : mediumAttempts;
+                maxFailedAttempts = (customAttempts != null) ? customAttempts : MEDIUM_ATTEMPTS;
             }
             case "difficile" -> {
                 currentDifficulty = Difficulty.HARD;
-                maxFailedAttempts = (customAttempts != null) ? customAttempts : hardAttempts;
+                maxFailedAttempts = (customAttempts != null) ? customAttempts : HARD_ATTEMPTS;
             }
             default -> {
             }
