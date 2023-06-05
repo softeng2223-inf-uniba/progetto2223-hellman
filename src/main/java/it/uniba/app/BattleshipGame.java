@@ -267,6 +267,7 @@ public final class BattleshipGame {
             }
         } while (err);
         grid = tempGrid;
+        gameRunning = true;
     }
 
     private void updateGrid(final boolean[][] tempGrid, final Pair position,
