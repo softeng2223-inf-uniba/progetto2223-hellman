@@ -18,7 +18,7 @@ import java.util.Random;
  * Classe che rappresenta il gioco.
  */
 public final class BattleshipGame {
-    public static final int GRID_SIZE = 11;
+    public static final int GRID_SIZE = 15;
     /**
      * La difficoltà del gioco.
      */
@@ -112,7 +112,7 @@ public final class BattleshipGame {
         gridOutput += " |";
         for (int i = 0; i < GRID_SIZE; i++) {
             gridOutput += "-";
-            for (int j = 0; j < i+"".length(); i++) {
+            for (int j = 0; j < i+"".length(); j++) {
                 gridOutput += "-";
             }
             gridOutput += "-";
@@ -167,7 +167,7 @@ public final class BattleshipGame {
         gridOutput += " |";
         for (int i = 0; i < GRID_SIZE; i++) {
             gridOutput += "-";
-            for (int j = 0; j < i+"".length(); i++) {
+            for (int j = 0; j < i+"".length(); j++) {
                 gridOutput += "-";
             }
             gridOutput += "-";
