@@ -86,16 +86,18 @@ public final class BattleshipGame {
      * Runnable che gestisce il timer della partita.
      */
     private final Runnable timer = () -> {
-        while (gameRunning) {
+        while (true) {
             try {
                 Thread.sleep(TIMER_SLEEP_TIME);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if (startTime != null && gameDuration > 0) {
-                if (Instant.now().isAfter(startTime.plusSeconds(gameDuration * MINUTE_DURATION))) {
-                    System.out.println("Tempo scaduto!");
-                    gameRunning = false;
+            if(gameRunning) {
+                if (startTime != null && gameDuration > 0) {
+                    if (Instant.now().isAfter(startTime.plusSeconds(gameDuration * MINUTE_DURATION))) {
+                        System.out.println("Tempo scaduto!");
+                        gameRunning = false;
+                    }
                 }
             }
         }
