@@ -19,7 +19,7 @@ import java.time.Instant;
  * Classe che rappresenta il gioco.
  */
 public final class BattleshipGame {
-    private static final int GRID_SIZE = 10;
+    public static final int GRID_SIZE = 10;
     /**
      * La difficoltà del gioco.
      */
@@ -152,8 +152,20 @@ public final class BattleshipGame {
     }
 
     void revealHitsGrid() {
-        String gridOutput = "   1  2  3  4  5  6  7  8  9  10\n";
-        gridOutput += " |------------------------------\n";
+        String gridOutput = "  ";
+        for (int i = 1; i <= GRID_SIZE; i++) {
+            gridOutput += " " + i + " ";
+        }
+        gridOutput += "\n";
+        gridOutput += " |";
+        for (int i = 0; i < GRID_SIZE; i++) {
+            gridOutput += "-";
+            for (int j = 0; j < String.valueOf(i).length(); j++) {
+                gridOutput += "-";
+            }
+            gridOutput += "-";
+        }
+        gridOutput += "|\n";
         for (int i = 0; i < GRID_SIZE; i++) {
             gridOutput += (char) ('A' + i) + "|";
             for (int j = 0; j < GRID_SIZE; j++) {
@@ -164,6 +176,9 @@ public final class BattleshipGame {
                         gridOutput += " X ";
                     } else {
                         gridOutput += " - ";
+                    }
+                    if (String.valueOf(j).length() == 2) {
+                        gridOutput += " ";
                     }
                 }
             }
@@ -192,8 +207,20 @@ public final class BattleshipGame {
      * </pre>
      */
     void revealShipGrid() {
-        String gridOutput = "   1  2  3  4  5  6  7  8  9  10\n";
-        gridOutput += " |------------------------------\n";
+        String gridOutput = "  ";
+        for (int i = 1; i <= GRID_SIZE; i++) {
+            gridOutput += " " + i + " ";
+        }
+        gridOutput += "\n";
+        gridOutput += " |";
+        for (int i = 0; i < GRID_SIZE; i++) {
+            gridOutput += "-";
+            for (int j = 0; j < String.valueOf(i).length(); j++) {
+                gridOutput += "-";
+            }
+            gridOutput += "-";
+        }
+        gridOutput += "|\n";
         for (int i = 0; i < GRID_SIZE; i++) {
             gridOutput += (char) ('A' + i) + "|";
             for (int j = 0; j < GRID_SIZE; j++) {
@@ -201,6 +228,9 @@ public final class BattleshipGame {
                     gridOutput += " ⊠ ";
                 } else {
                     gridOutput += "   ";
+                }
+                if (String.valueOf(j).length() == 2) {
+                    gridOutput += " ";
                 }
             }
             gridOutput += "\n";
@@ -301,7 +331,10 @@ public final class BattleshipGame {
         Random r = new Random();
         do {
             err = false;
-            String alphabet = "ABCDEFGHIJ";
+            String alphabet = "";
+            for (int i = 0; i < GRID_SIZE; i++) {
+                alphabet += (char) ('A' + i);
+            }
             int x = r.nextInt(GRID_SIZE);
             int y = r.nextInt(GRID_SIZE);
             p = new Pair(alphabet.charAt(x), y);
