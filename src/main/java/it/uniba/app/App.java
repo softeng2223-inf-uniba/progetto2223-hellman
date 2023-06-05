@@ -101,6 +101,9 @@ public final class App {
                             }
                         }
                     }
+                    case "tentativi" -> {
+
+                    }
                     case "mostralivello" -> bg.showDifficulty();
                     case "mostranavi" -> bg.showShips();
                     case "gioca" -> {
