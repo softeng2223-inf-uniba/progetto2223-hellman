@@ -1,5 +1,7 @@
 package it.uniba.app.util;
 
+import it.uniba.app.BattleshipGame;
+
 /**
  * Classe che modella una coppia carattere-intero per rappresentare
  * le coordinate di una cella della griglia.
@@ -10,7 +12,6 @@ public final class Pair {
     private final Character first;
     private final Integer second;
     private static final int MIN_INT = 0;
-    private static final int MAX_INT = 9;
     private static final String ERR_MSG =
             "Il secondo valore deve essere compreso tra 0 e 9";
 
@@ -24,11 +25,12 @@ public final class Pair {
      *                                  o se l'intero non è compreso tra 0 e 9
      */
     public Pair(final Character firstItem, final Integer secondItem) throws IllegalArgumentException {
-        if (firstItem == 'A' || firstItem == 'B' || firstItem == 'C'
-                || firstItem == 'D' || firstItem == 'E' || firstItem == 'F'
-                || firstItem == 'G' || firstItem == 'H' || firstItem == 'I'
-                || firstItem == 'J') {
-            if (secondItem >= MIN_INT && secondItem <= MAX_INT) {
+        String allowedValues = "";
+        for (int i = 0; i < BattleshipGame.GRID_SIZE; i++) {
+            allowedValues += (char) ('A' + i);
+        }
+        if (allowedValues.indexOf(firstItem) != -1) {
+            if (secondItem >= MIN_INT && secondItem <= BattleshipGame.GRID_SIZE - 1) {
                 first = firstItem;
                 second = secondItem;
             } else {
