@@ -62,6 +62,14 @@ public final class BattleshipGame {
      */
     private static final int HARD_ATTEMPTS = 10;
     /**
+     * Il numero di ms da aspettare per ogni iterazione del timer.
+     */
+    private static final int TIMER_SLEEP_TIME = 1000;
+    /**
+     * Durata di un minuto in secondi
+     */
+    private static final int MINUTE_DURATION = 60;
+    /**
      * Indica se una partita è in esecuzione.
      */
     private boolean gameRunning = false;
@@ -80,12 +88,12 @@ public final class BattleshipGame {
     private final Runnable timer = () -> {
         while (gameRunning) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(TIMER_SLEEP_TIME);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             if (startTime != null && gameDuration > 0) {
-                if (Instant.now().isAfter(startTime.plusSeconds(gameDuration * 60))) {
+                if (Instant.now().isAfter(startTime.plusSeconds(gameDuration * MINUTE_DURATION))) {
                     System.out.println("Tempo scaduto!");
                     gameRunning = false;
                 }
