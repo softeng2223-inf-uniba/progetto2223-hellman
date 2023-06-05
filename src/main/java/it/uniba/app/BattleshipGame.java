@@ -276,6 +276,7 @@ public final class BattleshipGame {
         } while (err);
         grid = tempGrid;
         gameRunning = true;
+        startTime = Instant.now();
     }
 
     private void updateGrid(final boolean[][] tempGrid, final Pair position,
