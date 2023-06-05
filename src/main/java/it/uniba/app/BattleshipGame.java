@@ -129,6 +129,9 @@ public final class BattleshipGame {
                     } else {
                         gridOutput += " - ";
                     }
+                    if (j+"".length() == 2) {
+                        gridOutput += " ";
+                    }
                 }
             }
             gridOutput += "\n";
