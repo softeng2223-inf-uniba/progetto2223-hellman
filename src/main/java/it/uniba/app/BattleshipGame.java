@@ -18,7 +18,7 @@ import java.util.Random;
  * Classe che rappresenta il gioco.
  */
 public final class BattleshipGame {
-    private static final int GRID_SIZE = 10;
+    public static final int GRID_SIZE = 10;
     /**
      * La difficoltà del gioco.
      */
