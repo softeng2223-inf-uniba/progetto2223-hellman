@@ -85,6 +85,13 @@ public final class BattleshipGame {
                 currentDifficulty = Difficulty.HARD;
                 maxFailedAttempts = (customAttempts != null) ? customAttempts : HARD_ATTEMPTS;
             }
+            case "tentativi" -> {
+                if (customAttempts != null && customAttempts > 0) {
+                    maxFailedAttempts = customAttempts;
+                } else {
+                    throw new IllegalArgumentException("Il numero di tentativi deve essere maggiore di 0");
+                }
+            }
             default -> {
             }
         }
