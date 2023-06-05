@@ -106,7 +106,7 @@ public final class App {
                             int valore = Integer.parseInt(arguments[0]);
                             bg.setDifficulty(command, valore);
                             System.out.println("OK");
-                        }else{
+                        } else {
                             System.err.println("Comando non valido: utilizza /tentativi <numero>.");
                         }
                     }
