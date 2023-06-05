@@ -12,6 +12,8 @@ public final class Pair {
     private final Character first;
     private final Integer second;
     private static final int MIN_INT = 0;
+    private static final String FRST_ERR_MSG =
+            "Il primo valore deve essere compreso tra A e "+(char) ('A' + BattleshipGame.GRID_SIZE - 1);
     private static final String SECND_ERR_MSG =
             "Il secondo valore deve essere compreso tra 0 e "+(BattleshipGame.GRID_SIZE - 1);
 
@@ -37,7 +39,7 @@ public final class Pair {
                 throw new IllegalArgumentException(SECND_ERR_MSG);
             }
         } else {
-            throw new IllegalArgumentException(ERR_MSG);
+            throw new IllegalArgumentException(FRST_ERR_MSG);
         }
     }
 
