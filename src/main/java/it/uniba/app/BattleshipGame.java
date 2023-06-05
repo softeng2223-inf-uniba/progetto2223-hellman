@@ -92,7 +92,7 @@ public final class BattleshipGame {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if(gameRunning) {
+            if (gameRunning) {
                 if (startTime != null && gameDuration > 0) {
                     if (Instant.now().isAfter(startTime.plusSeconds(gameDuration * MINUTE_DURATION))) {
                         System.out.println("Tempo scaduto!");
