@@ -70,6 +70,10 @@ public final class BattleshipGame {
      * @see java.time.Instant
      */
     private Instant startTime = null;
+    /**
+     * Il numero in minuti di durata della partita.
+     */
+    private int gameDuration = -1;
 
     BattleshipGame() {
         currentDifficulty = Difficulty.EASY;
@@ -103,6 +107,10 @@ public final class BattleshipGame {
     void showDifficulty() {
         System.out.println("Il livello di difficoltà impostato è : " + currentDifficulty);
         System.out.println("Il numero massimo di tentativi falliti corrispondente è : " + maxFailedAttempts);
+    }
+
+    void setTime(final int minuteNumbers){
+        gameDuration = minuteNumbers;
     }
 
     void showShips() {
