@@ -61,7 +61,14 @@ public final class BattleshipGame {
      * Il numero di tentativi per la difficoltà HARD.
      */
     private static final int HARD_ATTEMPTS = 10;
+    /**
+     * Indica se una partita è in esecuzione.
+     */
     private boolean gameRunning = false;
+    /**
+     * L'istante di inizio della partita.
+     * @see java.time.Instant
+     */
     private Instant startTime = null;
 
     BattleshipGame() {
