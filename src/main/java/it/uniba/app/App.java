@@ -103,9 +103,13 @@ public final class App {
                     }
                     case "tentativi" -> {
                         if (hasArgs) {
-                            int valore = Integer.parseInt(arguments[0]);
-                            bg.setDifficulty(command, valore);
-                            System.out.println("OK");
+                            try {
+                                int valore = Integer.parseInt(arguments[0]);
+                                bg.setDifficulty(command, valore);
+                                System.out.println("OK");
+                            } catch (NumberFormatException e) {
+                                System.err.println("Comando non valido: utilizza /tentativi <numero>.");
+                            }
                         } else {
                             System.err.println("Comando non valido: utilizza /tentativi <numero>.");
                         }
