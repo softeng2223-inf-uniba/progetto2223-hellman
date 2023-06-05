@@ -101,6 +101,7 @@ public final class BattleshipGame {
                 hitsGrid[i][j] = 0;
             }
         }
+        new Thread(timer).start();
     }
 
     void setDifficulty(final String command, final Integer customAttempts) {
