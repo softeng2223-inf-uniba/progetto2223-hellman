@@ -251,7 +251,10 @@ public final class BattleshipGame {
         Random r = new Random();
         do {
             err = false;
-            String alphabet = "ABCDEFGHIJ";
+            String alphabet = "";
+            for (int i = 0; i < GRID_SIZE; i++) {
+                alphabet += (char) ('A' + i);
+            }
             int x = r.nextInt(GRID_SIZE);
             int y = r.nextInt(GRID_SIZE);
             p = new Pair(alphabet.charAt(x), y);
