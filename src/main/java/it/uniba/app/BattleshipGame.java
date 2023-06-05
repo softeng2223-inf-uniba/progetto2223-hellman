@@ -87,10 +87,10 @@ public final class BattleshipGame {
             }
             case "tentativi" -> {
                 if (customAttempts > 0) {
-                    if (customAttempts <= HARD_ATTEMPTS){
+                    if (customAttempts <= HARD_ATTEMPTS) {
                         currentDifficulty = Difficulty.HARD;
                         maxFailedAttempts = customAttempts;
-                    } else if (customAttempts <= MEDIUM_ATTEMPTS){
+                    } else if (customAttempts <= MEDIUM_ATTEMPTS) {
                         currentDifficulty = Difficulty.MEDIUM;
                         maxFailedAttempts = customAttempts;
                     } else {
