@@ -21,8 +21,8 @@ public final class Pair {
      * @param firstItem  il carattere
      * @param secondItem l'intero
      * @throws IllegalArgumentException se il carattere
-     *                                  non è compreso tra A e J,
-     *                                  o se l'intero non è compreso tra 0 e 9
+     *                                  non è compreso tra A e il massimo valore della griglia,
+     *                                  o se l'intero non è compreso tra 0 e BattleShipGame.GRID_SIZE - 1
      */
     public Pair(final Character firstItem, final Integer secondItem) throws IllegalArgumentException {
         String allowedValues = "";
