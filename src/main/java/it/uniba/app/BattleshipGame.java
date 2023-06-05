@@ -13,6 +13,7 @@ import it.uniba.app.util.Pair;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.time.Instant;
 
 /**
  * Classe che rappresenta il gioco.
@@ -60,6 +61,8 @@ public final class BattleshipGame {
      * Il numero di tentativi per la difficoltà HARD.
      */
     private static final int HARD_ATTEMPTS = 10;
+    private boolean gameRunning = false;
+    private Instant startTime = null;
 
     BattleshipGame() {
         currentDifficulty = Difficulty.EASY;
