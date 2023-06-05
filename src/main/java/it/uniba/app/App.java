@@ -116,6 +116,23 @@ public final class App {
                         System.out.println("Griglia delle navi:");
                         bg.revealShipGrid();
                     }
+                    case "tempo" -> {
+                        if(!hasArgs){
+                            System.out.println("Comando non valido: utilizza /tempo <numero>.");
+                        } else {
+                            try{
+                                int val = Integer.parseInt(arguments[0]);
+                                if(val <= 0){
+                                    System.out.println("Comando non valido: il valore del tempo deve essere >= 0.");
+                                } else {
+                                    bg.setTime(val);
+                                    System.out.println("OK");
+                                }
+                            } catch (NumberFormatException e) {
+                                System.err.println("Comando non valido: utilizza /tempo <numero>.");
+                            }
+                        }
+                    }
                     default -> System.out.println("Comando non riconosciuto.");
                 }
             } else {
