@@ -66,7 +66,7 @@ public final class BattleshipGame {
      */
     private static final int TIMER_SLEEP_TIME = 1000;
     /**
-     * Durata di un minuto in secondi
+     * Durata di un minuto in secondi.
      */
     private static final int MINUTE_DURATION = 60;
     /**
@@ -136,7 +136,7 @@ public final class BattleshipGame {
         System.out.println("Il numero massimo di tentativi falliti corrispondente è : " + maxFailedAttempts);
     }
 
-    void setTime(final int minuteNumbers){
+    void setTime(final int minuteNumbers) {
         gameDuration = minuteNumbers;
     }
 
