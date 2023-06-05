@@ -112,7 +112,7 @@ public final class BattleshipGame {
         gridOutput += " |";
         for (int i = 0; i < GRID_SIZE; i++) {
             gridOutput += "-";
-            for (int j = 0; j < i+"".length(); j++) {
+            for (int j = 0; j < String.valueOf(i).length(); j++) {
                 gridOutput += "-";
             }
             gridOutput += "-";
@@ -167,7 +167,7 @@ public final class BattleshipGame {
         gridOutput += " |";
         for (int i = 0; i < GRID_SIZE; i++) {
             gridOutput += "-";
-            for (int j = 0; j < i+"".length(); j++) {
+            for (int j = 0; j < String.valueOf(i).length(); j++) {
                 gridOutput += "-";
             }
             gridOutput += "-";
