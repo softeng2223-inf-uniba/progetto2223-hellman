@@ -109,6 +109,8 @@ public final class App {
                                 System.out.println("OK");
                             } catch (NumberFormatException e) {
                                 System.err.println("Comando non valido: utilizza /tentativi <numero>.");
+                            } catch (IllegalArgumentException e) {
+                                System.err.println(e.getMessage());
                             }
                         } else {
                             System.err.println("Comando non valido: utilizza /tentativi <numero>.");

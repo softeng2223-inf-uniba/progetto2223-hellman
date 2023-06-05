@@ -86,7 +86,7 @@ public final class BattleshipGame {
                 maxFailedAttempts = (customAttempts != null) ? customAttempts : HARD_ATTEMPTS;
             }
             case "tentativi" -> {
-                if (customAttempts > 0) {
+                if (customAttempts != null && customAttempts > 0) {
                     if (customAttempts <= HARD_ATTEMPTS) {
                         currentDifficulty = Difficulty.HARD;
                         maxFailedAttempts = customAttempts;
@@ -98,7 +98,7 @@ public final class BattleshipGame {
                         maxFailedAttempts = customAttempts;
                     }
                 } else {
-                    System.out.println("Il numero di tentativi deve essere maggiore di 0");
+                    throw new IllegalArgumentException("Il numero di tentativi deve essere maggiore di 0");
                 }
             }
             default -> {
