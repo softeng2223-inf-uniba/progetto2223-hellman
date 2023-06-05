@@ -139,6 +139,7 @@ public final class BattleshipGame {
     }
 
     void setTime(final int minuteNumbers) {
+        startTime = Instant.now();
         gameDuration = minuteNumbers;
     }
 
