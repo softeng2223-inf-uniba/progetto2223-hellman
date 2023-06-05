@@ -215,7 +215,7 @@ public final class BattleshipGame {
      * @throws GameAlreadyRunningException se c'è già una partita in corso
      */
     void newGame() throws GameAlreadyRunningException {
-        if (ships != null) {
+        if (gameRunning) {
             throw new GameAlreadyRunningException("C'è già una partita in corso.");
         }
 
