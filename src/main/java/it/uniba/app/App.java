@@ -154,6 +154,7 @@ public final class App {
         System.out.print("premendo 'N' l'applicazione si predispone a ricevere nuovi tentativi o comandi\n");
         System.out.print("/mostralivello : permette di visualizzare il livello di gioco e il numero massimo di ");
         System.out.print("tentativi falliti\n");
+        System.out.println("/tempo : permette di impostare il tempo massimo di gioco, in minuti");
         System.out.println("/facile : imposta il gioco a livello facile, si hanno 50 tentativi massimi falliti. ");
         System.out.println("Può essere specificato un numero di tentativi massimi falliti, esempio: /facile 30. ");
         System.out.println("/medio : imposta il gioco a livello medio, si hanno 30 tentativi massimi falliti ");
