@@ -13,7 +13,7 @@ public final class Pair {
     private final Integer second;
     private static final int MIN_INT = 0;
     private static final String ERR_MSG =
-            "Il secondo valore deve essere compreso tra 0 e 9";
+            "Il secondo valore deve essere compreso tra 0 e "+(BattleshipGame.GRID_SIZE - 1);s;
 
     /**
      * Costruttore della coppia.
