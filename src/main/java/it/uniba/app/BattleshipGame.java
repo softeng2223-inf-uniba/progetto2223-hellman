@@ -74,6 +74,24 @@ public final class BattleshipGame {
      * Il numero in minuti di durata della partita.
      */
     private int gameDuration = -1;
+    /**
+     * Runnable che gestisce il timer della partita.
+     */
+    private final Runnable timer = () -> {
+        while (gameRunning) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            if (startTime != null && gameDuration > 0) {
+                if (Instant.now().isAfter(startTime.plusSeconds(gameDuration * 60))) {
+                    System.out.println("Tempo scaduto!");
+                    gameRunning = false;
+                }
+            }
+        }
+    };
 
     BattleshipGame() {
         currentDifficulty = Difficulty.EASY;
