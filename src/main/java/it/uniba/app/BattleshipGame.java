@@ -129,7 +129,7 @@ public final class BattleshipGame {
                     } else {
                         gridOutput += " - ";
                     }
-                    if (j+"".length() == 2) {
+                    if (String.valueOf(j).length() == 2) {
                         gridOutput += " ";
                     }
                 }
@@ -181,7 +181,7 @@ public final class BattleshipGame {
                 } else {
                     gridOutput += "   ";
                 }
-                if (j+"".length() == 2) {
+                if (String.valueOf(j).length() == 2) {
                     gridOutput += " ";
                 }
             }
