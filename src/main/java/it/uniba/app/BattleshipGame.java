@@ -104,8 +104,16 @@ public final class BattleshipGame {
     }
 
     void revealHitsGrid() {
-        String gridOutput = "   1  2  3  4  5  6  7  8  9  10\n";
-        gridOutput += " |------------------------------\n";
+        String gridOutput = "  ";
+        for (int i = 1; i <= GRID_SIZE; i++) {
+            gridOutput += " " + i + " ";
+        }
+        gridOutput += "\n";
+        gridOutput += " |";
+        for (int i = 0; i < GRID_SIZE; i++) {
+            gridOutput += "---";
+        }
+        gridOutput += "|\n";
         for (int i = 0; i < GRID_SIZE; i++) {
             gridOutput += (char) ('A' + i) + "|";
             for (int j = 0; j < GRID_SIZE; j++) {
