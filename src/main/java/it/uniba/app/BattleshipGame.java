@@ -97,6 +97,8 @@ public final class BattleshipGame {
                         currentDifficulty = Difficulty.EASY;
                         maxFailedAttempts = customAttempts;
                     }
+                } else {
+                    System.out.println("Il numero di tentativi deve essere maggiore di 0");
                 }
             }
             default -> {
