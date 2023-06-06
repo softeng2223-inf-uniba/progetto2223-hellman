@@ -248,6 +248,10 @@ public final class BattleshipGame {
         System.out.println(gridOutput);
     }
 
+    boolean isGameRunning() {
+        return gameRunning;
+    }
+
     void makeMove(final Pair pos){
         int[] coords = pos.toArray();
         if(hitsGrid[coords[0]][coords[1]] != 0){
