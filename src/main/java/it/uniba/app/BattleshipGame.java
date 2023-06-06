@@ -253,28 +253,27 @@ public final class BattleshipGame {
     }
 
     void printTimeElapsed() {
-        
     }
 
-    void makeMove(final Pair pos){
+    void makeMove(final Pair pos) {
         int[] coords = pos.toArray();
-        if(hitsGrid[coords[0]][coords[1]] != 0){
+        if (hitsGrid[coords[0]][coords[1]] != 0) {
             System.out.println("Hai già effettuato una tentativo in questa posizione!");
         } else {
-            if(grid[coords[0]][coords[1]]){
+            if (grid[coords[0]][coords[1]]) {
                 hitsGrid[coords[0]][coords[1]] = 1;
                 System.out.print("Colpito");
                 Ship s = getShip(pos);
                 hits++;
                 s.hit();
-                if(s.isSunk()) {
+                if (s.isSunk()) {
                     System.out.println(" e Affondato!");
                 } else {
                     System.out.println("!");
                 }
                 boolean allSunk = true;
-                for (Ship s_ : ships){
-                    if (!s_.isSunk()) {
+                for (Ship sTemp : ships) {
+                    if (!sTemp.isSunk()) {
                         allSunk = false;
                         break;
                     }
@@ -299,14 +298,16 @@ public final class BattleshipGame {
     }
 
     private Ship getShip(final Pair pos) {
-        for(Ship s : ships){
+        for (Ship s : ships) {
             Pair[] coords = new Pair[s.getLength()];
             int[] startingPosCoords = s.getStartingPosition().toArray();
             for (int i = 0; i < s.getLength(); i++) {
-                coords[i] = s.getOrientation() == Orientation.VERTICAL ? new Pair(((char) ('A' + startingPosCoords[0])), startingPosCoords[1] + i) : new Pair(((char) ('A' + startingPosCoords[0] + i)), startingPosCoords[1]);
+                coords[i] = s.getOrientation() == Orientation.VERTICAL
+                ? new Pair(((char) ('A' + startingPosCoords[0])), startingPosCoords[1] + i)
+                : new Pair(((char) ('A' + startingPosCoords[0] + i)), startingPosCoords[1]);
             }
-            for(Pair p : coords){
-                if(p.equals(pos)){
+            for (Pair p : coords) {
+                if (p.equals(pos)) {
                     return s;
                 }
             }

@@ -1,5 +1,7 @@
 package it.uniba.app.util;
 
+import java.util.Objects;
+
 import it.uniba.app.BattleshipGame;
 
 /**
@@ -78,9 +80,18 @@ public final class Pair {
     public boolean equals(final Object obj) {
         if (obj instanceof Pair) {
             Pair p = (Pair) obj;
-            return this.first.equals(p.first) && this.second.equals(p.second);
+            return this.hashCode() == p.hashCode();
         }
         return false;
+    }
+
+    /**
+     * Metodo hashCode.
+     * Due oggetti Pair hanno lo stesso hashcode se hanno gli stessi valori.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(first, second);
     }
 
     /**
