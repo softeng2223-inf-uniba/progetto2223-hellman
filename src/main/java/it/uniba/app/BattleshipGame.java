@@ -252,6 +252,10 @@ public final class BattleshipGame {
         return gameRunning;
     }
 
+    void printTimeElapsed() {
+        
+    }
+
     void makeMove(final Pair pos){
         int[] coords = pos.toArray();
         if(hitsGrid[coords[0]][coords[1]] != 0){
