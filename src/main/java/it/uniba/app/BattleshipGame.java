@@ -246,6 +246,10 @@ public final class BattleshipGame {
         System.out.println(gridOutput);
     }
 
+    void makeMove(Pair pos){
+        
+    }
+
     /**
      * Inizializza la griglia assegnando alle navi posizione ed orientamento
      * casuale.
