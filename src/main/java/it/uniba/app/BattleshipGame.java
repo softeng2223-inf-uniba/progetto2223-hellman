@@ -247,7 +247,7 @@ public final class BattleshipGame {
     }
 
     void makeMove(Pair pos){
-        
+
     }
 
     /**
@@ -273,46 +273,46 @@ public final class BattleshipGame {
                 Pair position = getRandomPosition(tempGrid);
                 Random r = new Random();
                 Orientation orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
-                Ship portaerei = new Portaerei(orientation, position, grid);
+                Ship portaerei = new Portaerei(orientation, position, tempGrid);
                 updateGrid(tempGrid, position, orientation, portaerei);
                 // corazzate
                 position = getRandomPosition(tempGrid);
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
-                Ship corazzata1 = new Corazzata(orientation, position, grid);
+                Ship corazzata1 = new Corazzata(orientation, position, tempGrid);
                 updateGrid(tempGrid, position, orientation, corazzata1);
                 position = getRandomPosition(tempGrid);
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
-                Ship corazzata2 = new Corazzata(orientation, position, grid);
+                Ship corazzata2 = new Corazzata(orientation, position, tempGrid);
                 updateGrid(tempGrid, position, orientation, corazzata2);
                 // incrociatori
                 position = getRandomPosition(tempGrid);
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
-                Ship incrociatore1 = new Incrociatore(orientation, position, grid);
+                Ship incrociatore1 = new Incrociatore(orientation, position, tempGrid);
                 updateGrid(tempGrid, position, orientation, incrociatore1);
                 position = getRandomPosition(tempGrid);
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
-                Ship incrociatore2 = new Incrociatore(orientation, position, grid);
+                Ship incrociatore2 = new Incrociatore(orientation, position, tempGrid);
                 updateGrid(tempGrid, position, orientation, incrociatore2);
                 position = getRandomPosition(tempGrid);
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
-                Ship incrociatore3 = new Incrociatore(orientation, position, grid);
+                Ship incrociatore3 = new Incrociatore(orientation, position, tempGrid);
                 updateGrid(tempGrid, position, orientation, incrociatore3);
                 // cacciatorpediniere
                 position = getRandomPosition(tempGrid);
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
-                Ship cacciatorpediniere1 = new Cacciatorpediniere(orientation, position, grid);
+                Ship cacciatorpediniere1 = new Cacciatorpediniere(orientation, position, tempGrid);
                 updateGrid(tempGrid, position, orientation, cacciatorpediniere1);
                 position = getRandomPosition(tempGrid);
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
-                Ship cacciatorpediniere2 = new Cacciatorpediniere(orientation, position, grid);
+                Ship cacciatorpediniere2 = new Cacciatorpediniere(orientation, position, tempGrid);
                 updateGrid(tempGrid, position, orientation, cacciatorpediniere2);
                 position = getRandomPosition(tempGrid);
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
-                Ship cacciatorpediniere3 = new Cacciatorpediniere(orientation, position, grid);
+                Ship cacciatorpediniere3 = new Cacciatorpediniere(orientation, position, tempGrid);
                 updateGrid(tempGrid, position, orientation, cacciatorpediniere3);
                 position = getRandomPosition(tempGrid);
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
-                Ship cacciatorpediniere4 = new Cacciatorpediniere(orientation, position, grid);
+                Ship cacciatorpediniere4 = new Cacciatorpediniere(orientation, position, tempGrid);
                 updateGrid(tempGrid, position, orientation, cacciatorpediniere4);
             } catch (IllegalPositionException e) {
                 err = true;
