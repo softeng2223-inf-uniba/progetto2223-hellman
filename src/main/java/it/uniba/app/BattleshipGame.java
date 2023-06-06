@@ -271,16 +271,18 @@ public final class BattleshipGame {
                         break;
                     }
                 }
-
                 if (allSunk) {
                     System.out.println("Hai vinto! Hai affondato tutte le navi!");
                     gameRunning = false;
                 }
-                
             } else {
                 hitsGrid[coords[0]][coords[1]] = 2;
                 failedAttempts++;
                 System.out.println("Acqua!");
+                if (maxFailedAttempts == failedAttempts) {
+                    System.out.println("Game over! Hai raggiunto il numero di tentativi massimi!");
+                    gameRunning = false;
+                }
             }
         }
     }
