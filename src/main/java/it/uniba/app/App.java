@@ -1,6 +1,7 @@
 package it.uniba.app;
 
 import it.uniba.app.exceptions.GameAlreadyRunningException;
+import it.uniba.app.util.Pair;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
@@ -148,7 +149,29 @@ public final class App {
                             }
                         }
                     }
-                    default -> System.out.println("Comando non riconosciuto.");
+                    default -> {
+                        StringTokenizer tkn = new StringTokenizer(command, "-");
+                        if(tkn.countTokens() == 2) {
+                            try {
+                                char lettera;
+                                String token = tkn.nextToken();
+                                if (Character.isLetter(token.charAt(0))) {
+                                    lettera = token.toUpperCase().charAt(0);
+                                } else {
+                                    System.out.println("Comando non riconosciuto.");
+                                    break;
+                                }
+                                token = tkn.nextToken();
+                                int numero = Integer.parseInt(token);
+                                Pair p = new Pair(lettera, numero);
+                                bg.makeMove(p);
+                            } catch (NumberFormatException e){
+                                System.out.println("Comando non riconosciuto.");
+                            }
+                        } else {
+                            System.out.println("Comando non riconosciuto.");
+                        }
+                    }
                 }
             } else {
                 System.out.println("Comando non riconosciuto.");
