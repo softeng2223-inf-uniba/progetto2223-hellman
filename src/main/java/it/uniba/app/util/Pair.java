@@ -5,8 +5,6 @@ import it.uniba.app.BattleshipGame;
 /**
  * Classe che modella una coppia carattere-intero per rappresentare
  * le coordinate di una cella della griglia.
- * La coppia è immutabile e per istanziarla si usa il metodo statico
- * createPair della classe Builder.
  */
 public final class Pair {
     private final Character first;
