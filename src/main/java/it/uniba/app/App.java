@@ -170,6 +170,8 @@ public final class App {
                             bg.makeMove(p);
                         } catch (NumberFormatException e) {
                             System.out.println("Comando non riconosciuto.");
+                        } catch (IllegalArgumentException e) {
+                            System.out.println(e.getMessage());
                         }
                     } else {
                         System.out.println("Comando non riconosciuto.");
