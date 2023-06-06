@@ -83,10 +83,6 @@ public final class BattleshipGame {
      */
     private int gameDuration = -1;
     /**
-     * Indica se il tempo è scaduto.
-     */
-    public boolean outOfTime = false;
-    /**
      * Runnable che gestisce il timer della partita.
      */
     private final Runnable timer = () -> {
@@ -99,8 +95,8 @@ public final class BattleshipGame {
             if (gameRunning) {
                 if (startTime != null && gameDuration > 0) {
                     if (Instant.now().isAfter(startTime.plusSeconds(gameDuration * MINUTE_DURATION))) {
-                        outOfTime = false;
                         gameRunning = false;
+                        System.out.print("\nTempo scaduto!\nInserisci un comando: ");
                     }
                 }
             }
