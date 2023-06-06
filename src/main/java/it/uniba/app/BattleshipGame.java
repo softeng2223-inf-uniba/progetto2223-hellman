@@ -247,7 +247,18 @@ public final class BattleshipGame {
     }
 
     void makeMove(final Pair pos){
-
+        int[] coords = pos.toArray();
+        if(hitsGrid[coords[0]][coords[1]] != 0){
+            System.out.println("Hai già effettuato una tentativo in questa posizione!");
+        } else {
+            if(grid[coords[0]][coords[1]]){
+                hitsGrid[coords[0]][coords[1]] = 1;
+                System.out.println("Colpito!");
+            } else {
+                hitsGrid[coords[0]][coords[1]] = -1;
+                System.out.println("Acqua!");
+            }
+        }
     }
 
     /**
