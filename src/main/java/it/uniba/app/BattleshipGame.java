@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.time.Instant;
+import java.time.Duration;
 
 /**
  * Classe che rappresenta il gioco.
@@ -253,6 +254,9 @@ public final class BattleshipGame {
     }
 
     void printTimeElapsed() {
+        Instant now = Instant.now();
+        Duration timeElapsed = Duration.between(startTime, now);
+        System.out.println("Tempo trascorso: " + timeElapsed.toMinutesPart() + ":" + timeElapsed.toSecondsPart());
     }
 
     void makeMove(final Pair pos) {
