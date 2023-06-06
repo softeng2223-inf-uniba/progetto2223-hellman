@@ -246,7 +246,7 @@ public final class BattleshipGame {
         System.out.println(gridOutput);
     }
 
-    void makeMove(Pair pos){
+    void makeMove(final Pair pos){
 
     }
 
