@@ -253,9 +253,16 @@ public final class BattleshipGame {
         } else {
             if(grid[coords[0]][coords[1]]){
                 hitsGrid[coords[0]][coords[1]] = 1;
-                System.out.println("Colpito!");
+                System.out.print("Colpito");
+                Ship s = getShip(pos);
+                s.hit();
+                if(s.isSunk()){
+                    System.out.println(" e Affondato!");
+                } else {
+                    System.out.println("!");
+                }
             } else {
-                hitsGrid[coords[0]][coords[1]] = -1;
+                hitsGrid[coords[0]][coords[1]] = 2;
                 System.out.println("Acqua!");
             }
         }
