@@ -257,14 +257,29 @@ public final class BattleshipGame {
                 hitsGrid[coords[0]][coords[1]] = 1;
                 System.out.print("Colpito");
                 Ship s = getShip(pos);
+                hits++;
                 s.hit();
                 if(s.isSunk()) {
                     System.out.println(" e Affondato!");
                 } else {
                     System.out.println("!");
                 }
+                boolean allSunk = true;
+                for (Ship s_ : ships){
+                    if (!s_.isSunk()) {
+                        allSunk = false;
+                        break;
+                    }
+                }
+
+                if (allSunk) {
+                    System.out.println("Hai vinto! Hai affondato tutte le navi!");
+                    gameRunning = false;
+                }
+                
             } else {
                 hitsGrid[coords[0]][coords[1]] = 2;
+                failedAttempts++;
                 System.out.println("Acqua!");
             }
         }
