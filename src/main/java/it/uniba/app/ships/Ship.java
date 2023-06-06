@@ -34,22 +34,22 @@ public abstract class Ship {
 
         int[] coordinates = startingPosition.toArray();
         if (orientation == Orientation.HORIZONTAL) {
-            if (coordinates[1] + length >= grid.length) {
+            if (coordinates[1] + length > grid.length) {
                 throw new IllegalPositionException("La nave esce dalla griglia.");
             }
         } else {
-            if (coordinates[0] + length >= grid.length) {
+            if (coordinates[0] + length > grid.length) {
                 throw new IllegalPositionException("La nave esce dalla griglia.");
             }
         }
 
         for (int i = 0; i < length; i++) {
             if (orientation == Orientation.HORIZONTAL) {
-                if (grid[coordinates[0]][coordinates[1] + i]) {
+                if (grid[coordinates[1] + i][coordinates[0]]) {
                     throw new IllegalPositionException("La nave è sovrapposta ad altre navi.");
                 }
             } else {
-                if (grid[coordinates[0] + i][coordinates[1]]) {
+                if (grid[coordinates[1]][coordinates[0] + i]) {
                     throw new IllegalPositionException("La nave è sovrapposta ad altre navi.");
                 }
             }

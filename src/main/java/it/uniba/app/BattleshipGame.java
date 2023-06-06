@@ -178,10 +178,10 @@ public final class BattleshipGame {
         for (int i = 0; i < GRID_SIZE; i++) {
             gridOutput += (char) ('A' + i) + "|";
             for (int j = 0; j < GRID_SIZE; j++) {
-                if (hitsGrid[i][j] == 0) {
+                if (hitsGrid[j][i] == 0) {
                     gridOutput += "   ";
                 } else {
-                    if (hitsGrid[i][j] == 1) {
+                    if (hitsGrid[j][i] == 1) {
                         gridOutput += " X ";
                     } else {
                         gridOutput += " - ";
@@ -233,7 +233,7 @@ public final class BattleshipGame {
         for (int i = 0; i < GRID_SIZE; i++) {
             gridOutput += (char) ('A' + i) + "|";
             for (int j = 0; j < GRID_SIZE; j++) {
-                if (grid[i][j]) {
+                if (grid[j][i]) {
                     gridOutput += " ⊠ ";
                 } else {
                     gridOutput += "   ";
@@ -257,11 +257,11 @@ public final class BattleshipGame {
 
     void makeMove(final Pair pos) {
         int[] coords = pos.toArray();
-        if (hitsGrid[coords[0]][coords[1]] != 0) {
+        if (hitsGrid[coords[1]][coords[0]] != 0) {
             System.out.println("Hai già effettuato una tentativo in questa posizione!");
         } else {
-            if (grid[coords[0]][coords[1]]) {
-                hitsGrid[coords[0]][coords[1]] = 1;
+            if (grid[coords[1]][coords[0]]) {
+                hitsGrid[coords[1]][coords[0]] = 1;
                 System.out.print("Colpito");
                 Ship s = getShip(pos);
                 hits++;
@@ -283,7 +283,7 @@ public final class BattleshipGame {
                     gameRunning = false;
                 }
             } else {
-                hitsGrid[coords[0]][coords[1]] = 2;
+                hitsGrid[coords[1]][coords[0]] = 2;
                 failedAttempts++;
                 System.out.println("Acqua!");
                 if (maxFailedAttempts == failedAttempts) {
@@ -303,8 +303,8 @@ public final class BattleshipGame {
             int[] startingPosCoords = s.getStartingPosition().toArray();
             for (int i = 0; i < s.getLength(); i++) {
                 coords[i] = s.getOrientation() == Orientation.VERTICAL
-                ? new Pair(((char) ('A' + startingPosCoords[0])), startingPosCoords[1] + i)
-                : new Pair(((char) ('A' + startingPosCoords[0] + i)), startingPosCoords[1]);
+                ? new Pair(((char) ('A' + startingPosCoords[0] + i)), startingPosCoords[1] + 1)
+                : new Pair(((char) ('A' + startingPosCoords[0])), startingPosCoords[1] + i + 1);
             }
             for (Pair p : coords) {
                 if (p.equals(pos)) {
@@ -394,9 +394,9 @@ public final class BattleshipGame {
         for (int i = 0; i < ship.getLength(); i++) {
             int[] coordinates = position.toArray();
             if (orientation == Orientation.HORIZONTAL) {
-                tempGrid[coordinates[0]][coordinates[1] + i] = true;
+                tempGrid[coordinates[1] + i][coordinates[0] ] = true;
             } else {
-                tempGrid[coordinates[0] + i][coordinates[1]] = true;
+                tempGrid[coordinates[1]][coordinates[0] + i] = true;
             }
         }
     }
@@ -413,9 +413,9 @@ public final class BattleshipGame {
             }
             int x = r.nextInt(GRID_SIZE);
             int y = r.nextInt(GRID_SIZE);
-            p = new Pair(alphabet.charAt(x), y);
+            p = new Pair(alphabet.charAt(x), y + 1);
             int[] coordinates = p.toArray();
-            if (checkGrid[coordinates[0]][coordinates[1]]) {
+            if (checkGrid[coordinates[1]][coordinates[0]]) {
                 err = true;
             }
         } while (err);
