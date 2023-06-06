@@ -62,6 +62,7 @@ public final class App {
                     case "gioca" -> handleGioca();
                     case "svelagriglia" -> handleSvelaGriglia();
                     case "tempo" -> handleTempo(arguments, hasArgs);
+                    case "msotratempo" -> bg.printTimeElapsed();
                     default -> System.out.println("Comando non riconosciuto.");
                 }
             } else {
