@@ -254,10 +254,6 @@ public final class BattleshipGame {
     }
 
     void printTimeElapsed() {
-        if (!gameRunning) {
-            System.out.println("La partita non è ancora iniziata!");
-            return;
-        }
         Instant now = Instant.now();
         Duration timeElapsed = Duration.between(startTime, now);
         System.out.println("Tempo trascorso: " + timeElapsed.toMinutesPart() + ":" + timeElapsed.toSecondsPart());
