@@ -257,6 +257,8 @@ public final class BattleshipGame {
         Instant now = Instant.now();
         Duration timeElapsed = Duration.between(startTime, now);
         System.out.println("Tempo trascorso: " + timeElapsed.toMinutesPart() + ":" + timeElapsed.toSecondsPart());
+        Duration timeLeft = Duration.between(now, startTime.plus(Duration.ofMinutes(gameDuration)));
+        System.out.println("Tempo rimanente: " + timeLeft.toMinutesPart() + ":" + timeLeft.toSecondsPart());
     }
 
     void makeMove(final Pair pos) {
