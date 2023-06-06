@@ -71,6 +71,19 @@ public final class Pair {
     }
 
     /**
+     * Metodo equals.
+     * Due oggetti Pair sono uguali se hanno gli stessi valori.
+     */
+    @Override
+    public boolean equals(final Object obj) {
+        if (obj instanceof Pair) {
+            Pair p = (Pair) obj;
+            return this.first.equals(p.first) && this.second.equals(p.second);
+        }
+        return false;
+    }
+
+    /**
      * Restituisce la coppia come stringa, nel formato "A-1".
      *
      * @return la stringa
