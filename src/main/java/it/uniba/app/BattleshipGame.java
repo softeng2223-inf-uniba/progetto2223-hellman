@@ -111,6 +111,8 @@ public final class BattleshipGame {
                 hitsGrid[i][j] = 0;
             }
         }
+        hits = 0;
+        failedAttempts = 0;
         new Thread(timer).start();
     }
 
@@ -256,7 +258,7 @@ public final class BattleshipGame {
                 System.out.print("Colpito");
                 Ship s = getShip(pos);
                 s.hit();
-                if(s.isSunk()){
+                if(s.isSunk()) {
                     System.out.println(" e Affondato!");
                 } else {
                     System.out.println("!");
