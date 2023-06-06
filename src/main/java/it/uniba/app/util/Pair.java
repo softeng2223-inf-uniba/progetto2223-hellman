@@ -1,21 +1,21 @@
 package it.uniba.app.util;
 
+import java.util.Objects;
+
 import it.uniba.app.BattleshipGame;
 
 /**
  * Classe che modella una coppia carattere-intero per rappresentare
  * le coordinate di una cella della griglia.
- * La coppia è immutabile e per istanziarla si usa il metodo statico
- * createPair della classe Builder.
  */
 public final class Pair {
     private final Character first;
     private final Integer second;
-    private static final int MIN_INT = 0;
+    private static final int MIN_INT = 1;
     private static final String FRST_ERR_MSG =
             "Il primo valore deve essere compreso tra A e " + (char) ('A' + BattleshipGame.GRID_SIZE - 1);
     private static final String SECND_ERR_MSG =
-            "Il secondo valore deve essere compreso tra 0 e " + (BattleshipGame.GRID_SIZE - 1);
+            "Il secondo valore deve essere compreso tra 1 e " + BattleshipGame.GRID_SIZE;
 
     /**
      * Costruttore della coppia.
@@ -32,7 +32,7 @@ public final class Pair {
             allowedValues += (char) ('A' + i);
         }
         if (allowedValues.indexOf(firstItem) != -1) {
-            if (secondItem >= MIN_INT && secondItem <= BattleshipGame.GRID_SIZE - 1) {
+            if (secondItem >= MIN_INT && secondItem <= BattleshipGame.GRID_SIZE) {
                 first = firstItem;
                 second = secondItem;
             } else {
@@ -69,7 +69,29 @@ public final class Pair {
      * @return l'array degli indici
      */
     public int[] toArray() {
-        return new int[]{(int) this.second, ((char) this.first) - 'A'};
+        return new int[]{((char) this.first) - 'A', (int) this.second - 1};
+    }
+
+    /**
+     * Metodo equals.
+     * Due oggetti Pair sono uguali se hanno gli stessi valori.
+     */
+    @Override
+    public boolean equals(final Object obj) {
+        if (obj instanceof Pair) {
+            Pair p = (Pair) obj;
+            return this.hashCode() == p.hashCode();
+        }
+        return false;
+    }
+
+    /**
+     * Metodo hashCode.
+     * Due oggetti Pair hanno lo stesso hashcode se hanno gli stessi valori.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(first, second);
     }
 
     /**

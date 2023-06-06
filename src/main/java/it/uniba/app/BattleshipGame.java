@@ -111,6 +111,8 @@ public final class BattleshipGame {
                 hitsGrid[i][j] = 0;
             }
         }
+        hits = 0;
+        failedAttempts = 0;
         new Thread(timer).start();
     }
 
@@ -176,10 +178,10 @@ public final class BattleshipGame {
         for (int i = 0; i < GRID_SIZE; i++) {
             gridOutput += (char) ('A' + i) + "|";
             for (int j = 0; j < GRID_SIZE; j++) {
-                if (hitsGrid[i][j] == 0) {
+                if (hitsGrid[j][i] == 0) {
                     gridOutput += "   ";
                 } else {
-                    if (hitsGrid[i][j] == 1) {
+                    if (hitsGrid[j][i] == 1) {
                         gridOutput += " X ";
                     } else {
                         gridOutput += " - ";
@@ -231,7 +233,7 @@ public final class BattleshipGame {
         for (int i = 0; i < GRID_SIZE; i++) {
             gridOutput += (char) ('A' + i) + "|";
             for (int j = 0; j < GRID_SIZE; j++) {
-                if (grid[i][j]) {
+                if (grid[j][i]) {
                     gridOutput += " ⊠ ";
                 } else {
                     gridOutput += "   ";
@@ -244,6 +246,73 @@ public final class BattleshipGame {
         }
 
         System.out.println(gridOutput);
+    }
+
+    boolean isGameRunning() {
+        return gameRunning;
+    }
+
+    void printTimeElapsed() {
+    }
+
+    void makeMove(final Pair pos) {
+        int[] coords = pos.toArray();
+        if (hitsGrid[coords[1]][coords[0]] != 0) {
+            System.out.println("Hai già effettuato una tentativo in questa posizione!");
+        } else {
+            if (grid[coords[1]][coords[0]]) {
+                hitsGrid[coords[1]][coords[0]] = 1;
+                System.out.print("Colpito");
+                Ship s = getShip(pos);
+                hits++;
+                s.hit();
+                if (s.isSunk()) {
+                    System.out.println(" e Affondato!");
+                } else {
+                    System.out.println("!");
+                }
+                boolean allSunk = true;
+                for (Ship sTemp : ships) {
+                    if (!sTemp.isSunk()) {
+                        allSunk = false;
+                        break;
+                    }
+                }
+                if (allSunk) {
+                    System.out.println("Hai vinto! Hai affondato tutte le navi!");
+                    gameRunning = false;
+                }
+            } else {
+                hitsGrid[coords[1]][coords[0]] = 2;
+                failedAttempts++;
+                System.out.println("Acqua!");
+                if (maxFailedAttempts == failedAttempts) {
+                    System.out.println("Game over! Hai raggiunto il numero di tentativi massimi!");
+                    gameRunning = false;
+                }
+            }
+            revealHitsGrid();
+            System.out.println("Numero di tentativi effettuati: " + (hits + failedAttempts));
+            printTimeElapsed();
+        }
+    }
+
+    private Ship getShip(final Pair pos) {
+        for (Ship s : ships) {
+            Pair[] coords = new Pair[s.getLength()];
+            int[] startingPosCoords = s.getStartingPosition().toArray();
+            for (int i = 0; i < s.getLength(); i++) {
+                coords[i] = s.getOrientation() == Orientation.VERTICAL
+                ? new Pair(((char) ('A' + startingPosCoords[0] + i)), startingPosCoords[1] + 1)
+                : new Pair(((char) ('A' + startingPosCoords[0])), startingPosCoords[1] + i + 1);
+            }
+            for (Pair p : coords) {
+                if (p.equals(pos)) {
+                    return s;
+                }
+            }
+        }
+        return null;
     }
 
     /**
@@ -269,46 +338,46 @@ public final class BattleshipGame {
                 Pair position = getRandomPosition(tempGrid);
                 Random r = new Random();
                 Orientation orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
-                Ship portaerei = new Portaerei(orientation, position, grid);
+                Ship portaerei = new Portaerei(orientation, position, tempGrid);
                 updateGrid(tempGrid, position, orientation, portaerei);
                 // corazzate
                 position = getRandomPosition(tempGrid);
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
-                Ship corazzata1 = new Corazzata(orientation, position, grid);
+                Ship corazzata1 = new Corazzata(orientation, position, tempGrid);
                 updateGrid(tempGrid, position, orientation, corazzata1);
                 position = getRandomPosition(tempGrid);
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
-                Ship corazzata2 = new Corazzata(orientation, position, grid);
+                Ship corazzata2 = new Corazzata(orientation, position, tempGrid);
                 updateGrid(tempGrid, position, orientation, corazzata2);
                 // incrociatori
                 position = getRandomPosition(tempGrid);
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
-                Ship incrociatore1 = new Incrociatore(orientation, position, grid);
+                Ship incrociatore1 = new Incrociatore(orientation, position, tempGrid);
                 updateGrid(tempGrid, position, orientation, incrociatore1);
                 position = getRandomPosition(tempGrid);
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
-                Ship incrociatore2 = new Incrociatore(orientation, position, grid);
+                Ship incrociatore2 = new Incrociatore(orientation, position, tempGrid);
                 updateGrid(tempGrid, position, orientation, incrociatore2);
                 position = getRandomPosition(tempGrid);
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
-                Ship incrociatore3 = new Incrociatore(orientation, position, grid);
+                Ship incrociatore3 = new Incrociatore(orientation, position, tempGrid);
                 updateGrid(tempGrid, position, orientation, incrociatore3);
                 // cacciatorpediniere
                 position = getRandomPosition(tempGrid);
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
-                Ship cacciatorpediniere1 = new Cacciatorpediniere(orientation, position, grid);
+                Ship cacciatorpediniere1 = new Cacciatorpediniere(orientation, position, tempGrid);
                 updateGrid(tempGrid, position, orientation, cacciatorpediniere1);
                 position = getRandomPosition(tempGrid);
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
-                Ship cacciatorpediniere2 = new Cacciatorpediniere(orientation, position, grid);
+                Ship cacciatorpediniere2 = new Cacciatorpediniere(orientation, position, tempGrid);
                 updateGrid(tempGrid, position, orientation, cacciatorpediniere2);
                 position = getRandomPosition(tempGrid);
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
-                Ship cacciatorpediniere3 = new Cacciatorpediniere(orientation, position, grid);
+                Ship cacciatorpediniere3 = new Cacciatorpediniere(orientation, position, tempGrid);
                 updateGrid(tempGrid, position, orientation, cacciatorpediniere3);
                 position = getRandomPosition(tempGrid);
                 orientation = r.nextBoolean() ? Orientation.HORIZONTAL : Orientation.VERTICAL;
-                Ship cacciatorpediniere4 = new Cacciatorpediniere(orientation, position, grid);
+                Ship cacciatorpediniere4 = new Cacciatorpediniere(orientation, position, tempGrid);
                 updateGrid(tempGrid, position, orientation, cacciatorpediniere4);
             } catch (IllegalPositionException e) {
                 err = true;
@@ -325,9 +394,9 @@ public final class BattleshipGame {
         for (int i = 0; i < ship.getLength(); i++) {
             int[] coordinates = position.toArray();
             if (orientation == Orientation.HORIZONTAL) {
-                tempGrid[coordinates[0]][coordinates[1] + i] = true;
+                tempGrid[coordinates[1] + i][coordinates[0] ] = true;
             } else {
-                tempGrid[coordinates[0] + i][coordinates[1]] = true;
+                tempGrid[coordinates[1]][coordinates[0] + i] = true;
             }
         }
     }
@@ -344,9 +413,9 @@ public final class BattleshipGame {
             }
             int x = r.nextInt(GRID_SIZE);
             int y = r.nextInt(GRID_SIZE);
-            p = new Pair(alphabet.charAt(x), y);
+            p = new Pair(alphabet.charAt(x), y + 1);
             int[] coordinates = p.toArray();
-            if (checkGrid[coordinates[0]][coordinates[1]]) {
+            if (checkGrid[coordinates[1]][coordinates[0]]) {
                 err = true;
             }
         } while (err);
