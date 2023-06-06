@@ -69,7 +69,7 @@ public final class Pair {
      * @return l'array degli indici
      */
     public int[] toArray() {
-        return new int[]{(int) this.second - 1, ((char) this.first) - 'A'};
+        return new int[]{(int) this.second, ((char) this.first) - 'A'};
     }
 
     /**
