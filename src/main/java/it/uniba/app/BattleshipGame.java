@@ -290,7 +290,7 @@ public final class BattleshipGame {
             }
             revealHitsGrid();
             System.out.println("Numero di tentativi effettuati: " + (hits + failedAttempts));
-            getTimeElapsed();
+            printTimeElapsed();
         }
     }
 
