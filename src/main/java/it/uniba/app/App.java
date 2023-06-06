@@ -172,6 +172,8 @@ public final class App {
                             } else {
                                 System.out.println("Comando non riconosciuto.");
                             }
+                        } else {
+                            System.out.println("Comando non riconosciuto.");
                         }
                     }
                 }
