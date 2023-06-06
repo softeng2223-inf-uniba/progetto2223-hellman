@@ -149,36 +149,34 @@ public final class App {
                             }
                         }
                     }
-                    default -> {
-                        if (bg.isGameRunning()) {
-                            StringTokenizer tkn = new StringTokenizer(command, "-");
-                            if (tkn.countTokens() == 2) {
-                                try {
-                                    char lettera;
-                                    String token = tkn.nextToken();
-                                    if (Character.isLetter(token.charAt(0))) {
-                                        lettera = token.toUpperCase().charAt(0);
-                                    } else {
-                                        System.out.println("Comando non riconosciuto.");
-                                        break;
-                                    }
-                                    token = tkn.nextToken();
-                                    int numero = Integer.parseInt(token);
-                                    Pair p = new Pair(lettera, numero);
-                                    bg.makeMove(p);
-                                } catch (NumberFormatException e) {
-                                    System.out.println("Comando non riconosciuto.");
-                                }
-                            } else {
-                                System.out.println("Comando non riconosciuto.");
-                            }
-                        } else {
-                            System.out.println("Comando non riconosciuto.");
-                        }
-                    }
+                    default -> System.out.println("Comando non riconosciuto.");
                 }
             } else {
-                System.out.println("Comando non riconosciuto.");
+                if (bg.isGameRunning()) {
+                    StringTokenizer tkn = new StringTokenizer(input, "-");
+                    if (tkn.countTokens() == 2) {
+                        try {
+                            char lettera;
+                            String token = tkn.nextToken();
+                            if (Character.isLetter(token.charAt(0))) {
+                                lettera = token.toUpperCase().charAt(0);
+                            } else {
+                                System.out.println("Comando non riconosciuto.");
+                                break;
+                            }
+                            token = tkn.nextToken();
+                            int numero = Integer.parseInt(token);
+                            Pair p = new Pair(lettera, numero);
+                            bg.makeMove(p);
+                        } catch (NumberFormatException e) {
+                            System.out.println("Comando non riconosciuto.");
+                        }
+                    } else {
+                        System.out.println("Comando non riconosciuto.");
+                    }
+                } else {
+                    System.out.println("Comando non riconosciuto.");
+                }
             }
         } while (!exit);
     }
