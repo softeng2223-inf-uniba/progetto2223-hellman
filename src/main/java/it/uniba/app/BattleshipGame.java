@@ -13,6 +13,7 @@ import it.uniba.app.util.Pair;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.time.Instant;
 
 /**
  * Classe che rappresenta il gioco.
@@ -60,6 +61,47 @@ public final class BattleshipGame {
      * Il numero di tentativi per la difficoltà HARD.
      */
     private static final int HARD_ATTEMPTS = 10;
+    /**
+     * Il numero di ms da aspettare per ogni iterazione del timer.
+     */
+    private static final int TIMER_SLEEP_TIME = 1000;
+    /**
+     * Durata di un minuto in secondi.
+     */
+    private static final int MINUTE_DURATION = 60;
+    /**
+     * Indica se una partita è in esecuzione.
+     */
+    private boolean gameRunning = false;
+    /**
+     * L'istante di inizio della partita.
+     * @see java.time.Instant
+     */
+    private Instant startTime = null;
+    /**
+     * Il numero in minuti di durata della partita.
+     */
+    private int gameDuration = -1;
+    /**
+     * Runnable che gestisce il timer della partita.
+     */
+    private final Runnable timer = () -> {
+        while (true) {
+            try {
+                Thread.sleep(TIMER_SLEEP_TIME);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            if (gameRunning) {
+                if (startTime != null && gameDuration > 0) {
+                    if (Instant.now().isAfter(startTime.plusSeconds(gameDuration * MINUTE_DURATION))) {
+                        gameRunning = false;
+                        System.out.print("\nTempo scaduto!\nInserisci un comando: ");
+                    }
+                }
+            }
+        }
+    };
 
     BattleshipGame() {
         currentDifficulty = Difficulty.EASY;
@@ -69,6 +111,7 @@ public final class BattleshipGame {
                 hitsGrid[i][j] = 0;
             }
         }
+        new Thread(timer).start();
     }
 
     void setDifficulty(final String command, final Integer customAttempts) {
@@ -100,6 +143,11 @@ public final class BattleshipGame {
     void showDifficulty() {
         System.out.println("Il livello di difficoltà impostato è : " + currentDifficulty);
         System.out.println("Il numero massimo di tentativi falliti corrispondente è : " + maxFailedAttempts);
+    }
+
+    void setTime(final int minuteNumbers) {
+        startTime = Instant.now();
+        gameDuration = minuteNumbers;
     }
 
     void showShips() {
@@ -207,7 +255,7 @@ public final class BattleshipGame {
      * @throws GameAlreadyRunningException se c'è già una partita in corso
      */
     void newGame() throws GameAlreadyRunningException {
-        if (ships != null) {
+        if (gameRunning) {
             throw new GameAlreadyRunningException("C'è già una partita in corso.");
         }
 
@@ -267,6 +315,8 @@ public final class BattleshipGame {
             }
         } while (err);
         grid = tempGrid;
+        gameRunning = true;
+        startTime = Instant.now();
     }
 
     private void updateGrid(final boolean[][] tempGrid, final Pair position,

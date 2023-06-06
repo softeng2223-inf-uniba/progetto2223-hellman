@@ -131,6 +131,23 @@ public final class App {
                         System.out.println("Griglia delle navi:");
                         bg.revealShipGrid();
                     }
+                    case "tempo" -> {
+                        if (!hasArgs) {
+                            System.out.println("Comando non valido: utilizza /tempo <numero>.");
+                        } else {
+                            try {
+                                int val = Integer.parseInt(arguments[0]);
+                                if (val <= 0) {
+                                    System.out.println("Comando non valido: il valore del tempo deve essere >= 0.");
+                                } else {
+                                    bg.setTime(val);
+                                    System.out.println("OK");
+                                }
+                            } catch (NumberFormatException e) {
+                                System.err.println("Comando non valido: utilizza /tempo <numero>.");
+                            }
+                        }
+                    }
                     default -> System.out.println("Comando non riconosciuto.");
                 }
             } else {
@@ -152,6 +169,7 @@ public final class App {
         System.out.print("premendo 'N' l'applicazione si predispone a ricevere nuovi tentativi o comandi\n");
         System.out.print("/mostralivello : permette di visualizzare il livello di gioco e il numero massimo di ");
         System.out.print("tentativi falliti\n");
+        System.out.println("/tempo : permette di impostare il tempo massimo di gioco, in minuti");
         System.out.println("/facile : imposta il gioco a livello facile, si hanno 50 tentativi massimi falliti. ");
         System.out.println("Può essere specificato un numero di tentativi massimi falliti, esempio: /facile 30. ");
         System.out.println("/medio : imposta il gioco a livello medio, si hanno 30 tentativi massimi falliti ");
