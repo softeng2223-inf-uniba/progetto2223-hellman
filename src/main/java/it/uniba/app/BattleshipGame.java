@@ -254,11 +254,19 @@ public final class BattleshipGame {
     }
 
     void printTimeElapsed() {
+        if (!gameRunning) {
+            System.out.println("La partita non è ancora iniziata!");
+            return;
+        }
         Instant now = Instant.now();
         Duration timeElapsed = Duration.between(startTime, now);
         System.out.println("Tempo trascorso: " + timeElapsed.toMinutesPart() + ":" + timeElapsed.toSecondsPart());
-        Duration timeLeft = Duration.between(now, startTime.plus(Duration.ofMinutes(gameDuration)));
-        System.out.println("Tempo rimanente: " + timeLeft.toMinutesPart() + ":" + timeLeft.toSecondsPart());
+        if (gameDuration == -1) {
+            System.out.println("Non è stato impostato un limite di tempo per la partita!");
+        } else {
+            Duration timeLeft = Duration.between(now, startTime.plus(Duration.ofMinutes(gameDuration)));
+            System.out.println("Tempo rimanente: " + timeLeft.toMinutesPart() + ":" + timeLeft.toSecondsPart());
+        }
     }
 
     void makeMove(final Pair pos) {
