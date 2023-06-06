@@ -101,6 +101,21 @@ public final class App {
                             }
                         }
                     }
+                    case "tentativi" -> {
+                        if (hasArgs) {
+                            try {
+                                int valore = Integer.parseInt(arguments[0]);
+                                bg.setDifficulty(command, valore);
+                                System.out.println("OK");
+                            } catch (NumberFormatException e) {
+                                System.err.println("Comando non valido: utilizza /tentativi <numero>.");
+                            } catch (IllegalArgumentException e) {
+                                System.err.println(e.getMessage());
+                            }
+                        } else {
+                            System.err.println("Comando non valido: utilizza /tentativi <numero>.");
+                        }
+                    }
                     case "mostralivello" -> bg.showDifficulty();
                     case "mostranavi" -> bg.showShips();
                     case "gioca" -> {
@@ -161,6 +176,7 @@ public final class App {
         System.out.println("Può essere specificato un numero di tentativi massimi falliti, esempio: /medio 20. ");
         System.out.println("/difficile : imposta il gioco a livello difficile, si hanno 10 tentativi massimi falliti ");
         System.out.println("Può essere specificato un numero di tentativi massimi falliti, esempio: /difficile 5. ");
+        System.out.print("/tentativi <numero>: imposta il numero massimo di tentativi falliti a <numero>. \n");
         System.out.print("/mostranavi : permette di visualizzare la sua dimensione in quadrati e il numero di navi ");
         System.out.print("da affondare.\n -Cacciatorpediniere    ⊠⊠        esemplari: 4\n");
         System.out.println(" -Incrociatore          ⊠⊠⊠      esemplari: 3");
