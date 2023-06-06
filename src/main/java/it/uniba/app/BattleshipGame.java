@@ -261,6 +261,22 @@ public final class BattleshipGame {
         }
     }
 
+    private Ship getShip(final Pair pos) {
+        for(Ship s : ships){
+            Pair[] coords = new Pair[s.getLength()];
+            int[] startingPosCoords = s.getStartingPosition().toArray();
+            for (int i = 0; i < s.getLength(); i++) {
+                coords[i] = s.getOrientation() == Orientation.VERTICAL ? new Pair(((char) ('A' + startingPosCoords[0])), startingPosCoords[1] + i) : new Pair(((char) ('A' + startingPosCoords[0] + i)), startingPosCoords[1]);
+            }
+            for(Pair p : coords){
+                if(p.equals(pos)){
+                    return s;
+                }
+            }
+        }
+        return null;
+    }
+
     /**
      * Inizializza la griglia assegnando alle navi posizione ed orientamento
      * casuale.
