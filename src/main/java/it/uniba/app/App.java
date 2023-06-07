@@ -62,7 +62,9 @@ public final class App {
                     case "gioca" -> handleGioca();
                     case "svelagriglia" -> handleSvelaGriglia();
                     case "tempo" -> handleTempo(arguments, hasArgs);
+                    case "abbandona" -> handleAbbandona();
                     case "mostratempo" -> bg.printTimeElapsed();
+
                     default -> System.out.println("Comando non riconosciuto.");
                 }
             } else {
@@ -79,8 +81,8 @@ public final class App {
         System.out.println("Lista comandi: ");
         System.out.println("/help : viene visualizzata la lista dei comandi e la sua descrizione ");
         System.out.print("/gioca : se nessuna partita è in corso, vengono impostate casualmente le navi, in orizzont");
-        System.out.println("ale o in verticale e si predispone a ricevere il primo tentativo o altri comandi");
-        System.out.print("/esci : permette di chiudere il gioco, premendo 'Y' il gioco viene chiuso, ");
+        System.out.print("ale o in verticale e si predispone a ricevere il primo tentativo o altri comandi\n");
+        System.out.print("/esci : permette di chiudere il gioco, premendo 'S' il gioco viene chiuso, ");
         System.out.println("premendo 'N' l'applicazione si predispone a ricevere nuovi tentativi o comandi");
         System.out.print("/mostralivello : permette di visualizzare il livello di gioco e il numero massimo di ");
         System.out.println("tentativi falliti");
@@ -101,6 +103,9 @@ public final class App {
         System.out.println(" -Portaerei             ⊠⊠⊠⊠⊠    esemplari: 1");
         System.out.print("/svelagriglia : permette di visualizzare la griglia 10x10, con le righe numerate ");
         System.out.println("da 1 a 10 e le colonne numerate da A a J, e tutte le navi posizionate al suo interno");
+        System.out.print("/abbandona : permette di abbandonare la partita, premendo 'S' la partita viene ");
+        System.out.print("abbandonata, premendo 'N' l'applicazione si predispone a ricevere nuovi tentativi o ");
+        System.out.println("altri comandi ");
     }
 
     private static void handleEsci() {
@@ -207,4 +212,17 @@ public final class App {
             System.out.println("Comando non riconosciuto.");
         }
     }
+    private static void handleAbbandona() {
+        System.out.print("Sei sicuro di voler abbandonare il gioco? S/N: ");
+        String conferma = s.nextLine();
+        if (conferma.equalsIgnoreCase("S")) {
+            bg.setGameRunning(false);
+            bg.revealShipGrid();
+            bg.showShips();
+        } else {
+            System.out.println("Puoi continuare a giocare.");
+        }
+    }
 }
+
+
