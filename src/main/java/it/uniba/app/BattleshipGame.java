@@ -421,4 +421,7 @@ public final class BattleshipGame {
         } while (err);
         return p;
     }
+    void setGameRunning(final boolean value) {
+        gameRunning = value;
+    }
 }
