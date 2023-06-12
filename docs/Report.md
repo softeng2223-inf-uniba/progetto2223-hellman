@@ -5,6 +5,7 @@
  + [Requisiti specifici](#3-requisiti-specifici)
 	 + [Requisiti funzionali](#31-requisiti-funzionali)
 	 + [Requisiti non funzionali](#32-requisiti-non-funzionali)
++ [Riepilogo dei test](#6-riepilogo-dei-test)
 + [Manuale utente](#7-manuale-utente)
 + [Analisi retrospettiva](#9-analisi-retrospettiva)
 	 + [Sprint 0](#91-sprint-0)
@@ -130,6 +131,8 @@ Elenco di terminali supportati
 
 - Powershell
 - Git Bash (in questo caso il comando Docker ha come prefisso winpty; es: winpty docker -it ....)
+
+# 6. Riepilogo dei test
 
 
 # 7. Manuale utente
