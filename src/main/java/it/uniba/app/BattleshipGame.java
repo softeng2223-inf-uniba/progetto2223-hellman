@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.time.Instant;
+import java.time.Duration;
 
 /**
  * Classe che rappresenta il gioco.
@@ -253,6 +254,15 @@ public final class BattleshipGame {
     }
 
     void printTimeElapsed() {
+        Instant now = Instant.now();
+        Duration timeElapsed = Duration.between(startTime, now);
+        System.out.println("Tempo trascorso: " + timeElapsed.toMinutesPart() + ":" + timeElapsed.toSecondsPart());
+        if (gameDuration == -1) {
+            System.out.println("Non è stato impostato un limite di tempo per la partita!");
+        } else {
+            Duration timeLeft = Duration.between(now, startTime.plus(Duration.ofMinutes(gameDuration)));
+            System.out.println("Tempo rimanente: " + timeLeft.toMinutesPart() + ":" + timeLeft.toSecondsPart());
+        }
     }
 
     void printAttemps() {
@@ -426,5 +436,8 @@ public final class BattleshipGame {
             }
         } while (err);
         return p;
+    }
+    void setGameRunning(final boolean value) {
+        gameRunning = value;
     }
 }
