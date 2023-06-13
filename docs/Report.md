@@ -147,35 +147,33 @@ i test riguardando la corretta costruzione e il corretto posizionamento delle na
 i test riguardano il corretto orientamento delle navi. Verificano che il metodo statico values() dell'enumerazione Orientation restituisca correttamente un array contenente tutti i valori dell'enumerazione. Verificano che il metodo toString() dell'enumerazione Orientation restituisca correttamente la rappresentazione testuale di ciascun valore dell'enumerazione. Infine verificano che il metodo statico valueOf() dell'enumerazione Orientation restituisca correttamente l'istanza dell'enumerazione corrispondente a una determinata stringa;
 
 -TestShip,                                                                                                                                                                  
-i test riguardano le dimensioni, le coordinate e lo stato della nave (se essa è stata affondata oppure no). Metodo shipInitialization_shouldSetPropertiesCorrectly():
- Questo metodo di test verifica che una nave sia inizializzata correttamente e che le sue proprietà siano impostate correttamente.
-Crea una nave con una lunghezza di 4, orientamento orizzontale, posizione di inizio ('a', 3) e una griglia booleana 10x10.
-Verifica che la lunghezza, i colpi ricevuti, lo stato di affondamento, l'orientamento e la posizione di inizio siano impostati correttamente.
-Metodo shipHit_shouldIncrementHitsAndSinkWhenFullyHit():
-Questo metodo di test verifica che i colpi su una nave vengano incrementati correttamente e che la nave si affondi completamente quando viene colpita in tutti i suoi punti.
-Crea una nave con una lunghezza di 3, orientamento verticale, posizione di inizio ('c', 5) e una griglia booleana 10x10.
-Chiama il metodo hit() sulla nave tre volte e verifica che i colpi ricevuti siano incrementati correttamente dopo ogni colpo.
-Verifica anche che la nave non sia affondata dopo il primo e il secondo colpo, ma sia affondata dopo il terzo colpo. Metodo shipHit_shouldNotSinkWhenNotFullyHit():
-Questo metodo di test verifica che la nave non si affondi quando viene colpita solo parzialmente.
-Crea una nave con una lunghezza di 4, orientamento orizzontale, posizione di inizio ('e', 2) e una griglia booleana 10x10.
-Chiama il metodo hit() sulla nave tre volte e verifica che i colpi ricevuti siano incrementati correttamente dopo ogni colpo.
-Verifica che la nave non sia affondata dopo il primo, il secondo e il terzo colpo.
-Classe interna TestShip1:
-Questa classe interna estende la classe Ship ed è utilizzata per scopi di test.
-Viene utilizzata per creare istanze di Ship nei test.
-Per il package 'util' sono stati generati casi di test automatici in JUnit per la classe:
--TestPair
+i test riguardano le dimensioni, le coordinate e lo stato della nave (se essa è stata affondata oppure no)
+Vengono definiti diversi metodi di test per verificare il corretto funzionamento dei metodi della classe Ship.
+Il metodo shipInitialization_shouldSetPropertiesCorrectly() testa se la creazione di una nave imposta correttamente le sue proprietà. Viene istanziato un oggetto TestShip1 (una sottoclasse di Ship utilizzata per i test) con determinati parametri, e vengono verificate le proprietà dell'oggetto creato tramite le asserzioni assertEquals() e assertFalse().
+Il metodo shipHit_shouldIncrementHitsAndSinkWhenFullyHit() testa se il metodo hit() incrementa correttamente il numero di colpi ricevuti dalla nave e verifica se la nave affonda quando viene colpita completamente. Viene istanziato un oggetto TestShip1 con determinati parametri, viene chiamato il metodo hit() tre volte e vengono verificate le asserzioni sul numero di colpi ricevuti e se la nave è affondata tramite le asserzioni assertEquals() e assertTrue().
+Il metodo shipHit_shouldNotSinkWhenNotFullyHit() testa se la nave non affonda quando viene colpita solo parzialmente. Viene istanziato un oggetto TestShip1 con determinati parametri, viene chiamato il metodo hit() tre volte e vengono verificate le asserzioni sul numero di colpi ricevuti e se la nave è affondata tramite le asserzioni assertEquals() e assertFalse().
+La classe TestShip include una sottoclasse interna chiamata TestShip1 che estende la classe Ship. Questa sottoclasse viene utilizzata per creare istanze di navi da testare durante i test.-TestPair
 i test verificano che sia possibile creare correttamente una coppia valida utilizzando il costruttore della classe Pair.
 Controllano se il primo e il secondo elemento della coppia corrispondono a quelli forniti, se viene lanciata correttamente l'eccezione 'IllegalArgumentException'. Verificano che il metodo toArray() della classe Pair restituisca correttamente un array di interi rappresentante la coppia. Creano una coppia e controllano se l'array restituito corrisponde a quello atteso.  Verificano che il metodo equals() della classe Pair funzioni correttamente.  Verificano che il metodo hashCode() della classe Pair generi correttamente il codice hash per le coppie.
 Infine verificano che il metodo toString() della classe Pair restituisca correttamente la rappresentazione della coppia come stringa nel formato "A-1".
 
 Per il package 'app' sono stati generati casi di test automatici in JUnit per le classi:
 -TestApp,
-i metodi nei test verificano:
-comportamento del metodo handleDifficolta dell'applicazione in risposta all'input utente; il comportamento del metodo handleTentativi dell'applicazione che gestisce l'impostazione del numero di tentativi; il comportamento del metodo handleGioca dell'applicazione che avvia una partita;  il comportamento del metodo handleSvelaGriglia dell'applicazione che mostra la griglia delle navi; il comportamento del metodo handleTempo dell'applicazione che gestisce l'impostazione del tempo; il comportamento del metodo handleMossa dell'applicazione che gestisce l'input di una mossa; il comportamento del metodo handleAbbandona dell'applicazione che gestisce l'abbandono della partita.
+Il metodo setUpOutput() annotato con @BeforeEach viene eseguito prima di ogni metodo di test per impostare l'output del sistema su un oggetto ByteArrayOutputStream.
+I metodi provideInput(String data) e getOutput() vengono utilizzati rispettivamente per fornire l'input al sistema e ottenere l'output generato.
+Il metodo restoreSystemInputOutput() annotato con @AfterEach viene eseguito dopo ogni metodo di test per ripristinare l'input e l'output di sistema originari.
+Il metodo testHandleDifficolta() esegue i test per il metodo handleDifficolta() della classe App. Fornisce input specifici tramite il metodo provideInput() e verifica l'output generato tramite assertEquals().
+I metodi testHandleTentativi(), testHandleGioca(), testHandleSvelaGriglia() e testHandleTempo() seguono un approccio simile per testare i rispettivi metodi della classe App.
+I test simulano l'interazione dell'utente con l'applicazione attraverso l'input fornito e verificano che l'output generato sia corretto.
 
--TestBattleshipGame,
-
+-TestBattleshipGame,                                                                                                                                                                                                                                                                                                                                                     
+Il metodo setUp viene annotato con @BeforeEach e viene eseguito prima di ogni metodo di test. 
+Inizializza l'oggetto game creando una nuova istanza di BattleshipGame.
+Il metodo testSetDifficulty contiene diversi casi di test per il metodo setDifficulty di BattleshipGame. 
+Utilizza l'asserzione Assertions.assertEquals per verificare che il valore restituito da getMaxFailedAttempts corrisponda al valore atteso dopo aver impostato la difficoltà.
+Il metodo testNewGame contiene due casi di test per il metodo newGame di BattleshipGame. 
+Utilizza l'asserzione Assertions.assertDoesNotThrow per verificare che chiamare newGame non generi un'eccezione, e utilizza l'asserzione Assertions.assertThrows per 
+verificare che chiamare newGame quando il gioco è già in esecuzione generi un'eccezione di tipo GameAlreadyRunningException.
 
 -TestDifficulty,
 i test riguardano la corretta impostazione del livello di difficoltà;
