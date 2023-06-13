@@ -140,13 +140,14 @@ Abbiamo creato una classe di test per ogni classe java del progetto, fatta eccez
 Tutte le classi di test sono contenute in una cartella separata dal resto del codice, cartella src/Test/java . La stuttura di questa cartella, rispecchia quella delle classi java.
 
 Per il package 'Ship' sono stati generati casi di test automatici in JUnit per le classi:
+
 -TestCacciatorpediniere, TestCorazzata, TestIncrociatore, TestPortaerei,
 i test riguardando la corretta costruzione e il corretto posizionamento delle navi sulla griglia di gioco;
 
 -TestOrientation,
 i test riguardano il corretto orientamento delle navi. Verificano che il metodo statico values() dell'enumerazione Orientation restituisca correttamente un array contenente tutti i valori dell'enumerazione. Verificano che il metodo toString() dell'enumerazione Orientation restituisca correttamente la rappresentazione testuale di ciascun valore dell'enumerazione. Infine verificano che il metodo statico valueOf() dell'enumerazione Orientation restituisca correttamente l'istanza dell'enumerazione corrispondente a una determinata stringa;
 
--TestShip,                                                                                                                                                                  
+-TestShip,
 i test riguardano le dimensioni, le coordinate e lo stato della nave (se essa è stata affondata oppure no)
 Vengono definiti diversi metodi di test per verificare il corretto funzionamento dei metodi della classe Ship.
 Il metodo shipInitialization_shouldSetPropertiesCorrectly() testa se la creazione di una nave imposta correttamente le sue proprietà. Viene istanziato un oggetto TestShip1 (una sottoclasse di Ship utilizzata per i test) con determinati parametri, e vengono verificate le proprietà dell'oggetto creato tramite le asserzioni assertEquals() e assertFalse().
@@ -158,6 +159,7 @@ Controllano se il primo e il secondo elemento della coppia corrispondono a quell
 Infine verificano che il metodo toString() della classe Pair restituisca correttamente la rappresentazione della coppia come stringa nel formato "A-1".
 
 Per il package 'app' sono stati generati casi di test automatici in JUnit per le classi:
+
 -TestApp,
 Il metodo setUpOutput() annotato con @BeforeEach viene eseguito prima di ogni metodo di test per impostare l'output del sistema su un oggetto ByteArrayOutputStream.
 I metodi provideInput(String data) e getOutput() vengono utilizzati rispettivamente per fornire l'input al sistema e ottenere l'output generato.
