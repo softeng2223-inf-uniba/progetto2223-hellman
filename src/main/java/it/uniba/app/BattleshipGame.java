@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Random;
 import java.time.Instant;
 import java.time.Duration;
+import java.util.Scanner;
 
 /**
  * Classe che rappresenta il gioco.
@@ -76,6 +77,7 @@ public final class BattleshipGame {
     private boolean gameRunning = false;
     /**
      * L'istante di inizio della partita.
+     *
      * @see java.time.Instant
      */
     private Instant startTime = null;
@@ -313,8 +315,8 @@ public final class BattleshipGame {
             int[] startingPosCoords = s.getStartingPosition().toArray();
             for (int i = 0; i < s.getLength(); i++) {
                 coords[i] = s.getOrientation() == Orientation.VERTICAL
-                ? new Pair(((char) ('A' + startingPosCoords[0] + i)), startingPosCoords[1] + 1)
-                : new Pair(((char) ('A' + startingPosCoords[0])), startingPosCoords[1] + i + 1);
+                        ? new Pair(((char) ('A' + startingPosCoords[0] + i)), startingPosCoords[1] + 1)
+                        : new Pair(((char) ('A' + startingPosCoords[0])), startingPosCoords[1] + i + 1);
             }
             for (Pair p : coords) {
                 if (p.equals(pos)) {
@@ -399,12 +401,12 @@ public final class BattleshipGame {
     }
 
     private void updateGrid(final boolean[][] tempGrid, final Pair position,
-            final Orientation orientation, final Ship ship) {
+                            final Orientation orientation, final Ship ship) {
         ships.add(ship);
         for (int i = 0; i < ship.getLength(); i++) {
             int[] coordinates = position.toArray();
             if (orientation == Orientation.HORIZONTAL) {
-                tempGrid[coordinates[1] + i][coordinates[0] ] = true;
+                tempGrid[coordinates[1] + i][coordinates[0]] = true;
             } else {
                 tempGrid[coordinates[1]][coordinates[0] + i] = true;
             }
@@ -433,5 +435,40 @@ public final class BattleshipGame {
     }
     void setGameRunning(final boolean value) {
         gameRunning = value;
+    }
+
+    private static GridSize gridSize = GridSize.STANDARD;
+
+    /**@param args*/
+    public static void main(final String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.print("Inserisci un comando per impostare la dimensione della griglia: ");
+            String input = scanner.nextLine();
+
+            switch (input) {
+                case "/standard" -> {
+                    gridSize = GridSize.STANDARD;
+                    System.out.println("OK");
+                    break;
+                }
+                case "/large" -> {
+                    gridSize = GridSize.LARGE;
+                    System.out.println("OK");
+                    break;
+                }
+                case "/extralarge" -> {
+                    gridSize = GridSize.EXTRA_LARGE;
+                    System.out.println("OK");
+                    break;
+                }
+                default -> {
+                    System.out.println("Comando non riconosciuto.");
+                    break;
+                }
+            }
+        }
+
     }
 }
