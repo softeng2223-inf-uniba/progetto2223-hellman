@@ -110,30 +110,4 @@ public class TestApp {
         App.main(new String[]{});
         assertEquals("Comando non valido: il valore del tempo deve essere >= 0.\n", getOutput());
     }
-
-    @Test
-    public void testHandleMossa() {
-        provideInput("A-1\n");
-        App.main(new String[]{});
-        // Inserisci qui l'output atteso
-
-        provideInput("A1\n");
-        App.main(new String[]{});
-        // Inserisci qui l'output atteso
-
-        provideInput("A\n");
-        App.main(new String[]{});
-        // Inserisci qui l'output atteso
-    }
-
-    @Test
-    public void testHandleAbbandona() {
-        provideInput("S\n");
-        App.main(new String[]{});
-        // Inserisci qui l'output atteso
-
-        provideInput("N\n");
-        App.main(new String[]{});
-        // Inserisci qui l'output atteso
-    }
 }
