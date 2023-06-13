@@ -255,7 +255,7 @@ public final class BattleshipGame {
     void printTimeElapsed() {
     }
 
-    void printAttemps() {
+    void printAttempts() {
         System.out.println("Tentativi effettuati:" + (failedAttempts + hits));
         System.out.println("Tentativi falliti:" + failedAttempts);
         System.out.println("Numero massimo di tentativi falliti:" + maxFailedAttempts);
