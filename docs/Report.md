@@ -6,6 +6,7 @@
 	 + [Requisiti funzionali](#31-requisiti-funzionali)
 	 + [Requisiti non funzionali](#32-requisiti-non-funzionali)
 + [Manuale utente](#7-manuale-utente)
++ [Processo di sviluppo e organizzazione del lavoro](#8-processo-di-sviluppo-e-organizzazione-del-lavoro)
 + [Analisi retrospettiva](#9-analisi-retrospettiva)
 	 + [Sprint 0](#91-sprint-0)
 
@@ -150,6 +151,24 @@ Per avviare una partita, una volta impostato il livello di difficoltà, digitare
 Verranno generate casualmente la posizione e l'orientamento delle navi e verrà  verificato che non ci siano sovrapposizioni.
 Se non vengono rilevati errori, verrà visualizzato il messaggio 'Navi posizionate e partita iniziata.', in caso contrario sarà necessario riavviare l'esecuzione del gioco.
 Adesso sarà possibile visualizzare la griglia di gioco con la disposizione delle navi.
+
+
+# 8. Processo di sviluppo e organizzazione del lavoro
+In questa sezione verrà analizzato il processo di sviluppo e l’organizzazione del lavoro per il progetto di gruppo finalizzato alla creazione del gioco di Battaglia Navale.
+
+Il progetto è stato suddiviso in tre sprint, in modo tale da poter gestire in un arco di tempo determinato le varie sezioni che hanno portato alla consegna finale del progetto. Lo scopo principale è stato quello di poter monitorare nei vari step il progetto, effettuando modifiche, correzioni o risolvendo problemi.
+
+Ogni sprint è stato suddiviso in varie issue, compiti da portare a termine; e ogni problema da risolvere è stato assegnato ad uno o più componenti del team.
+
+In modo da poterci mettere in gioco tutti, per ogni sprint i compiti per i vari componenti del team non sono stati sempre gli stessi ma ci si è basati più sulla volontà e le preferenze individuali di ciascun membro, al fine di sfruttare al massimo e in armonia le capacità del team.
+
+Per quanto riguarda lo sprint 0, il team ha iniziato a prendere familiarità con la piattaforma GitHub, ha analizzato i vari compiti da svolgere e c’è stata una suddivisione in base alle capacità del singolo partecipante al progetto. Non è stato semplice all’inizio riuscire a coordinare i vari lavori, sono stati inevitabilmente commessi errori, ma che con l’aiuto dell’assistenza offerta dal docente si è riusciti a risolvere.
+
+Gli sprint 1 e 2 sono stati più semplici a livello organizzativo, ma sicuramente più impegnativi per le capacità tecniche richieste.
+Sono state effettuate delle riunioni di gruppo durante lo svolgimento dei vari sprint, in modo da poter gestire le tempistiche e la qualità degli elaborati e tutto il gruppo si è sempre reso disponibile al confronto e all’aiuto reciproco.
+
+Gli obiettivi posti all’inizio del progetto sono stati in parte raggiunti, anche se con difficoltà; su alcuni punti del progetto, nonostante l’impegno rivolto, non si è riusciti ad ottenere un punteggio alto.
+
 
 # 9. Analisi retrospettiva
 
