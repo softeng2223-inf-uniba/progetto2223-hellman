@@ -134,6 +134,41 @@ Elenco di terminali supportati
 
 # 6. Riepilogo dei test
 
+Casi di test automatici con junit.
+
+Abbiamo creato una classe di test per ogni classe java del progetto, fatta eccezione delle classi UI boundery perché i casi di test autiomatici non possono prevedere ogni singolo inserimento dell'utente.
+Tutte le classi di test sono contenute in una cartella separata dal resto del codice, cartella src/Test/java . La stuttura di questa cartella, rispecchia quella delle classi java.
+
+Per il package 'Ship' sono stati generati casi di test automatici in JUnit per le classi:
+-TestCacciatorpediniere, TestCorazzata, TestIncrociatore, TestPortaerei,
+i test riguardando la corretta costruzione e il corretto posizionamento delle navi sulla griglia di gioco;
+
+-TestOrientation,
+i test riguardano il corretto orientamento delle navi. Verificano che il metodo statico values() dell'enumerazione Orientation restituisca correttamente un array contenente tutti i valori dell'enumerazione. Verificano che il metodo toString() dell'enumerazione Orientation restituisca correttamente la rappresentazione testuale di ciascun valore dell'enumerazione. Infine verificano che il metodo statico valueOf() dell'enumerazione Orientation restituisca correttamente l'istanza dell'enumerazione corrispondente a una determinata stringa;
+
+-TestShip,
+i test riguardano le dimensioni, le coordinate e lo stato della nave (se essa è stata affondata oppure no)
+Il metodo setUp() viene eseguito prima di ogni test e inizializza una griglia booleana 10x10 utilizzata come parametro per la creazione degli oggetti TestShipImpl.
+I metoedi che seguono verificano: che il costruttore della classe TestShipImpl (una classe interna privata utilizzata solo per i test) crei correttamente un oggetto TestShipImpl; che il costruttore della classe TestShipImpl lanci correttamente un'eccezione di IllegalPositionException quando viene passata una posizione di inizio non valida; che il metodo getLength() della classe TestShipImpl restituisca correttamente la lunghezza della nave; che il metodo getHits() della classe TestShipImpl restituisca correttamente il numero di colpi ricevuti dalla nave; che il metodo isSunk() della classe TestShipImpl restituisca correttamente lo stato di affondamento della nave; che il metodo getOrientation() della classe TestShipImpl restituisca correttamente l'orientamento della nave; he il metodo getStartingPosition() della classe TestShipImpl restituisca correttamente la posizione di inizio della nave.
+
+Per il package 'util' sono stati generati casi di test automatici in JUnit per la classe:
+-TestPair
+i test verificano che sia possibile creare correttamente una coppia valida utilizzando il costruttore della classe Pair.
+Controllano se il primo e il secondo elemento della coppia corrispondono a quelli forniti, se viene lanciata correttamente l'eccezione 'IllegalArgumentException'. Verificano che il metodo toArray() della classe Pair restituisca correttamente un array di interi rappresentante la coppia. Creano una coppia e controllano se l'array restituito corrisponde a quello atteso.  Verificano che il metodo equals() della classe Pair funzioni correttamente.  Verificano che il metodo hashCode() della classe Pair generi correttamente il codice hash per le coppie.
+Infine verificano che il metodo toString() della classe Pair restituisca correttamente la rappresentazione della coppia come stringa nel formato "A-1".
+
+Per il package 'app' sono stati generati casi di test automatici in JUnit per le classi:
+-TestApp,
+i metodi nei test verificano:
+comportamento del metodo handleDifficolta dell'applicazione in risposta all'input utente; il comportamento del metodo handleTentativi dell'applicazione che gestisce l'impostazione del numero di tentativi; il comportamento del metodo handleGioca dell'applicazione che avvia una partita;  il comportamento del metodo handleSvelaGriglia dell'applicazione che mostra la griglia delle navi; il comportamento del metodo handleTempo dell'applicazione che gestisce l'impostazione del tempo; il comportamento del metodo handleMossa dell'applicazione che gestisce l'input di una mossa; il comportamento del metodo handleAbbandona dell'applicazione che gestisce l'abbandono della partita.
+
+-TestBattleshipGame,
+
+
+-TestDifficulty,
+i test riguardano la corretta impostazione del livello di difficoltà;
+-TestGridSize,
+i test riguardano la corretta impostazione della dimensione della griglia di gioco;
 
 # 7. Manuale utente
 Schermata Principale:
