@@ -146,11 +146,23 @@ i test riguardando la corretta costruzione e il corretto posizionamento delle na
 -TestOrientation,
 i test riguardano il corretto orientamento delle navi. Verificano che il metodo statico values() dell'enumerazione Orientation restituisca correttamente un array contenente tutti i valori dell'enumerazione. Verificano che il metodo toString() dell'enumerazione Orientation restituisca correttamente la rappresentazione testuale di ciascun valore dell'enumerazione. Infine verificano che il metodo statico valueOf() dell'enumerazione Orientation restituisca correttamente l'istanza dell'enumerazione corrispondente a una determinata stringa;
 
--TestShip,
-i test riguardano le dimensioni, le coordinate e lo stato della nave (se essa è stata affondata oppure no)
-Il metodo setUp() viene eseguito prima di ogni test e inizializza una griglia booleana 10x10 utilizzata come parametro per la creazione degli oggetti TestShipImpl.
-I metoedi che seguono verificano: che il costruttore della classe TestShipImpl (una classe interna privata utilizzata solo per i test) crei correttamente un oggetto TestShipImpl; che il costruttore della classe TestShipImpl lanci correttamente un'eccezione di IllegalPositionException quando viene passata una posizione di inizio non valida; che il metodo getLength() della classe TestShipImpl restituisca correttamente la lunghezza della nave; che il metodo getHits() della classe TestShipImpl restituisca correttamente il numero di colpi ricevuti dalla nave; che il metodo isSunk() della classe TestShipImpl restituisca correttamente lo stato di affondamento della nave; che il metodo getOrientation() della classe TestShipImpl restituisca correttamente l'orientamento della nave; he il metodo getStartingPosition() della classe TestShipImpl restituisca correttamente la posizione di inizio della nave.
-
+-TestShip,                                                                                                                                                                  
+i test riguardano le dimensioni, le coordinate e lo stato della nave (se essa è stata affondata oppure no). Metodo shipInitialization_shouldSetPropertiesCorrectly():
+ Questo metodo di test verifica che una nave sia inizializzata correttamente e che le sue proprietà siano impostate correttamente.
+Crea una nave con una lunghezza di 4, orientamento orizzontale, posizione di inizio ('a', 3) e una griglia booleana 10x10.
+Verifica che la lunghezza, i colpi ricevuti, lo stato di affondamento, l'orientamento e la posizione di inizio siano impostati correttamente.
+Metodo shipHit_shouldIncrementHitsAndSinkWhenFullyHit():
+Questo metodo di test verifica che i colpi su una nave vengano incrementati correttamente e che la nave si affondi completamente quando viene colpita in tutti i suoi punti.
+Crea una nave con una lunghezza di 3, orientamento verticale, posizione di inizio ('c', 5) e una griglia booleana 10x10.
+Chiama il metodo hit() sulla nave tre volte e verifica che i colpi ricevuti siano incrementati correttamente dopo ogni colpo.
+Verifica anche che la nave non sia affondata dopo il primo e il secondo colpo, ma sia affondata dopo il terzo colpo. Metodo shipHit_shouldNotSinkWhenNotFullyHit():
+Questo metodo di test verifica che la nave non si affondi quando viene colpita solo parzialmente.
+Crea una nave con una lunghezza di 4, orientamento orizzontale, posizione di inizio ('e', 2) e una griglia booleana 10x10.
+Chiama il metodo hit() sulla nave tre volte e verifica che i colpi ricevuti siano incrementati correttamente dopo ogni colpo.
+Verifica che la nave non sia affondata dopo il primo, il secondo e il terzo colpo.
+Classe interna TestShip1:
+Questa classe interna estende la classe Ship ed è utilizzata per scopi di test.
+Viene utilizzata per creare istanze di Ship nei test.
 Per il package 'util' sono stati generati casi di test automatici in JUnit per la classe:
 -TestPair
 i test verificano che sia possibile creare correttamente una coppia valida utilizzando il costruttore della classe Pair.
