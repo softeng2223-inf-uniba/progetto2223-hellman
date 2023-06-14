@@ -156,7 +156,7 @@ Questa sezione ha lo scopo di raccogliere le opinioni dei membri del team in mod
 
 ## 9.1 Sprint 0
 
-Di seguito viene riportata la board retrospettiva di modello Mad, Sad, Glad relativa allo sprint 0.
+Di seguito viene riportata la board retrospettiva di modello Mad, Sad, Glad relativa allo Sprint 0.
 
 ![Mad, Sad, Glad Sprint 0](../drawings/MadSadGladSprint0.png)
 
