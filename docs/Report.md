@@ -8,6 +8,7 @@
 + [Manuale utente](#7-manuale-utente)
 + [Analisi retrospettiva](#9-analisi-retrospettiva)
 	 + [Sprint 0](#91-sprint-0)
+     + [Sprint 1](#92-sprint-1)
 
 # 1. Introduzione
 Benvenuti a "Battaglia Navale", classico gioco da tavolo in cui sfiderai un avversario virtuale controllato dal computer. 
