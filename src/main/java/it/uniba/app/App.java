@@ -15,6 +15,8 @@ public final class App {
     private static BattleshipGame bg;
     private static boolean exit;
 
+    private static boolean gameRunning = false;
+
     private App() {
 
     }
@@ -144,34 +146,14 @@ public final class App {
         }
     }
     private static void handleMostraGriglia() {
-        System.out.println("Griglia di gioco:");
-
-        boolean[][] grid = bg.getGrid(); // Ottieni la griglia di gioco
-
-        System.out.print("   "); // Spazio per allineare le colonne
-
-        // Stampa le etichette delle colonne (lettere A-J)
-        for (char c = 'A'; c <= 'J'; c++) {
-            System.out.print(c + " ");
-        }
-
-        System.out.println(); // Vai a capo dopo le etichette delle colonne
-
-        // Stampa le righe numerate e il contenuto delle celle
-        for (int i = 0; i < grid.length; i++) {
-            System.out.print((i + 1) + " "); // Stampa il numero di riga
-
-            for (int j = 0; j < grid[i].length; j++) {
-                boolean cell = grid[i][j];
-
-                if (cell) {
-                    System.out.print("X "); // Parte già colpita di una nave
-                } else {
-                    System.out.print("  "); // Parte non colpita
-                }
+        try {
+            System.out.println("Griglia di gioco:");
+            if (!exit) {
+                throw new GameAlreadyRunningException("Impossibile mostrare la griglia. Una partita è in corso.");
             }
-
-            System.out.println(); // Vai a capo dopo ogni riga
+            bg.printGrid();
+        } catch (GameAlreadyRunningException e) {
+            System.out.println(e.getMessage());
         }
     }
 
