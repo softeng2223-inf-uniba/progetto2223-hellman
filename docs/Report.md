@@ -5,6 +5,8 @@
  + [Requisiti specifici](#3-requisiti-specifici)
 	 + [Requisiti funzionali](#31-requisiti-funzionali)
 	 + [Requisiti non funzionali](#32-requisiti-non-funzionali)
+ + [System Design](#4-system-design)
+   + [Diagramma dei package](#41-diagramma-dei-package) 
 + [Manuale utente](#7-manuale-utente)
 + [Analisi retrospettiva](#9-analisi-retrospettiva)
 	 + [Sprint 0](#91-sprint-0)
@@ -130,6 +132,13 @@ Elenco di terminali supportati
 
 - Powershell
 - Git Bash (in questo caso il comando Docker ha come prefisso winpty; es: winpty docker -it ....)
+
+
+## 4. System Design
+
+### 4.1 Diagramma dei package
+
+![Diagramama dei pakage](/drawings/diagramma_dei_package.JPG)
 
 
 # 7. Manuale utente
