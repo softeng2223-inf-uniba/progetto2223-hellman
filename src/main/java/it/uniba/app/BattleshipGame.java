@@ -267,6 +267,12 @@ public final class BattleshipGame {
         }
     }
 
+    void printAttempts() {
+        System.out.println("Tentativi effettuati:" + (failedAttempts + hits));
+        System.out.println("Tentativi falliti:" + failedAttempts);
+        System.out.println("Numero massimo di tentativi falliti:" + maxFailedAttempts);
+    }
+
     void makeMove(final Pair pos) {
         int[] coords = pos.toArray();
         if (hitsGrid[coords[1]][coords[0]] != 0) {
