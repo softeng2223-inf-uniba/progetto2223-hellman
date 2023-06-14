@@ -6,6 +6,7 @@
 	 + [Requisiti funzionali](#31-requisiti-funzionali)
 	 + [Requisiti non funzionali](#32-requisiti-non-funzionali)
  + [System Design](#4-system-design)
+   + [Diagramma dei package](#41-diagramma-dei-package) 
 + [Manuale utente](#7-manuale-utente)
 + [Analisi retrospettiva](#9-analisi-retrospettiva)
 	 + [Sprint 0](#91-sprint-0)
@@ -135,7 +136,7 @@ Elenco di terminali supportati
 
 ## 4. System Design
 
-### Diagramma dei package
+### 4.1 Diagramma dei package
 
 ![Diagramama dei pakage](/drawings/diagramma_dei_package.JPG)
 
