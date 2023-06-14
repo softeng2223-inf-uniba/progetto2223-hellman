@@ -63,6 +63,7 @@ public final class App {
                     case "svelagriglia" -> handleSvelaGriglia();
                     case "tempo" -> handleTempo(arguments, hasArgs);
                     case "mostratentativi" -> bg.printAttempts();
+                    case "standard", "large", "extralarge" -> handleTagliaGriglia(command, hasArgs);
                     default -> System.out.println("Comando non riconosciuto.");
                 }
             } else {
@@ -99,6 +100,10 @@ public final class App {
         System.out.println(" -Portaerei             ⊠⊠⊠⊠⊠    esemplari: 1");
         System.out.print("/svelagriglia : permette di visualizzare la griglia 10x10, con le righe numerate ");
         System.out.print("da 1 a 10 e le colonne numerate da A a J, e tutte le navi posizionate al suo interno\n");
+        System.out.print("/standard : imposta la taglia deglia griglia a 10x10\n");
+        System.out.print("/large : imposta la taglia deglia griglia a 18x18\n");
+        System.out.print("/extralarge : imposta la taglia deglia griglia a 26x26\n");
+
     }
 
     private static void handleEsci() {
@@ -140,6 +145,19 @@ public final class App {
             }
         } else {
             System.err.println("Comando non valido: utilizza /tentativi <numero>.");
+        }
+    }
+    private static void handleTagliaGriglia(final String command, final boolean hasArgs) {
+        if (!hasArgs) {
+            bg.setGridSize(command);
+            System.out.println("Taglia griglia impostata a " + command + ".");
+        } else {
+            try {
+                bg.setGridSize(command);
+                System.out.println("OK");
+            } catch (NumberFormatException e) {
+                System.err.println("Comando non valido: utilizza /" + command + " <numero>.");
+            }
         }
     }
 
