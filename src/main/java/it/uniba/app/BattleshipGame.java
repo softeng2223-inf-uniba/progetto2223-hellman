@@ -144,6 +144,24 @@ public final class BattleshipGame {
             }
         }
     }
+    void setGridSize(final String command) {
+            switch (command.toLowerCase()) {
+                case "/standard" -> {
+                    gridSize = GridSize.STANDARD;
+                    System.out.println("OK");
+                }
+                case "/large" -> {
+                    gridSize = GridSize.LARGE;
+                    System.out.println("OK");
+                }
+                case "/extralarge" -> {
+                    gridSize = GridSize.EXTRA_LARGE;
+                    System.out.println("OK");
+                }
+                default -> {
+                }
+            }
+    }
 
     void showDifficulty() {
         System.out.println("Il livello di difficoltà impostato è : " + currentDifficulty);
