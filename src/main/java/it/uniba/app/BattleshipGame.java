@@ -440,4 +440,9 @@ public final class BattleshipGame {
     void setGameRunning(final boolean value) {
         gameRunning = value;
     }
+
+    boolean[][] getGrid() {
+        return grid;
+    }
+
 }

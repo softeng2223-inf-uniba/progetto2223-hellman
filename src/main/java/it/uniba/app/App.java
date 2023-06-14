@@ -58,6 +58,7 @@ public final class App {
                     case "facile", "medio", "difficile" -> handleDifficolta(command, arguments, hasArgs);
                     case "tentativi" -> handleTentativi(command, arguments, hasArgs);
                     case "mostralivello" -> bg.showDifficulty();
+                    case "mostragriglia" -> handleMostraGriglia();
                     case "mostranavi" -> bg.showShips();
                     case "gioca" -> handleGioca();
                     case "svelagriglia" -> handleSvelaGriglia();
@@ -142,6 +143,38 @@ public final class App {
             System.err.println("Comando non valido: utilizza /tentativi <numero>.");
         }
     }
+    private static void handleMostraGriglia() {
+        System.out.println("Griglia di gioco:");
+
+        boolean[][] grid = bg.getGrid(); // Ottieni la griglia di gioco
+
+        System.out.print("   "); // Spazio per allineare le colonne
+
+        // Stampa le etichette delle colonne (lettere A-J)
+        for (char c = 'A'; c <= 'J'; c++) {
+            System.out.print(c + " ");
+        }
+
+        System.out.println(); // Vai a capo dopo le etichette delle colonne
+
+        // Stampa le righe numerate e il contenuto delle celle
+        for (int i = 0; i < grid.length; i++) {
+            System.out.print((i + 1) + " "); // Stampa il numero di riga
+
+            for (int j = 0; j < grid[i].length; j++) {
+                boolean cell = grid[i][j];
+
+                if (cell) {
+                    System.out.print("X "); // Parte già colpita di una nave
+                } else {
+                    System.out.print("  "); // Parte non colpita
+                }
+            }
+
+            System.out.println(); // Vai a capo dopo ogni riga
+        }
+    }
+
 
     private static void handleGioca() {
         try {
