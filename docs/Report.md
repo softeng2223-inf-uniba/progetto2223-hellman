@@ -164,4 +164,4 @@ Di seguito viene riportata la board retrospettiva di modello Mad, Sad, Glad rela
 
 Di seguito viene riportata la board retrospettiva di modello Mad, Sad, Glad relativa allo Sprint 1.
 
-![Mad, Sad, Glad Sprint 1](../drawings/MadSadGladSprint1.png)
+![Mad, Sad, Glad Sprint 1](../drawings/MadSadGladSprint1.jpg)
