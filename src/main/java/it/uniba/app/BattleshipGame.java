@@ -440,4 +440,21 @@ public final class BattleshipGame {
     void setGameRunning(final boolean value) {
         gameRunning = value;
     }
+
+    boolean[][] getGrid() {
+        return grid;
+    }
+    void printGrid() {
+        for (int i = 0; i < GRID_SIZE; i++) {
+            for (int j = 0; j < GRID_SIZE; j++) {
+                if (grid[i][j]) {
+                    System.out.print(" X ");
+                } else {
+                    System.out.print(" - ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
 }

@@ -15,6 +15,8 @@ public final class App {
     private static BattleshipGame bg;
     private static boolean exit;
 
+    private static boolean gameRunning = false;
+
     private App() {
 
     }
@@ -58,6 +60,7 @@ public final class App {
                     case "facile", "medio", "difficile" -> handleDifficolta(command, arguments, hasArgs);
                     case "tentativi" -> handleTentativi(command, arguments, hasArgs);
                     case "mostralivello" -> bg.showDifficulty();
+                    case "mostragriglia" -> handleMostraGriglia();
                     case "mostranavi" -> bg.showShips();
                     case "gioca" -> handleGioca();
                     case "svelagriglia" -> handleSvelaGriglia();
@@ -142,6 +145,18 @@ public final class App {
             System.err.println("Comando non valido: utilizza /tentativi <numero>.");
         }
     }
+    private static void handleMostraGriglia() {
+        try {
+            System.out.println("Griglia di gioco:");
+            if (!exit) {
+                throw new GameAlreadyRunningException("Impossibile mostrare la griglia. Una partita è in corso.");
+            }
+            bg.printGrid();
+        } catch (GameAlreadyRunningException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 
     private static void handleGioca() {
         try {
