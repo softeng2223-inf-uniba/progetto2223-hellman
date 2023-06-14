@@ -8,6 +8,7 @@
 + [Manuale utente](#7-manuale-utente)
 + [Analisi retrospettiva](#9-analisi-retrospettiva)
 	 + [Sprint 0](#91-sprint-0)
+     + [Sprint 1](#92-sprint-1)
 
 # 1. Introduzione
 Benvenuti a "Battaglia Navale", classico gioco da tavolo in cui sfiderai un avversario virtuale controllato dal computer. 
@@ -152,9 +153,16 @@ Se non vengono rilevati errori, verrà visualizzato il messaggio 'Navi posiziona
 Adesso sarà possibile visualizzare la griglia di gioco con la disposizione delle navi.
 
 # 9. Analisi retrospettiva
+Questa sezione ha lo scopo di raccogliere le opinioni dei membri del team in modo anonimo per evidenziare criticità e punti di forza, in modo tale da poter lavorare per migliorare i punti deboli e utilizzare al meglio i punti di forza del team.
 
 ## 9.1 Sprint 0
 
-In seguito viene riportata la board retrospettiva di modello Mad, Sad, Glad relativa allo sprint 0. Questa serve a raccogliere le opinioni dei membri del team in modo anonimo ed evidenziare criticità e punti di forza, in modo tale da poter lavorare per migliorare i punti deboli ed essere a conoscenza e utilizzare al meglio i punti di forza del team.
+Di seguito viene riportata la board retrospettiva di modello Mad, Sad, Glad relativa allo Sprint 0.
 
-![Mad, Sad, Glad Sprint 0](./img/MadSadGladSprint0.png)
+![Mad, Sad, Glad Sprint 0](../drawings/MadSadGladSprint0.png)
+
+## 9.2 Sprint 1
+
+Di seguito viene riportata la board retrospettiva di modello Mad, Sad, Glad relativa allo Sprint 1.
+
+![Mad, Sad, Glad Sprint 1](../drawings/MadSadGladSprint1.jpg)
